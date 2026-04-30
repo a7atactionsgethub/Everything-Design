@@ -1,326 +1,506 @@
-# Warp Inspired Design System
-
-Design system details have been moved to: https://getdesign.md/warp/design-md
-# Design System Inspired by VoltAgent
+# Design System Inspired by Warp
 
 ## 1. Visual Theme & Atmosphere
 
-VoltAgent's interface is a deep-space command terminal for the AI age — a developer-facing darkness built on near-pure-black surfaces (`#050507`) where the only interruption is the electric pulse of emerald green energy. The entire experience evokes the feeling of staring into a high-powered IDE at 2am: dark, focused, and alive with purpose. This is not a friendly SaaS landing page — it's an engineering platform that announces itself through code snippets, architectural diagrams, and raw technical confidence.
+Warp's website feels like sitting at a campfire in a deep forest — warm, dark, and alive with quiet confidence. Unlike the cold, blue-tinted blacks favored by most developer tools, Warp wraps everything in a warm near-black that feels like charred wood or dark earth. The text isn't pure white either — it's Warm Parchment (`#faf9f6`), a barely-perceptible cream that softens every headline and makes the dark canvas feel inviting rather than austere.
 
-The green accent (`#00d992`) is used with surgical precision — it glows from headlines, borders, and interactive elements like a circuit board carrying a signal. Against the carbon-black canvas, this green reads as "power on" — a deliberate visual metaphor for an AI agent engineering platform. The supporting palette is built entirely from warm-neutral grays (`#3d3a39`, `#8b949e`, `#b8b3b0`) that soften the darkness without introducing color noise, creating a cockpit-like warmth that pure blue-grays would lack.
+The typography is the secret weapon: Matter, a geometric sans-serif with distinctive character, deployed at Regular weight across virtually all text. The font choice is unusual for a developer tool — Matter has a softness and humanity that signals "this terminal is for everyone, not just greybeards." Combined with tight line-heights and controlled negative letter-spacing on headlines, the effect is refined and approachable simultaneously. Nature photography is woven between terminal screenshots, creating a visual language that says: this tool brings you closer to flow, to calm productivity.
 
-Typography leans on the system font stack for headings — achieving maximum rendering speed and native-feeling authority — while Inter carries the body and UI text with geometric precision. Code blocks use SFMono-Regular, the same font developers see in their terminals, reinforcing the tool's credibility at every scroll.
+The overall design philosophy is restraint through warmth. Minimal color (almost monochromatic warm grays), minimal ornamentation, and a focus on product showcases set against cinematic dark landscapes. It's a terminal company that markets like a lifestyle brand.
 
 **Key Characteristics:**
-- Carbon-black canvas (`#050507`) with warm-gray border containment (`#3d3a39`) — not cold or sterile
-- Single-accent identity: Emerald Signal Green (`#00d992`) as the sole chromatic energy source
-- Dual-typography system: system-ui for authoritative headings, Inter for precise UI/body text, SFMono for code credibility
-- Ultra-tight heading line-heights (1.0–1.11) creating dense, compressed power blocks
-- Warm neutral palette (`#3d3a39`, `#8b949e`, `#b8b3b0`) that prevents the dark theme from feeling clinical
-- Developer-terminal aesthetic where code snippets ARE the hero content
-- Green glow effects (`drop-shadow`, border accents) that make UI elements feel electrically alive
+- Warm dark background — not cold black, but earthy near-black with warm gray undertones
+- Warm Parchment (`#faf9f6`) text instead of pure white — subtle cream warmth
+- Matter font family (Regular weight) — geometric but approachable, not the typical developer-tool typeface
+- Nature photography interleaved with product screenshots — lifestyle meets developer tool
+- Almost monochromatic warm gray palette — no bold accent colors
+- Uppercase labels with wide letter-spacing (2.4px) for categorization — editorial signaling
+- Pill-shaped dark buttons (`#353534`, 50px radius) — restrained, muted CTAs
 
 ## 2. Color Palette & Roles
 
 ### Primary
-- **Emerald Signal Green** (`#00d992`): The core brand energy — used for accent borders, glow effects, and the highest-signal interactive moments. This is the "power-on" indicator of the entire interface.
-- **VoltAgent Mint** (`#2fd6a1`): The button-text variant of the brand green — slightly warmer and more readable than pure Signal Green, used specifically for CTA text on dark surfaces.
-- **Tailwind Emerald** (`#10b981`): The ecosystem-standard green used at low opacity (30%) for subtle background tints and link defaults. Bridges VoltAgent's custom palette with Tailwind's utility classes.
+- **Warm Parchment** (`#faf9f6`): Primary text color — a barely-cream off-white that softens every surface
+- **Earth Gray** (`#353534`): Button backgrounds, dark interactive surfaces — warm, not cold
+- **Deep Void** (near-black, page background): The warm dark canvas derived from the body background
 
 ### Secondary & Accent
-- **Soft Purple** (`#818cf8`): A cool indigo-violet used sparingly for secondary categorization, code syntax highlights, and visual variety without competing with green.
-- **Cobalt Primary** (`#306cce`): Docusaurus primary dark — used in documentation contexts for links and interactive focus states.
-- **Deep Cobalt** (`#2554a0`): The darkest primary shade, reserved for pressed/active states in documentation UI.
-- **Ring Blue** (`#3b82f6`): Tailwind's ring color at 50% opacity — visible only during keyboard focus for accessibility compliance.
+- **Stone Gray** (`#868584`): Secondary text, muted descriptions — warm mid-gray
+- **Ash Gray** (`#afaeac`): Body text, button text — the workhorse reading color
+- **Purple-Tint Gray** (`#666469`): Link text with subtle purple undertone — underlined links in content
 
 ### Surface & Background
-- **Abyss Black** (`#050507`): The landing page canvas — a near-pure black with the faintest warm undertone, darker than most "dark themes" for maximum contrast with green accents.
-- **Carbon Surface** (`#101010`): The primary card and button background — one shade lighter than Abyss, creating a barely perceptible elevation layer. Used across all contained surfaces.
-- **Warm Charcoal Border** (`#3d3a39`): The signature containment color — not a cold gray but a warm, almost brownish dark tone that prevents borders from feeling harsh against the black canvas.
+- **Frosted Veil** (`rgba(255, 255, 255, 0.04)`): Ultra-subtle white overlay for surface differentiation
+- **Mist Border** (`rgba(226, 226, 226, 0.35)` / `rgba(227, 227, 227, 0.337)`): Semi-transparent borders for card containment
+- **Translucent Parchment** (`rgba(250, 249, 246, 0.9)`): Slightly transparent primary surface, allowing depth
 
 ### Neutrals & Text
-- **Snow White** (`#f2f2f2`): The primary text color on dark surfaces — not pure white (`#ffffff`) but a softened, eye-friendly off-white. The most-used color on the site (1008 instances).
-- **Pure White** (`#ffffff`): Reserved for the highest-emphasis moments — ghost button text and maximum-contrast headings. Used at low opacity (5%) for subtle overlay effects.
-- **Warm Parchment** (`#b8b3b0`): Secondary body text — a warm light gray with a slight pinkish undertone that reads as "paper" against the dark canvas.
-- **Steel Slate** (`#8b949e`): Tertiary text, metadata, timestamps, and de-emphasized content. A cool blue-gray that provides clear hierarchy below Warm Parchment.
-- **Fog Gray** (`#bdbdbd`): Footer links and supporting navigation text — brightens on hover to Pure White.
-- **Mist Gray** (`#dcdcdc`): Slightly brighter than Fog, used for secondary link text that transitions to bright green on hover.
-- **Near White** (`#eeeeee`): Highest-contrast secondary text, one step below Snow White.
+- **Warm Parchment** (`#faf9f6`): Headlines, high-emphasis text
+- **Ash Gray** (`#afaeac`): Body paragraphs, descriptions
+- **Stone Gray** (`#868584`): Secondary labels, subdued information
+- **Muted Purple** (`#666469`): Underlined links, tertiary content
+- **Dark Charcoal** (`#454545` / `#353534`): Borders, button backgrounds
 
 ### Semantic & Accent
-- **Success Emerald** (`#008b00`): Deep green for success states and positive confirmations in documentation contexts.
-- **Success Light** (`#80d280`): Soft pastel green for success backgrounds and subtle positive indicators.
-- **Warning Amber** (`#ffba00`): Bright amber for warning alerts and caution states.
-- **Warning Pale** (`#ffdd80`): Softened amber for warning background fills.
-- **Danger Coral** (`#fb565b`): Vivid red for error states and destructive action warnings.
-- **Danger Rose** (`#fd9c9f`): Softened coral-pink for error backgrounds.
-- **Info Teal** (`#4cb3d4`): Cool teal-blue for informational callouts and tip admonitions.
-- **Dashed Border Slate** (`#4f5d75` at 40%): A muted blue-gray used exclusively for decorative dashed borders in workflow diagrams.
+- Warp operates as an almost monochromatic system — no bold accent colors
+- Interactive states are communicated through opacity changes and underline decorations rather than color shifts
+- Any accent color would break the warm, restrained palette
 
 ### Gradient System
-- **Green Signal Glow**: `drop-shadow(0 0 2px #00d992)` animating to `drop-shadow(0 0 8px #00d992)` — creates a pulsing "electric charge" effect on the VoltAgent bolt logo and interactive elements. The glow expands and contracts like a heartbeat.
-- **Warm Ambient Haze**: `rgba(92, 88, 85, 0.2) 0px 0px 15px` — a warm-toned diffused shadow that creates a soft atmospheric glow around elevated cards, visible at the edges without sharp boundaries.
-- **Deep Dramatic Elevation**: `rgba(0, 0, 0, 0.7) 0px 20px 60px` with `rgba(148, 163, 184, 0.1) 0px 0px 0px 1px inset` — a heavy, dramatic downward shadow paired with a faint inset slate ring for the most prominent floating elements.
+- No explicit gradients on the marketing site
+- Depth is created through layered semi-transparent surfaces and photography rather than color gradients
 
 ## 3. Typography Rules
 
 ### Font Family
-- **Primary (Headings)**: `system-ui`, with fallbacks: `-apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol`
-- **Secondary (Body/UI)**: `Inter`, with fallbacks inheriting from system-ui stack. OpenType features: `"calt", "rlig"` (contextual alternates and required ligatures)
-- **Monospace (Code)**: `SFMono-Regular`, with fallbacks: `Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace`
+- **Display & Body**: `Matter Regular` — geometric sans-serif with soft character. Fallbacks: `Matter Regular Placeholder`, system sans-serif
+- **Medium**: `Matter Medium` — weight 500 variant for emphasis. Fallbacks: `Matter Medium Placeholder`
+- **Square**: `Matter SQ Regular` — squared variant for select display contexts. Fallbacks: `Matter SQ Regular Placeholder`
+- **UI Supplement**: `Inter` — used for specific UI elements. Fallbacks: `Inter Placeholder`
+- **Monospace Display**: `Geist Mono` — for code/terminal display headings
+- **Monospace Body**: `Matter Mono Regular` — custom mono companion. Fallbacks: `Matter Mono Regular Placeholder`
 
 ### Hierarchy
 
 | Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
 |------|------|------|--------|-------------|----------------|-------|
-| Display / Hero | system-ui | 60px (3.75rem) | 400 | 1.00 (tight) | -0.65px | Maximum impact, compressed blocks |
-| Section Heading | system-ui | 36px (2.25rem) | 400 | 1.11 (tight) | -0.9px | Tightest letter-spacing in the system |
-| Sub-heading | system-ui | 24px (1.50rem) | 700 | 1.33 | -0.6px | Bold weight for emphasis at this size |
-| Sub-heading Light | system-ui / Inter | 24px (1.50rem) | 300–400 | 1.33 | -0.6px | Light weight variant for softer hierarchy |
-| Overline | system-ui | 20px (1.25rem) | 600 | 1.40 | 0.5px | Uppercase transform, positive letter-spacing |
-| Feature Title | Inter | 20px (1.25rem) | 500–600 | 1.40 | normal | Card headings, feature names |
-| Overline Small | Inter | 18px (1.13rem) | 600 | 1.56 | 0.45px | Uppercase section labels |
-| Body / Button | Inter | 16px (1.00rem) | 400–600 | 1.50–1.65 | normal | Standard text, nav links, buttons |
-| Nav Link | Inter | 14.45px (0.90rem) | 500 | 1.65 | normal | Navigation-specific sizing |
-| Caption / Label | Inter | 14px (0.88rem) | 400–600 | 1.43–1.65 | normal | Descriptions, metadata, badge text |
-| Tag / Overline Tiny | system-ui | 14px (0.88rem) | 600 | 1.43 | 2.52px | Widest letter-spacing — reserved for uppercase tags |
-| Micro | Inter | 12px (0.75rem) | 400–500 | 1.33 | normal | Smallest sans-serif text |
-| Code Body | SFMono-Regular | 13–14px | 400–686 | 1.23–1.43 | normal | Inline code, terminal output, variable weight for syntax |
-| Code Small | SFMono-Regular | 11–12px | 400 | 1.33–1.45 | normal | Tiny code references, line numbers |
-| Code Button | monospace | 13px (0.81rem) | 700 | 1.65 | normal | Copy-to-clipboard button labels |
+| Display Hero | Matter Regular | 80px | 400 | 1.00 | -2.4px | Maximum compression, hero impact |
+| Section Display | Matter Regular | 56px | 400 | 1.20 | -0.56px | Feature section headings |
+| Section Heading | Matter Regular | 48px | 400 | 1.20 | -0.48px to -0.96px | Alternate heading weight |
+| Feature Heading | Matter Regular | 40px | 400 | 1.10 | -0.4px | Feature block titles |
+| Sub-heading Large | Matter Regular | 36px | 400 | 1.15 | -0.72px | Sub-section headers |
+| Card Display | Matter SQ Regular | 42px | 400 | 1.00 | 0px | Squared variant for special display |
+| Sub-heading | Matter Regular | 32px | 400 | 1.19 | 0px | Content sub-headings |
+| Body Heading | Matter Regular | 24px | 400 | 1.20 | -0.72px to 0px | Bold content intros |
+| Card Title | Matter Medium | 22px | 500 | 1.14 | 0px | Emphasized card headers |
+| Body Large | Matter Regular | 20px | 400 | 1.40 | -0.2px | Primary body text, relaxed |
+| Body | Matter Regular | 18px | 400 | 1.30 | -0.18px | Standard body paragraphs |
+| Nav/UI | Matter Regular | 16px | 400 | 1.20 | 0px | Navigation links, UI text |
+| Button Text | Matter Medium | 16px | 500 | 1.20 | 0px | Button labels |
+| Caption | Matter Regular | 14px | 400 | 1.00 | 1.4px | Uppercase labels (transform: uppercase) |
+| Small Label | Matter Regular | 12px | 400 | 1.35 | 2.4px | Uppercase micro-labels (transform: uppercase) |
+| Micro | Matter Regular | 11px | 400 | 1.20 | 0px | Smallest text elements |
+| Code UI | Geist Mono | 16px | 400 | 1.00 | 0px | Terminal/code display |
+| Code Body | Matter Mono Regular | 16px | 400 | 1.00 | -0.2px | Code content |
+| UI Supplement | Inter | 16px | 500 | 1.00 | -0.2px | Specific UI elements |
 
 ### Principles
-- **System-native authority**: Display headings use system-ui rather than a custom web font — this means the largest text renders instantly (no FOIT/FOUT) and inherits the operating system's native personality. On macOS it's SF Pro, on Windows it's Segoe UI. The design accepts this variability as a feature, not a bug.
-- **Tight compression creates density**: Hero line-heights are extremely compressed (1.0) with negative letter-spacing (-0.65px to -0.9px), creating text blocks that feel like dense technical specifications rather than airy marketing copy.
-- **Weight gradient, not weight contrast**: The system uses a gentle 300→400→500→600→700 weight progression. Bold (700) is reserved for sub-headings and code-button emphasis. Most body text lives at 400–500, creating subtle rather than dramatic hierarchy.
-- **Uppercase is earned and wide**: When uppercase appears, it's always paired with generous letter-spacing (0.45px–2.52px), transforming dense words into spaced-out overline labels. This treatment is never applied to headings.
-- **OpenType by default**: Both system-ui and Inter enable `"calt"` and `"rlig"` features, ensuring contextual character adjustments and ligature rendering throughout.
+- **Regular weight dominance**: Nearly all text uses weight 400 (Regular) — even headlines. Matter Medium (500) appears only for emphasis moments like card titles and buttons. This creates a remarkably even, calm typographic texture
+- **Uppercase as editorial signal**: Small labels and categories use uppercase transform with wide letter-spacing (1.4px–2.4px), creating a magazine-editorial categorization system
+- **Warm legibility**: The combination of Matter's geometric softness + warm text colors (#faf9f6) + controlled negative tracking creates text that reads as effortlessly human on dark surfaces
+- **No bold display**: Zero use of bold (700+) weight anywhere — restraint is the philosophy
 
 ## 4. Component Stylings
 
 ### Buttons
-
-**Ghost / Outline (Standard)**
-- Background: transparent
-- Text: Pure White (`#ffffff`)
-- Padding: comfortable (12px 16px)
-- Border: thin solid Warm Charcoal (`1px solid #3d3a39`)
-- Radius: comfortably rounded (6px)
-- Hover: background darkens to `rgba(0, 0, 0, 0.2)`, opacity drops to 0.4
-- Outline: subtle green tint (`rgba(33, 196, 93, 0.5)`)
-- The default interactive element — unassuming but clearly clickable
-
-**Primary Green CTA**
-- Background: Carbon Surface (`#101010`)
-- Text: VoltAgent Mint (`#2fd6a1`)
-- Padding: comfortable (12px 16px)
-- Border: none visible (outline-based focus indicator)
-- Outline: VoltAgent Mint (`rgb(47, 214, 161)`)
-- Hover: same darkening behavior as Ghost
-- The "powered on" button — green text on dark surface reads as an active terminal command
-
-**Tertiary / Emphasized Container Button**
-- Background: Carbon Surface (`#101010`)
-- Text: Snow White (`#f2f2f2`)
-- Padding: generous (20px all sides)
-- Border: thick solid Warm Charcoal (`3px solid #3d3a39`)
-- Radius: comfortably rounded (8px)
-- A card-like button treatment for larger interactive surfaces (code copy blocks, feature CTAs)
+- **Dark Pill**: `#353534` background, Ash Gray (`#afaeac`) text, pill shape (50px radius), `10px` padding. The primary CTA — warm, muted, understated
+- **Frosted Tag**: `rgba(255, 255, 255, 0.16)` background, black text (`rgb(0, 0, 0)`), rectangular (6px radius), `1px 6px` padding. Small inline tag-like buttons
+- **Ghost**: No visible background, text-only with underline decoration on hover
+- **Hover**: Subtle opacity or brightness shift — no dramatic color changes
 
 ### Cards & Containers
-- Background: Carbon Surface (`#101010`) — one shade lighter than the page canvas
-- Border: `1px solid #3d3a39` (Warm Charcoal) for standard containment; `2px solid #00d992` for highlighted/active cards
-- Radius: comfortably rounded (8px) for content cards; subtly rounded (4–6px) for smaller inline containers
-- Shadow Level 1: Warm Ambient Haze (`rgba(92, 88, 85, 0.2) 0px 0px 15px`) for standard elevation
-- Shadow Level 2: Deep Dramatic (`rgba(0, 0, 0, 0.7) 0px 20px 60px` + `rgba(148, 163, 184, 0.1) 0px 0px 0px 1px inset`) for hero/feature showcase cards
-- Hover behavior: likely border color shift toward green accent or subtle opacity increase
-- Dashed variant: `1px dashed rgba(79, 93, 117, 0.4)` for workflow/diagram containers — visually distinct from solid-border content cards
+- **Photography Cards**: Full-bleed nature imagery with overlay text, 8px–12px border-radius
+- **Terminal Screenshot Cards**: Product UI embedded in dark containers with rounded corners (8px–12px)
+- **Bordered Cards**: Semi-transparent border (`rgba(226, 226, 226, 0.35)`) for containment, 12px–14px radius
+- **Hover**: Minimal — content cards don't dramatically change on hover, maintaining the calm aesthetic
 
 ### Inputs & Forms
-- No explicit input token data extracted — the site is landing-page focused with minimal form UI
-- The npm install command (`npm create voltagent-app@latest`) is presented as a code block rather than an input field
-- Inferred style: Carbon Surface background, Warm Charcoal border, VoltAgent Mint focus ring, Snow White text
+- Minimal form presence on the marketing site
+- Dark background inputs with warm gray text
+- Focus: Border brightness increase, no colored rings (consistent with the monochromatic palette)
 
 ### Navigation
-- Sticky top nav bar on Abyss Black canvas
-- Logo: VoltAgent bolt icon with animated green glow (`drop-shadow` cycling 2px–8px)
-- Nav structure: Logo → Product dropdown → Use Cases dropdown → Resources dropdown → GitHub stars badge → Docs CTA
-- Link text: Snow White (`#f2f2f2`) at 14–16px Inter, weight 500
-- Hover: links transition to green variants (`#00c182` or `#00ffaa`)
-- GitHub badge: social proof element integrated directly into nav
-- Mobile: collapses to hamburger menu, single-column vertical layout
+- **Top nav**: Dark background, warm parchment brand text, Matter Regular at 16px for links
+- **Link color**: Stone Gray (`#868584`) for muted nav, Warm Parchment for active/hover
+- **CTA button**: Dark pill (#353534) at nav end — restrained, not attention-grabbing
+- **Mobile**: Collapses to simplified navigation
+- **Sticky**: Nav stays fixed on scroll
 
 ### Image Treatment
-- Dark-themed product screenshots and architectural diagrams dominate
-- Code blocks are treated as primary visual content — syntax-highlighted with SFMono-Regular
-- Agent workflow visualizations appear as interactive node graphs with green connection lines
-- Decorative dot-pattern backgrounds appear behind hero sections
-- Full-bleed within card containers, respecting 8px radius rounding
+- **Nature photography**: Landscapes, forests, golden-hour scenes — completely unique for a developer tool
+- **Terminal screenshots**: Product UI shown in realistic terminal window frames
+- **Mixed composition**: Nature images and terminal screenshots are interleaved, creating a lifestyle-meets-tool narrative
+- **Full-bleed**: Images often span full container width with 8px radius
+- **Video**: Video elements present with 10px border-radius
 
-### Distinctive Components
-
-**npm Install Command Block**
-- A prominent code snippet (`npm create voltagent-app@latest`) styled as a copyable command
-- SFMono-Regular on Carbon Surface with a copy-to-clipboard button
-- Functions as the primary CTA — "install first, read later" developer psychology
-
-**Company Logo Marquee**
-- Horizontal scrolling strip of developer/company logos
-- Infinite animation (`scrollLeft`/`scrollRight`, 25–80s durations)
-- Pauses on hover and for users with reduced-motion preferences
-- Demonstrates ecosystem adoption without cluttering the layout
-
-**Feature Section Cards**
-- Large cards combining code examples with descriptive text
-- Left: code snippet with syntax highlighting; Right: feature description
-- Green accent border (`2px solid #00d992`) on highlighted/active features
-- Internal padding: generous (24–32px estimated)
-
-**Agent Flow Diagrams**
-- Interactive node-graph visualizations showing agent coordination
-- Connection lines use VoltAgent green variants
-- Nodes styled as mini-cards within the Warm Charcoal border system
-
-**Community / GitHub Section**
-- Large GitHub icon as the visual anchor
-- Star count and contributor metrics prominently displayed
-- Warm social proof: Discord, X, Reddit, LinkedIn, YouTube links in footer
+### Testimonial Section
+- Social proof area ("Don't take our word for it") with quotes
+- Muted styling consistent with overall restraint
 
 ## 5. Layout Principles
 
 ### Spacing System
-- Base unit: 8px
-- Scale: 2px, 4px, 5px, 6px, 6.4px, 8px, 12px, 16px, 20px, 24px, 28px, 32px, 40px, 48px, 64px
-- Button padding: 12px 16px (standard), 20px (container-button)
-- Card internal padding: approximately 24–32px
-- Section vertical spacing: generous (estimated 64–96px between major sections)
-- Component gap: 16–24px between sibling cards/elements
+- **Base unit**: 8px
+- **Scale**: 1px, 4px, 5px, 8px, 10px, 12px, 14px, 15px, 16px, 18px, 24px, 26px, 30px, 32px, 36px
+- **Section padding**: 80px–120px vertical between major sections
+- **Card padding**: 16px–32px internal spacing
+- **Component gaps**: 8px–16px between related elements
 
 ### Grid & Container
-- Max container width: approximately 1280–1440px, centered
-- Hero: centered single-column with maximum breathing room
-- Feature sections: alternating asymmetric layouts (code left / text right, then reversed)
-- Logo marquee: full-width horizontal scroll, breaking the container constraint
-- Card grids: 2–3 column for feature showcases
-- Integration grid: responsive multi-column for partner/integration icons
+- **Max width**: ~1500px container (breakpoint at 1500px), centered
+- **Column patterns**: Full-width hero, 2-column feature sections with photography, single-column testimonials
+- **Cinematic layout**: Wide containers that let photography breathe
 
 ### Whitespace Philosophy
-- **Cinematic breathing room between sections**: Massive vertical gaps create a "scroll-through-chapters" experience — each section feels like a new scene.
-- **Dense within components**: Cards and code blocks are internally compact, with tight line-heights and controlled padding. Information is concentrated, not spread thin.
-- **Border-defined separation**: Rather than relying solely on whitespace, VoltAgent uses the Warm Charcoal border system (`#3d3a39`) to delineate content zones. The border IS the whitespace signal.
-- **Hero-first hierarchy**: The top of the page commands the most space — the "AI Agent Engineering Platform" headline and npm command get maximum vertical runway before the first content section appears.
+- **Vast and warm**: Generous spacing between sections — the dark background creates a warm void that feels contemplative rather than empty
+- **Photography as whitespace**: Nature images serve as visual breathing room between dense product information
+- **Editorial pacing**: The layout reads like a magazine — each section is a deliberate page-turn moment
 
 ### Border Radius Scale
-- Nearly squared (4px): Small inline elements, SVG containers, code spans — the sharpest treatment, conveying technical precision
-- Subtly rounded (6px): Buttons, links, clipboard actions — the workhorse radius for interactive elements
-- Code-specific (6.4px): Code blocks, `pre` elements, clipboard copy targets — a deliberate micro-distinction from standard 6px
-- Comfortably rounded (8px): Content cards, feature containers, emphasized buttons — the standard containment radius
-- Pill-shaped (9999px): Tags, badges, status indicators, pill-shaped navigation elements — the roundest treatment for small categorical labels
+- **4px**: Small interactive elements — buttons, tags
+- **5px–6px**: Standard components — links, small containers
+- **8px**: Images, video containers, standard cards
+- **10px**: Video elements, medium containers
+- **12px**: Feature cards, large images
+- **14px**: Large containers, prominent cards
+- **40px**: Large rounded sections
+- **50px**: Pill buttons — primary CTAs
+- **200px**: Progress bars — full pill shape
 
 ## 6. Depth & Elevation
 
 | Level | Treatment | Use |
 |-------|-----------|-----|
-| Flat (Level 0) | No shadow, no border | Page background (`#050507`), inline text |
-| Contained (Level 1) | `1px solid #3d3a39`, no shadow | Standard cards, nav bar, code blocks |
-| Emphasized (Level 2) | `3px solid #3d3a39`, no shadow | Large interactive buttons, emphasized containers |
-| Accent (Level 3) | `2px solid #00d992`, no shadow | Active/highlighted feature cards, selected states |
-| Ambient Glow (Level 4) | `rgba(92, 88, 85, 0.2) 0px 0px 15px` | Elevated cards, hover states, soft atmospheric lift |
-| Dramatic Float (Level 5) | `rgba(0, 0, 0, 0.7) 0px 20px 60px` + `rgba(148, 163, 184, 0.1) 1px inset` | Hero feature showcase, modals, maximum-elevation content |
+| Level 0 (Flat) | No shadow, dark background | Page canvas, most surfaces |
+| Level 1 (Veil) | `rgba(255, 255, 255, 0.04)` overlay | Subtle surface differentiation |
+| Level 2 (Border) | `rgba(226, 226, 226, 0.35) 1px` border | Card containment, section separation |
+| Level 3 (Ambient) | `rgba(0, 0, 0, 0.2) 0px 5px 15px` (inferred from design) | Image containers, floating elements |
 
-**Shadow Philosophy**: VoltAgent communicates depth primarily through **border weight and color**, not shadows. The standard `1px solid #3d3a39` border IS the elevation — adding a `3px` border weight or switching to green (`#00d992`) communicates importance more than adding shadow does. When shadows do appear, they're either warm and diffused (Level 4) or cinematic and dramatic (Level 5) — never medium or generic.
+### Shadow Philosophy
+Warp's elevation system is remarkably flat — almost zero shadow usage on the marketing site. Depth is communicated through:
+- **Semi-transparent borders** instead of shadows — borders at 35% opacity create a ghostly containment
+- **Photography layering** — images create natural depth without artificial shadows
+- **Surface opacity shifts** — `rgba(255, 255, 255, 0.04)` overlays create barely-perceptible layer differences
+- The effect is calm and grounded — nothing floats, everything rests
 
 ### Decorative Depth
-- **Green Signal Glow**: The VoltAgent bolt logo pulses with a `drop-shadow` animation cycling between 2px and 8px blur radius in Emerald Signal Green. This is the most distinctive decorative element — it makes the logo feel "powered on."
-- **Warm Charcoal Containment Lines**: The warm tone of `#3d3a39` borders creates a subtle visual warmth against the cool black, as if the cards are faintly heated from within.
-- **Dashed Workflow Lines**: `1px dashed rgba(79, 93, 117, 0.4)` creates a blueprint-like aesthetic for architecture diagrams, visually distinct from solid content borders.
+- **Photography as depth**: Nature images create atmospheric depth that shadows cannot
+- **No glass or blur effects**: The design avoids trendy glassmorphism entirely
+- **Warm ambient**: Any glow comes from the photography's natural lighting, not artificial CSS
 
 ## 7. Do's and Don'ts
 
 ### Do
-- Use Abyss Black (`#050507`) as the landing page background and Carbon Surface (`#101010`) for all contained elements — the two-shade dark system is essential
-- Reserve Emerald Signal Green (`#00d992`) exclusively for high-signal moments: active borders, glow effects, and the most important interactive accents
-- Use VoltAgent Mint (`#2fd6a1`) for button text on dark surfaces — it's more readable than pure Signal Green
-- Keep heading line-heights compressed (1.0–1.11) with negative letter-spacing for dense, authoritative text blocks
-- Use the warm gray palette (`#3d3a39`, `#8b949e`, `#b8b3b0`) for borders and secondary text — warmth prevents the dark theme from feeling sterile
-- Present code snippets as primary content — they're hero elements, not supporting illustrations
-- Use border weight (1px → 2px → 3px) and color shifts (`#3d3a39` → `#00d992`) to communicate depth and importance, rather than relying on shadows
-- Pair system-ui for headings with Inter for body text — the speed/authority of native fonts combined with the precision of a geometric sans
-- Use SFMono-Regular for all code content — it's the developer credibility signal
-- Apply `"calt"` and `"rlig"` OpenType features across all text
+- Use warm off-white (`#faf9f6`) for text instead of pure white — the cream undertone is essential
+- Keep buttons restrained and muted — dark fill (#353534) with muted text (#afaeac), no bright CTAs
+- Apply Matter Regular (weight 400) for nearly everything — even headlines. Reserve Medium (500) for emphasis only
+- Use uppercase labels with wide letter-spacing (1.4px–2.4px) for categorization
+- Interleave nature photography with product screenshots — this is core to the brand identity
+- Maintain the almost monochromatic warm gray palette — no bold accent colors
+- Use semi-transparent borders (`rgba(226, 226, 226, 0.35)`) for card containment instead of shadows
+- Keep negative letter-spacing on headlines (-0.4px to -2.4px) for Matter's compressed display treatment
 
 ### Don't
-- Don't use bright or light backgrounds as primary surfaces — the entire identity lives on near-black
-- Don't introduce warm colors (orange, red, yellow) as decorative accents — the palette is strictly green + warm neutrals on black. Warm colors are reserved for semantic states (warning, error) only
-- Don't use Emerald Signal Green (`#00d992`) on large surfaces or as background fills — it's an accent, never a surface
-- Don't increase heading line-heights beyond 1.33 — the compressed density is core to the engineering-platform identity
-- Don't use heavy shadows generously — depth comes from border treatment, not box-shadow. Shadows are reserved for Level 4–5 elevation only
-- Don't use pure white (`#ffffff`) as default body text — Snow White (`#f2f2f2`) is the standard. Pure white is reserved for maximum-emphasis headings and button text
-- Don't mix in serif or decorative fonts — the entire system is geometric sans + monospace
-- Don't use border-radius larger than 8px on content cards — 9999px (pill) is only for small tags and badges
-- Don't skip the warm-gray border system — cards without `#3d3a39` borders lose their containment and float ambiguously on the dark canvas
-- Don't animate aggressively — animations are slow and subtle (25–100s durations for marquee, gentle glow pulses). Fast motion contradicts the "engineering precision" atmosphere
+- Use pure white (#ffffff) for text — it's always warm parchment (#faf9f6)
+- Add bold accent colors (blue, red, green) — the system is deliberately monochromatic warm grays
+- Apply bold weight (700+) to any text — Warp never goes above Medium (500)
+- Use heavy drop shadows — depth comes from borders, photography, and opacity shifts
+- Create cold or blue-tinted dark backgrounds — the warmth is essential
+- Add decorative gradients or glow effects — the photography provides all visual interest
+- Use tight, compressed layouts — the editorial spacing is generous and contemplative
+- Mix in additional typefaces beyond the Matter family + Inter supplement
 
 ## 8. Responsive Behavior
 
 ### Breakpoints
 | Name | Width | Key Changes |
 |------|-------|-------------|
-| Small Mobile | <420px | Minimum layout, stacked everything, reduced hero text to ~24px |
-| Mobile | 420–767px | Single column, hamburger nav, full-width cards, hero text ~36px |
-| Tablet | 768–1024px | 2-column grids begin, condensed nav, medium hero text |
-| Desktop | 1025–1440px | Full multi-column layout, expanded nav with dropdowns, large hero (60px) |
-| Large Desktop | >1440px | Max-width container centered (est. 1280–1440px), generous horizontal margins |
-
-*23 breakpoints detected in total, ranging from 360px to 1992px — indicating a fluid, heavily responsive grid system rather than fixed breakpoint snapping.*
+| Mobile | <810px | Single column, stacked sections, hero text reduces to ~48px, hamburger nav |
+| Tablet | 810px–1500px | 2-column features begin, photography scales, nav links partially visible |
+| Desktop | >1500px | Full cinematic layout, 80px hero display, side-by-side photography + text |
 
 ### Touch Targets
-- Buttons use comfortable padding (12px 16px minimum) ensuring adequate touch area
-- Navigation links spaced with sufficient gap for thumb navigation
-- Interactive card surfaces are large enough to serve as full touch targets
-- Minimum recommended touch target: 44x44px
+- Pill buttons: 50px radius with 10px padding — comfortable touch targets
+- Nav links: 16px text with surrounding padding for accessibility
+- Mobile CTAs: Full-width pills on mobile for easy thumb reach
 
 ### Collapsing Strategy
-- **Navigation**: Full horizontal nav with dropdowns collapses to hamburger menu on mobile
-- **Feature grids**: 3-column → 2-column → single-column vertical stacking
-- **Hero text**: 60px → 36px → 24px progressive scaling with maintained compression ratios
-- **Logo marquee**: Adjusts scroll speed and item sizing; maintains infinite loop
-- **Code blocks**: Horizontal scroll on smaller viewports rather than wrapping — preserving code readability
-- **Section padding**: Reduces proportionally but maintains generous vertical rhythm between chapters
-- **Cards**: Stack vertically on mobile with full-width treatment and maintained internal padding
+- **Navigation**: Full horizontal nav → simplified mobile navigation
+- **Hero text**: 80px display → 56px → 48px across breakpoints
+- **Feature sections**: Side-by-side photography + text → stacked vertically
+- **Photography**: Scales within containers, maintains cinematic aspect ratios
+- **Section spacing**: Reduces proportionally — generous desktop → compact mobile
 
 ### Image Behavior
-- Dark-themed screenshots and diagrams scale proportionally within containers
-- Agent flow diagrams simplify or scroll horizontally on narrow viewports
-- Dot-pattern decorative backgrounds scale with viewport
-- No visible art direction changes between breakpoints — same crops, proportional scaling
-- Lazy loading for below-fold images (Docusaurus default behavior)
+- Nature photography scales responsively, maintaining wide cinematic ratios
+- Terminal screenshots maintain aspect ratios within responsive containers
+- Video elements scale with 10px radius maintained
+- No art direction changes — same compositions across breakpoints
 
 ## 9. Agent Prompt Guide
 
 ### Quick Color Reference
-- Brand Accent: "Emerald Signal Green (#00d992)"
-- Button Text: "VoltAgent Mint (#2fd6a1)"
-- Page Background: "Abyss Black (#050507)"
-- Card Surface: "Carbon Surface (#101010)"
-- Border / Containment: "Warm Charcoal (#3d3a39)"
-- Primary Text: "Snow White (#f2f2f2)"
-- Secondary Text: "Warm Parchment (#b8b3b0)"
-- Tertiary Text: "Steel Slate (#8b949e)"
+- Primary Text: Warm Parchment (`#faf9f6`)
+- Secondary Text: Ash Gray (`#afaeac`)
+- Tertiary Text: Stone Gray (`#868584`)
+- Button Background: Earth Gray (`#353534`)
+- Border: Mist Border (`rgba(226, 226, 226, 0.35)`)
+- Background: Deep warm near-black (page background)
 
 ### Example Component Prompts
-- "Create a feature card on Carbon Surface (#101010) with a 1px solid Warm Charcoal (#3d3a39) border, comfortably rounded corners (8px). Use Snow White (#f2f2f2) for the title in system-ui at 24px weight 700, and Warm Parchment (#b8b3b0) for the description in Inter at 16px. Add a subtle Warm Ambient shadow (rgba(92, 88, 85, 0.2) 0px 0px 15px)."
-- "Design a ghost button with transparent background, Snow White (#f2f2f2) text in Inter at 16px, a 1px solid Warm Charcoal (#3d3a39) border, and subtly rounded corners (6px). Padding: 12px vertical, 16px horizontal. On hover, background shifts to rgba(0, 0, 0, 0.2)."
-- "Build a hero section on Abyss Black (#050507) with a massive heading at 60px system-ui, line-height 1.0, letter-spacing -0.65px. The word 'Platform' should be colored in Emerald Signal Green (#00d992). Below the heading, place a code block showing 'npm create voltagent-app@latest' in SFMono-Regular at 14px on Carbon Surface (#101010) with a copy button."
-- "Create a highlighted feature card using a 2px solid Emerald Signal Green (#00d992) border instead of the standard Warm Charcoal. Keep Carbon Surface background, comfortably rounded corners (8px), and include a code snippet on the left with feature description text on the right."
-- "Design a navigation bar on Abyss Black (#050507) with the VoltAgent logo (bolt icon with animated green glow) on the left, nav links in Inter at 14px weight 500 in Snow White, and a green CTA button (Carbon Surface bg, VoltAgent Mint text) on the right. Add a 1px solid Warm Charcoal bottom border."
+- "Create a hero section on warm dark background with 80px Matter Regular heading in warm parchment (#faf9f6), line-height 1.0, letter-spacing -2.4px, and a dark pill button (#353534, 50px radius, #afaeac text)"
+- "Design a feature card with semi-transparent border (rgba(226,226,226,0.35)), 12px radius, warm dark background, Matter Regular heading at 24px, and ash gray (#afaeac) body text at 18px"
+- "Build a category label using Matter Regular at 12px, uppercase transform, letter-spacing 2.4px, stone gray (#868584) color — editorial magazine style"
+- "Create a testimonial section with warm parchment quotes in Matter Regular 24px, attributed in stone gray (#868584), on dark background with minimal ornamentation"
+- "Design a navigation bar with warm dark background, Matter Regular links at 16px in stone gray (#868584), hover to warm parchment (#faf9f6), and a dark pill CTA button (#353534) at the right"
 
 ### Iteration Guide
 When refining existing screens generated with this design system:
-1. Focus on ONE component at a time
-2. Reference specific color names and hex codes — "use Warm Parchment (#b8b3b0)" not "make it lighter"
-3. Use border treatment to communicate elevation: "change the border to 2px solid Emerald Signal Green (#00d992)" for emphasis
-4. Describe the desired "feel" alongside measurements — "compressed and authoritative heading at 36px with line-height 1.11 and -0.9px letter-spacing"
-5. For glow effects, specify "Emerald Signal Green (#00d992) as a drop-shadow with 2–8px blur radius"
-6. Always specify which font — system-ui for headings, Inter for body/UI, SFMono-Regular for code
-7. Keep animations slow and subtle — marquee scrolls at 25–80s, glow pulses gently
+1. Verify text color is warm parchment (#faf9f6) not pure white — the warmth is subtle but essential
+2. Ensure all buttons use the restrained dark palette (#353534) — no bright or colorful CTAs
+3. Check that Matter Regular (400) is the default weight — Medium (500) only for emphasis
+4. Confirm uppercase labels have wide letter-spacing (1.4px–2.4px) — tight uppercase feels wrong here
+5. The overall tone should feel warm and calm, like a well-designed magazine — not aggressive or tech-flashy
+# Design System Inspired by Warp
+
+## 1. Visual Theme & Atmosphere
+
+Warp's website feels like sitting at a campfire in a deep forest — warm, dark, and alive with quiet confidence. Unlike the cold, blue-tinted blacks favored by most developer tools, Warp wraps everything in a warm near-black that feels like charred wood or dark earth. The text isn't pure white either — it's Warm Parchment (`#faf9f6`), a barely-perceptible cream that softens every headline and makes the dark canvas feel inviting rather than austere.
+
+The typography is the secret weapon: Matter, a geometric sans-serif with distinctive character, deployed at Regular weight across virtually all text. The font choice is unusual for a developer tool — Matter has a softness and humanity that signals "this terminal is for everyone, not just greybeards." Combined with tight line-heights and controlled negative letter-spacing on headlines, the effect is refined and approachable simultaneously. Nature photography is woven between terminal screenshots, creating a visual language that says: this tool brings you closer to flow, to calm productivity.
+
+The overall design philosophy is restraint through warmth. Minimal color (almost monochromatic warm grays), minimal ornamentation, and a focus on product showcases set against cinematic dark landscapes. It's a terminal company that markets like a lifestyle brand.
+
+**Key Characteristics:**
+- Warm dark background — not cold black, but earthy near-black with warm gray undertones
+- Warm Parchment (`#faf9f6`) text instead of pure white — subtle cream warmth
+- Matter font family (Regular weight) — geometric but approachable, not the typical developer-tool typeface
+- Nature photography interleaved with product screenshots — lifestyle meets developer tool
+- Almost monochromatic warm gray palette — no bold accent colors
+- Uppercase labels with wide letter-spacing (2.4px) for categorization — editorial signaling
+- Pill-shaped dark buttons (`#353534`, 50px radius) — restrained, muted CTAs
+
+## 2. Color Palette & Roles
+
+### Primary
+- **Warm Parchment** (`#faf9f6`): Primary text color — a barely-cream off-white that softens every surface
+- **Earth Gray** (`#353534`): Button backgrounds, dark interactive surfaces — warm, not cold
+- **Deep Void** (near-black, page background): The warm dark canvas derived from the body background
+
+### Secondary & Accent
+- **Stone Gray** (`#868584`): Secondary text, muted descriptions — warm mid-gray
+- **Ash Gray** (`#afaeac`): Body text, button text — the workhorse reading color
+- **Purple-Tint Gray** (`#666469`): Link text with subtle purple undertone — underlined links in content
+
+### Surface & Background
+- **Frosted Veil** (`rgba(255, 255, 255, 0.04)`): Ultra-subtle white overlay for surface differentiation
+- **Mist Border** (`rgba(226, 226, 226, 0.35)` / `rgba(227, 227, 227, 0.337)`): Semi-transparent borders for card containment
+- **Translucent Parchment** (`rgba(250, 249, 246, 0.9)`): Slightly transparent primary surface, allowing depth
+
+### Neutrals & Text
+- **Warm Parchment** (`#faf9f6`): Headlines, high-emphasis text
+- **Ash Gray** (`#afaeac`): Body paragraphs, descriptions
+- **Stone Gray** (`#868584`): Secondary labels, subdued information
+- **Muted Purple** (`#666469`): Underlined links, tertiary content
+- **Dark Charcoal** (`#454545` / `#353534`): Borders, button backgrounds
+
+### Semantic & Accent
+- Warp operates as an almost monochromatic system — no bold accent colors
+- Interactive states are communicated through opacity changes and underline decorations rather than color shifts
+- Any accent color would break the warm, restrained palette
+
+### Gradient System
+- No explicit gradients on the marketing site
+- Depth is created through layered semi-transparent surfaces and photography rather than color gradients
+
+## 3. Typography Rules
+
+### Font Family
+- **Display & Body**: `Matter Regular` — geometric sans-serif with soft character. Fallbacks: `Matter Regular Placeholder`, system sans-serif
+- **Medium**: `Matter Medium` — weight 500 variant for emphasis. Fallbacks: `Matter Medium Placeholder`
+- **Square**: `Matter SQ Regular` — squared variant for select display contexts. Fallbacks: `Matter SQ Regular Placeholder`
+- **UI Supplement**: `Inter` — used for specific UI elements. Fallbacks: `Inter Placeholder`
+- **Monospace Display**: `Geist Mono` — for code/terminal display headings
+- **Monospace Body**: `Matter Mono Regular` — custom mono companion. Fallbacks: `Matter Mono Regular Placeholder`
+
+### Hierarchy
+
+| Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
+|------|------|------|--------|-------------|----------------|-------|
+| Display Hero | Matter Regular | 80px | 400 | 1.00 | -2.4px | Maximum compression, hero impact |
+| Section Display | Matter Regular | 56px | 400 | 1.20 | -0.56px | Feature section headings |
+| Section Heading | Matter Regular | 48px | 400 | 1.20 | -0.48px to -0.96px | Alternate heading weight |
+| Feature Heading | Matter Regular | 40px | 400 | 1.10 | -0.4px | Feature block titles |
+| Sub-heading Large | Matter Regular | 36px | 400 | 1.15 | -0.72px | Sub-section headers |
+| Card Display | Matter SQ Regular | 42px | 400 | 1.00 | 0px | Squared variant for special display |
+| Sub-heading | Matter Regular | 32px | 400 | 1.19 | 0px | Content sub-headings |
+| Body Heading | Matter Regular | 24px | 400 | 1.20 | -0.72px to 0px | Bold content intros |
+| Card Title | Matter Medium | 22px | 500 | 1.14 | 0px | Emphasized card headers |
+| Body Large | Matter Regular | 20px | 400 | 1.40 | -0.2px | Primary body text, relaxed |
+| Body | Matter Regular | 18px | 400 | 1.30 | -0.18px | Standard body paragraphs |
+| Nav/UI | Matter Regular | 16px | 400 | 1.20 | 0px | Navigation links, UI text |
+| Button Text | Matter Medium | 16px | 500 | 1.20 | 0px | Button labels |
+| Caption | Matter Regular | 14px | 400 | 1.00 | 1.4px | Uppercase labels (transform: uppercase) |
+| Small Label | Matter Regular | 12px | 400 | 1.35 | 2.4px | Uppercase micro-labels (transform: uppercase) |
+| Micro | Matter Regular | 11px | 400 | 1.20 | 0px | Smallest text elements |
+| Code UI | Geist Mono | 16px | 400 | 1.00 | 0px | Terminal/code display |
+| Code Body | Matter Mono Regular | 16px | 400 | 1.00 | -0.2px | Code content |
+| UI Supplement | Inter | 16px | 500 | 1.00 | -0.2px | Specific UI elements |
+
+### Principles
+- **Regular weight dominance**: Nearly all text uses weight 400 (Regular) — even headlines. Matter Medium (500) appears only for emphasis moments like card titles and buttons. This creates a remarkably even, calm typographic texture
+- **Uppercase as editorial signal**: Small labels and categories use uppercase transform with wide letter-spacing (1.4px–2.4px), creating a magazine-editorial categorization system
+- **Warm legibility**: The combination of Matter's geometric softness + warm text colors (#faf9f6) + controlled negative tracking creates text that reads as effortlessly human on dark surfaces
+- **No bold display**: Zero use of bold (700+) weight anywhere — restraint is the philosophy
+
+## 4. Component Stylings
+
+### Buttons
+- **Dark Pill**: `#353534` background, Ash Gray (`#afaeac`) text, pill shape (50px radius), `10px` padding. The primary CTA — warm, muted, understated
+- **Frosted Tag**: `rgba(255, 255, 255, 0.16)` background, black text (`rgb(0, 0, 0)`), rectangular (6px radius), `1px 6px` padding. Small inline tag-like buttons
+- **Ghost**: No visible background, text-only with underline decoration on hover
+- **Hover**: Subtle opacity or brightness shift — no dramatic color changes
+
+### Cards & Containers
+- **Photography Cards**: Full-bleed nature imagery with overlay text, 8px–12px border-radius
+- **Terminal Screenshot Cards**: Product UI embedded in dark containers with rounded corners (8px–12px)
+- **Bordered Cards**: Semi-transparent border (`rgba(226, 226, 226, 0.35)`) for containment, 12px–14px radius
+- **Hover**: Minimal — content cards don't dramatically change on hover, maintaining the calm aesthetic
+
+### Inputs & Forms
+- Minimal form presence on the marketing site
+- Dark background inputs with warm gray text
+- Focus: Border brightness increase, no colored rings (consistent with the monochromatic palette)
+
+### Navigation
+- **Top nav**: Dark background, warm parchment brand text, Matter Regular at 16px for links
+- **Link color**: Stone Gray (`#868584`) for muted nav, Warm Parchment for active/hover
+- **CTA button**: Dark pill (#353534) at nav end — restrained, not attention-grabbing
+- **Mobile**: Collapses to simplified navigation
+- **Sticky**: Nav stays fixed on scroll
+
+### Image Treatment
+- **Nature photography**: Landscapes, forests, golden-hour scenes — completely unique for a developer tool
+- **Terminal screenshots**: Product UI shown in realistic terminal window frames
+- **Mixed composition**: Nature images and terminal screenshots are interleaved, creating a lifestyle-meets-tool narrative
+- **Full-bleed**: Images often span full container width with 8px radius
+- **Video**: Video elements present with 10px border-radius
+
+### Testimonial Section
+- Social proof area ("Don't take our word for it") with quotes
+- Muted styling consistent with overall restraint
+
+## 5. Layout Principles
+
+### Spacing System
+- **Base unit**: 8px
+- **Scale**: 1px, 4px, 5px, 8px, 10px, 12px, 14px, 15px, 16px, 18px, 24px, 26px, 30px, 32px, 36px
+- **Section padding**: 80px–120px vertical between major sections
+- **Card padding**: 16px–32px internal spacing
+- **Component gaps**: 8px–16px between related elements
+
+### Grid & Container
+- **Max width**: ~1500px container (breakpoint at 1500px), centered
+- **Column patterns**: Full-width hero, 2-column feature sections with photography, single-column testimonials
+- **Cinematic layout**: Wide containers that let photography breathe
+
+### Whitespace Philosophy
+- **Vast and warm**: Generous spacing between sections — the dark background creates a warm void that feels contemplative rather than empty
+- **Photography as whitespace**: Nature images serve as visual breathing room between dense product information
+- **Editorial pacing**: The layout reads like a magazine — each section is a deliberate page-turn moment
+
+### Border Radius Scale
+- **4px**: Small interactive elements — buttons, tags
+- **5px–6px**: Standard components — links, small containers
+- **8px**: Images, video containers, standard cards
+- **10px**: Video elements, medium containers
+- **12px**: Feature cards, large images
+- **14px**: Large containers, prominent cards
+- **40px**: Large rounded sections
+- **50px**: Pill buttons — primary CTAs
+- **200px**: Progress bars — full pill shape
+
+## 6. Depth & Elevation
+
+| Level | Treatment | Use |
+|-------|-----------|-----|
+| Level 0 (Flat) | No shadow, dark background | Page canvas, most surfaces |
+| Level 1 (Veil) | `rgba(255, 255, 255, 0.04)` overlay | Subtle surface differentiation |
+| Level 2 (Border) | `rgba(226, 226, 226, 0.35) 1px` border | Card containment, section separation |
+| Level 3 (Ambient) | `rgba(0, 0, 0, 0.2) 0px 5px 15px` (inferred from design) | Image containers, floating elements |
+
+### Shadow Philosophy
+Warp's elevation system is remarkably flat — almost zero shadow usage on the marketing site. Depth is communicated through:
+- **Semi-transparent borders** instead of shadows — borders at 35% opacity create a ghostly containment
+- **Photography layering** — images create natural depth without artificial shadows
+- **Surface opacity shifts** — `rgba(255, 255, 255, 0.04)` overlays create barely-perceptible layer differences
+- The effect is calm and grounded — nothing floats, everything rests
+
+### Decorative Depth
+- **Photography as depth**: Nature images create atmospheric depth that shadows cannot
+- **No glass or blur effects**: The design avoids trendy glassmorphism entirely
+- **Warm ambient**: Any glow comes from the photography's natural lighting, not artificial CSS
+
+## 7. Do's and Don'ts
+
+### Do
+- Use warm off-white (`#faf9f6`) for text instead of pure white — the cream undertone is essential
+- Keep buttons restrained and muted — dark fill (#353534) with muted text (#afaeac), no bright CTAs
+- Apply Matter Regular (weight 400) for nearly everything — even headlines. Reserve Medium (500) for emphasis only
+- Use uppercase labels with wide letter-spacing (1.4px–2.4px) for categorization
+- Interleave nature photography with product screenshots — this is core to the brand identity
+- Maintain the almost monochromatic warm gray palette — no bold accent colors
+- Use semi-transparent borders (`rgba(226, 226, 226, 0.35)`) for card containment instead of shadows
+- Keep negative letter-spacing on headlines (-0.4px to -2.4px) for Matter's compressed display treatment
+
+### Don't
+- Use pure white (#ffffff) for text — it's always warm parchment (#faf9f6)
+- Add bold accent colors (blue, red, green) — the system is deliberately monochromatic warm grays
+- Apply bold weight (700+) to any text — Warp never goes above Medium (500)
+- Use heavy drop shadows — depth comes from borders, photography, and opacity shifts
+- Create cold or blue-tinted dark backgrounds — the warmth is essential
+- Add decorative gradients or glow effects — the photography provides all visual interest
+- Use tight, compressed layouts — the editorial spacing is generous and contemplative
+- Mix in additional typefaces beyond the Matter family + Inter supplement
+
+## 8. Responsive Behavior
+
+### Breakpoints
+| Name | Width | Key Changes |
+|------|-------|-------------|
+| Mobile | <810px | Single column, stacked sections, hero text reduces to ~48px, hamburger nav |
+| Tablet | 810px–1500px | 2-column features begin, photography scales, nav links partially visible |
+| Desktop | >1500px | Full cinematic layout, 80px hero display, side-by-side photography + text |
+
+### Touch Targets
+- Pill buttons: 50px radius with 10px padding — comfortable touch targets
+- Nav links: 16px text with surrounding padding for accessibility
+- Mobile CTAs: Full-width pills on mobile for easy thumb reach
+
+### Collapsing Strategy
+- **Navigation**: Full horizontal nav → simplified mobile navigation
+- **Hero text**: 80px display → 56px → 48px across breakpoints
+- **Feature sections**: Side-by-side photography + text → stacked vertically
+- **Photography**: Scales within containers, maintains cinematic aspect ratios
+- **Section spacing**: Reduces proportionally — generous desktop → compact mobile
+
+### Image Behavior
+- Nature photography scales responsively, maintaining wide cinematic ratios
+- Terminal screenshots maintain aspect ratios within responsive containers
+- Video elements scale with 10px radius maintained
+- No art direction changes — same compositions across breakpoints
+
+## 9. Agent Prompt Guide
+
+### Quick Color Reference
+- Primary Text: Warm Parchment (`#faf9f6`)
+- Secondary Text: Ash Gray (`#afaeac`)
+- Tertiary Text: Stone Gray (`#868584`)
+- Button Background: Earth Gray (`#353534`)
+- Border: Mist Border (`rgba(226, 226, 226, 0.35)`)
+- Background: Deep warm near-black (page background)
+
+### Example Component Prompts
+- "Create a hero section on warm dark background with 80px Matter Regular heading in warm parchment (#faf9f6), line-height 1.0, letter-spacing -2.4px, and a dark pill button (#353534, 50px radius, #afaeac text)"
+- "Design a feature card with semi-transparent border (rgba(226,226,226,0.35)), 12px radius, warm dark background, Matter Regular heading at 24px, and ash gray (#afaeac) body text at 18px"
+- "Build a category label using Matter Regular at 12px, uppercase transform, letter-spacing 2.4px, stone gray (#868584) color — editorial magazine style"
+- "Create a testimonial section with warm parchment quotes in Matter Regular 24px, attributed in stone gray (#868584), on dark background with minimal ornamentation"
+- "Design a navigation bar with warm dark background, Matter Regular links at 16px in stone gray (#868584), hover to warm parchment (#faf9f6), and a dark pill CTA button (#353534) at the right"
+
+### Iteration Guide
+When refining existing screens generated with this design system:
+1. Verify text color is warm parchment (#faf9f6) not pure white — the warmth is subtle but essential
+2. Ensure all buttons use the restrained dark palette (#353534) — no bright or colorful CTAs
+3. Check that Matter Regular (400) is the default weight — Medium (500) only for emphasis
+4. Confirm uppercase labels have wide letter-spacing (1.4px–2.4px) — tight uppercase feels wrong here
+5. The overall tone should feel warm and calm, like a well-designed magazine — not aggressive or tech-flashy

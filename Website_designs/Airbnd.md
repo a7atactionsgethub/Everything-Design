@@ -1,357 +1,217 @@
-# Design System Inspired by Sanity
+## Overview
 
-## 1. Visual Theme & Atmosphere
+Airbnb is the canonical example of a generous, photography-led consumer marketplace. The base canvas is **pure white** (`{colors.canvas}` — #ffffff) with deep near-black ink (`{colors.ink}` — #222222) for headlines and body, and a single voltage of **Rausch** (`{colors.primary}` — #ff385c) carrying every primary CTA, the search-button orb, the heart save state, and inline brand links. There is no secondary brand color in mainline marketing — the **Luxe purple** (`{colors.luxe}` — #460479) and **Plus magenta** (`{colors.plus}` — #92174d) tokens are sub-brand accents that only appear inside Airbnb Luxe / Plus contexts.
 
-Sanity's website is a developer-content platform rendered as a nocturnal command center -- dark, precise, and deeply structured. The entire experience sits on a near-black canvas (`#0b0b0b`) that reads less like a "dark mode toggle" and more like the natural state of a tool built for people who live in terminals. Where most CMS marketing pages reach for friendly pastels and soft illustration, Sanity leans into the gravity of its own product: structured content deserves a structured stage.
+Type runs **Airbnb Cereal VF** (a custom variable font Airbnb licenses), with **Circular** as the historic in-house fallback and a system stack underneath. Cereal sits at modest weights — display headlines render at 22–28px in weight 500–600, not the heavy 700+ weights that financial or enterprise systems lean on. The hero h1 ("Inspiration for future getaways") on the homepage is just 28px / 700, which would feel small on a typical SaaS page; here it works because the layout leans on photography (city collage, property cards) for visual weight rather than typographic muscle.
 
-The signature typographic voice is waldenburgNormal -- a distinctive, slightly geometric sans-serif with tight negative letter-spacing (-0.32px to -4.48px at display sizes) that gives headlines a compressed, engineered quality. At 112px hero scale with -4.48px tracking, the type feels almost machined -- like precision-cut steel letterforms. This is paired with IBM Plex Mono for code and technical labels, creating a dual-register voice: editorial authority meets developer credibility.
-
-What makes Sanity distinctive is the interplay between its monochromatic dark palette and vivid, saturated accent punctuation. The neutral scale runs from pure black through a tightly controlled gray ramp (`#0b0b0b` -> `#212121` -> `#353535` -> `#797979` -> `#b9b9b9` -> `#ededed` -> `#ffffff`) with no warm or cool bias -- just pure, achromatic precision. Against this disciplined backdrop, a neon green accent (display-p3 green) and electric blue (`#0052ef`) land with the impact of signal lights in a dark control room. The orange-red CTA (`#f36458`) provides the only warm touch in an otherwise cool system.
+The shape language is **soft**. Buttons are 8px radius (`{rounded.sm}`), property cards are ~14px (`{rounded.md}`), the search bar is fully pill-shaped (`{rounded.full}`), wishlist hearts and search orbs are circles (`{rounded.full}`), and category strip rounded corners run at 32px (`{rounded.xl}`). There is essentially no hard corner anywhere except the body grid itself — every interactive element is rounded.
 
 **Key Characteristics:**
-- Near-black canvas (`#0b0b0b`) as the default, natural environment -- not a dark "mode" but the primary identity
-- waldenburgNormal with extreme negative tracking at display sizes, creating a precision-engineered typographic voice
-- Pure achromatic gray scale -- no warm or cool undertones, pure neutral discipline
-- Vivid accent punctuation: neon green, electric blue (`#0052ef`), and coral-red (`#f36458`) against the dark field
-- Pill-shaped primary buttons (99999px radius) contrasting with subtle rounded rectangles (3-6px) for secondary actions
-- IBM Plex Mono as the technical counterweight to the editorial display face
-- Full-bleed dark sections with content contained in measured max-width containers
-- Hover states that shift to electric blue (`#0052ef`) across all interactive elements -- a consistent "activation" signal
+- Single accent color: `{colors.primary}` (#ff385c — "Rausch") carries every primary CTA, the search orb, the heart save state, and the brand wordmark. Used scarcely — most pages are 90% white + ink with one or two Rausch moments.
+- Custom variable type: `Airbnb Cereal VF`. Display weights sit at 500–700, body at 400. Modest weight is intentional — the system trusts photography for visual heft.
+- Three-product top nav: Homes, Experiences, Services — each with a hand-illustrated 32px icon and "NEW" badges (`{component.new-tag}`) on the two newer products. Active tab uses an underline rule (`{component.product-tab-active}`).
+- Pill-shaped global search bar: white surface, fully rounded (`{rounded.full}`), divided by 1px hairlines into Where / When / Who segments, terminated by a circular Rausch search orb (`{component.search-orb}`).
+- Property cards are photo-first: aspect-ratio rectangles with `{rounded.md}` corner clipping, swipeable image carousel, "Guest favorite" floating badge top-left, heart icon top-right, then 4–5 lines of meta beneath.
+- Editorial dropdowns (footer, language picker) are clean text columns over the white canvas — no card surface, no shadow.
+- The design system caps elevation at one shadow tier (`box-shadow: rgba(0,0,0,0.02) 0 0 0 1px, rgba(0,0,0,0.04) 0 2px 6px, rgba(0,0,0,0.1) 0 4px 8px`) — used on hover-floated cards and search/account dropdowns.
+- 8px base spacing system, with major sections at `{spacing.section}` (64px) — generous but not airy enough to feel editorial-magazine; the marketplace density wants more cards per scroll.
 
-## 2. Color Palette & Roles
+## Colors
 
-### Primary Brand
-- **Sanity Black** (`#0b0b0b`): The primary canvas and dominant surface color. Not pure black but close enough to feel absolute. The foundation of the entire visual identity.
-- **Pure Black** (`#000000`): Used for maximum-contrast moments, deep overlays, and certain border accents.
-- **Sanity Red** (`#f36458`): The primary CTA and brand accent -- a warm coral-red that serves as the main call-to-action color. Used for "Get Started" buttons and primary conversion points.
+### Brand & Accent
+- **Rausch** (`{colors.primary}` — #ff385c): The single brand color. Used for primary CTA backgrounds (Reserve, Continue), the search orb, the heart save state on property cards, and inline brand links. The most recognizable color in consumer travel.
+- **Rausch Active** (`{colors.primary-active}` — #e00b41): The press / pointer-down variant — slightly more saturated. Used on `{component.button-primary-active}`.
+- **Rausch Disabled** (`{colors.primary-disabled}` — #ffd1da): A pale tint used on disabled CTAs.
+- **Luxe Purple** (`{colors.luxe}` — #460479): Sub-brand accent for Airbnb Luxe. Only appears inside Luxe-branded surfaces — never in mainline marketing.
+- **Plus Magenta** (`{colors.plus}` — #92174d): Sub-brand accent for Airbnb Plus. Same scoping as Luxe — sub-product only.
 
-### Accent & Interactive
-- **Electric Blue** (`#0052ef`): The universal hover/active state color across the entire system. Buttons, links, and interactive elements all shift to this blue on hover. Also used as `--color-blue-700` for focus rings and active states.
-- **Light Blue** (`#55beff` / `#afe3ff`): Secondary blue variants used for accent backgrounds, badges, and dimmed blue surfaces.
-- **Neon Green** (`color(display-p3 .270588 1 0)`): A vivid, wide-gamut green used as `--color-fg-accent-green` for success states and premium feature highlights. Falls back to `#19d600` in sRGB.
-- **Accent Magenta** (`color(display-p3 .960784 0 1)`): A vivid wide-gamut magenta for specialized accent moments.
+### Surface
+- **Canvas** (`{colors.canvas}` — #ffffff): The default page floor for every public page. Airbnb does not have a dark mode on the public web.
+- **Surface Soft** (`{colors.surface-soft}` — #f7f7f7): The lightest fill — used on disabled fields, sub-nav hover backgrounds, and the inline search filter band.
+- **Surface Strong** (`{colors.surface-strong}` — #f2f2f2): Slightly heavier fill — circular icon-button surface (e.g., the breadcrumb back-arrow and listing toolbar buttons).
 
-### Surface & Background
-- **Near Black** (`#0b0b0b`): Default page background and primary surface.
-- **Dark Gray** (`#212121`): Elevated surface color for cards, secondary containers, input backgrounds, and subtle layering above the base canvas.
-- **Medium Dark** (`#353535`): Tertiary surface and border color for creating depth between dark layers.
-- **Pure White** (`#ffffff`): Used for inverted sections, light-on-dark text, and specific button surfaces.
-- **Light Gray** (`#ededed`): Light surface for inverted/light sections and subtle background tints.
+### Hairlines & Borders
+- **Hairline** (`{colors.hairline}` — #dddddd): The default 1px border tone — search bar dividers, table separators, footer column splitters, card 1px borders.
+- **Hairline Soft** (`{colors.hairline-soft}` — #ebebeb): A lighter divider used on long-scrolling editorial body separators.
+- **Border Strong** (`{colors.border-strong}` — #c1c1c1): A heavier stroke used on disabled outline buttons and form input outlines after focus.
 
-### Neutrals & Text
-- **White** (`#ffffff`): Primary text color on dark surfaces, maximum legibility.
-- **Silver** (`#b9b9b9`): Secondary text, body copy on dark surfaces, muted descriptions, and placeholder text.
-- **Medium Gray** (`#797979`): Tertiary text, metadata, timestamps, and de-emphasized content.
-- **Charcoal** (`#212121`): Text on light/inverted surfaces.
-- **Near Black Text** (`#0b0b0b`): Primary text on white/light button surfaces.
+### Text
+- **Ink** (`{colors.ink}` — #222222): The dominant text color on light surfaces. Display headlines, body paragraphs, primary nav links, and most inline link text. Never pure black.
+- **Body** (`{colors.body}` — #3f3f3f): A secondary running-text color used inside long-form review and amenity copy where ink would feel too heavy.
+- **Muted** (`{colors.muted}` — #6a6a6a): Sub-titles inside city link blocks ("Cottage rentals", "Villa rentals"), inactive product-tab labels, footer category sub-labels, "View all" links.
+- **Muted Soft** (`{colors.muted-soft}` — #929292): Disabled link text. Used very sparingly.
+- **Star Rating** (`{colors.star-rating}` — #222222): The same ink token — Airbnb's star icon and "4.81" rating numbers all render in ink rather than a yellow/gold color, which is a deliberate brand choice (yellow stars feel cheap in travel context).
+- **On Primary** (`{colors.on-primary}` — #ffffff): White text on Rausch CTAs.
 
 ### Semantic
-- **Error Red** (`#dd0000`): Destructive actions, validation errors, and critical warnings -- a pure, high-saturation red.
-- **GPC Green** (`#37cd84`): Privacy/compliance indicator green.
-- **Focus Ring Blue** (`#0052ef`): Focus ring color for accessibility, matching the interactive blue.
+- **Error** (`{colors.primary-error-text}` — #c13515): Inline error text for form validation. Distinct from Rausch — slightly darker, more saturated red.
+- **Error Hover** (`{colors.primary-error-text-hover}` — #b32505): Darkens on link hover.
+- **Legal Link Blue** (`{colors.legal-link}` — #428bff): Inline links inside legal copy (Privacy, Terms). Only used inside the legal sub-band.
 
-### Border System
-- **Dark Border** (`#0b0b0b`): Primary border on dark containers -- barely visible, maintaining minimal containment.
-- **Subtle Border** (`#212121`): Standard border for inputs, textareas, and card edges on dark surfaces.
-- **Medium Border** (`#353535`): More visible borders for emphasized containment and dividers.
-- **Light Border** (`#ffffff`): Border on inverted/light elements or buttons needing contrast separation.
-- **Orange Border** (`color(display-p3 1 0.3333 0)`): Special accent border for highlighted/featured elements.
+### Scrim
+- **Scrim** (`{colors.scrim}` — #000000 at 50% opacity): The global modal backdrop tone — date picker, login dialog, language picker. Stored as the base hex; opacity is applied at render time.
 
-## 3. Typography Rules
+## Typography
 
 ### Font Family
-- **Display / Headline**: `waldenburgNormal`, fallback: `waldenburgNormal Fallback, ui-sans-serif, system-ui`
-- **Body / UI**: `waldenburgNormal`, fallback: `waldenburgNormal Fallback, ui-sans-serif, system-ui`
-- **Code / Technical**: `IBM Plex Mono`, fallback: `ibmPlexMono Fallback, ui-monospace`
-- **Fallback / CJK**: `Helvetica`, fallback: `Arial, Hiragino Sans GB, STXihei, Microsoft YaHei, WenQuanYi Micro Hei`
+The system runs **Airbnb Cereal VF** for everything — display, body, navigation, captions, microcopy. Fallbacks walk `Circular, -apple-system, system-ui, Roboto, "Helvetica Neue", sans-serif`. **Circular** is the historic in-house typeface still kept as the first non-variable fallback; system stacks back it up.
 
-*Note: waldenburgNormal is a custom typeface. For external implementations, use Inter or Space Grotesk as the sans substitute (geometric, slightly condensed feel). IBM Plex Mono is available on Google Fonts.*
+There is no separate display family. The variable font carries the entire scale.
 
 ### Hierarchy
 
-| Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
-|------|------|------|--------|-------------|----------------|-------|
-| Display / Hero | waldenburgNormal | 112px (7rem) | 400 | 1.00 (tight) | -4.48px | Maximum impact, compressed tracking |
-| Hero Secondary | waldenburgNormal | 72px (4.5rem) | 400 | 1.05 (tight) | -2.88px | Large section headers |
-| Section Heading | waldenburgNormal | 48px (3rem) | 400 | 1.08 (tight) | -1.68px | Primary section anchors |
-| Heading Large | waldenburgNormal | 38px (2.38rem) | 400 | 1.10 (tight) | -1.14px | Feature section titles |
-| Heading Medium | waldenburgNormal | 32px (2rem) | 425 | 1.24 (tight) | -0.32px | Card titles, subsection headers |
-| Heading Small | waldenburgNormal | 24px (1.5rem) | 425 | 1.24 (tight) | -0.24px | Smaller feature headings |
-| Subheading | waldenburgNormal | 20px (1.25rem) | 425 | 1.13 (tight) | -0.2px | Sub-section markers |
-| Body Large | waldenburgNormal | 18px (1.13rem) | 400 | 1.50 | -0.18px | Intro paragraphs, descriptions |
-| Body | waldenburgNormal | 16px (1rem) | 400 | 1.50 | normal | Standard body text |
-| Body Small | waldenburgNormal | 15px (0.94rem) | 400 | 1.50 | -0.15px | Compact body text |
-| Caption | waldenburgNormal | 13px (0.81rem) | 400-500 | 1.30-1.50 | -0.13px | Metadata, descriptions, tags |
-| Small Caption | waldenburgNormal | 12px (0.75rem) | 400 | 1.50 | -0.12px | Footnotes, timestamps |
-| Micro / Label | waldenburgNormal | 11px (0.69rem) | 500-600 | 1.00-1.50 | normal | Uppercase labels, tiny badges |
-| Code Body | IBM Plex Mono | 15px (0.94rem) | 400 | 1.50 | normal | Code blocks, technical content |
-| Code Caption | IBM Plex Mono | 13px (0.81rem) | 400-500 | 1.30-1.50 | normal | Inline code, small technical labels |
-| Code Micro | IBM Plex Mono | 10-12px | 400 | 1.30-1.50 | normal | Tiny code labels, uppercase tags |
+| Token | Size | Weight | Line Height | Letter Spacing | Use |
+|---|---|---|---|---|---|
+| `{typography.rating-display}` | 64px | 700 | 1.1 | -1px | Listing detail rating display ("4.81") |
+| `{typography.display-xl}` | 28px | 700 | 1.43 | 0 | Homepage h1 ("Inspiration for future getaways") |
+| `{typography.display-lg}` | 22px | 500 | 1.18 | -0.44px | Listing detail h1 ("Close to Fethiye Aliyah Bali Beach…") |
+| `{typography.display-md}` | 21px | 700 | 1.43 | 0 | Section heads inside listing detail ("What this place offers") |
+| `{typography.display-sm}` | 20px | 600 | 1.20 | -0.18px | Sub-section titles ("Things to know") |
+| `{typography.title-md}` | 16px | 600 | 1.25 | 0 | City link block titles ("Wilmington", "Athens") |
+| `{typography.title-sm}` | 16px | 500 | 1.25 | 0 | Footer column heads ("Support", "Hosting", "Airbnb") |
+| `{typography.body-md}` | 16px | 400 | 1.5 | 0 | Default running-text inside listing copy |
+| `{typography.body-sm}` | 14px | 400 | 1.43 | 0 | Card meta lines, dates, prices, distance text |
+| `{typography.caption}` | 14px | 500 | 1.29 | 0 | Search field segment labels ("Where", "When", "Who") |
+| `{typography.caption-sm}` | 13px | 400 | 1.23 | 0 | Footer legal line ("© 2026 Airbnb, Inc.") |
+| `{typography.badge}` | 11px | 600 | 1.18 | 0 | "Guest favorite" floating badge text |
+| `{typography.micro-label}` | 12px | 700 | 1.33 | 0 | Card amenity micro-labels ("Inline 6") |
+| `{typography.uppercase-tag}` | 8px | 700 | 1.25 | 0.32px (uppercase) | "NEW" badge on product nav tabs |
+| `{typography.button-md}` | 16px | 500 | 1.25 | 0 | Primary CTA button labels |
+| `{typography.button-sm}` | 14px | 500 | 1.29 | 0 | Pill button labels (category strip) |
+| `{typography.link}` | 14px | 400 | 1.43 | 0 | Inline body links |
+| `{typography.nav-link}` | 16px | 600 | 1.25 | 0 | Top product-nav labels (Homes, Experiences, Services) |
 
 ### Principles
-- **Extreme negative tracking at scale**: Display headings at 72px+ use aggressive negative letter-spacing (-2.88px to -4.48px), creating a tight, engineered quality that distinguishes Sanity from looser editorial typography.
-- **Single font, multiple registers**: waldenburgNormal handles both editorial display and functional UI text. The weight range is narrow (400-425 for most, 500-600 only for tiny labels), keeping the voice consistent.
-- **OpenType feature control**: Typography uses deliberate feature settings including `"cv01", "cv11", "cv12", "cv13", "ss07"` for display sizes and `"calt" 0` for body text, fine-tuning character alternates for different contexts.
-- **Tight headings, relaxed body**: Headings use 1.00-1.24 line-height (extremely tight), while body text breathes at 1.50. This contrast creates clear visual hierarchy.
-- **Uppercase for technical labels**: IBM Plex Mono captions and small labels frequently use `text-transform: uppercase` with tight line-heights, creating a "system readout" aesthetic for technical metadata.
+Display weights stay modest. The homepage h1 at 28px / 700 is deliberately small — it tucks under the search bar so photography and the city-link grid carry visual hierarchy. The listing-detail h1 at 22px / 500 is even quieter; the listing photo banner does the work above it.
 
-## 4. Component Stylings
+The single typographically loud moment in the entire system is the **rating display** (`{typography.rating-display}` — 64px / 700) on listing pages. That is the only place the system trusts type alone to carry hierarchy — rating numbers are a peak trust signal, so they get the loudest treatment.
+
+### Note on Font Substitutes
+If Airbnb Cereal VF and Circular are unavailable, **Inter** is the closest open-source substitute. Adjust display headlines down by ~2% in line-height to match Cereal's slightly tighter cap height; otherwise the proportions transfer cleanly.
+
+## Layout
+
+### Spacing System
+- **Base unit:** 4px (with 2px micro-step).
+- **Tokens:** `{spacing.xxs}` 2px · `{spacing.xs}` 4px · `{spacing.sm}` 8px · `{spacing.md}` 12px · `{spacing.base}` 16px · `{spacing.lg}` 24px · `{spacing.xl}` 32px · `{spacing.xxl}` 48px · `{spacing.section}` 64px.
+- **Section padding (vertical):** `{spacing.section}` (64px) for major page bands; tighter than typical SaaS marketing (80–96px) because marketplace pages need higher card density per scroll.
+- **Card internal padding:** `{spacing.lg}` (24px) for `{component.host-card}` and `{component.reservation-card}`; `{spacing.base}` (16px) for property-card meta block; `{spacing.sm}` (8px) for caption / date-row gutters.
+- **Gutters:** `{spacing.base}` (16px) between cards in the homepage city grid; `{spacing.lg}` (24px) inside footer column gutters; `{spacing.xs}` (4px) on dense category-strip dividers.
+
+### Grid & Container
+- **Max content width:** ~1280px centered on the homepage and editorial pages. Listing detail pages cap closer to 1080px to keep the photo banner and reservation rail readable.
+- **City link grid (homepage footer):** 6-column grid at desktop with each cell housing a city name in `{typography.title-md}` and a category sub-label in `{typography.body-sm}` muted.
+- **Listing detail:** 2-column with photo / amenity body on the left (~64% width) and a sticky reservation card (`{component.reservation-card}`) on the right (~32%).
+- **Footer:** 3-column link list (Support / Hosting / Airbnb) at desktop, collapsing to 1-column on mobile.
+
+### Whitespace Philosophy
+The system gives editorial bands 64px of vertical breathing room but compresses card grids — property and city-link cards sit just 16px apart. The contrast is intentional: the page reads as "open hero, dense marketplace below," reinforcing the marketplace nature without overwhelming the visitor at the fold.
+
+## Elevation
+
+The system has essentially **one shadow tier** plus the flat baseline.
+
+- **Flat (no shadow):** Body, hero, footer, all editorial bands — 95% of surfaces.
+- **Card hover float:** `box-shadow: rgba(0, 0, 0, 0.02) 0 0 0 1px, rgba(0, 0, 0, 0.04) 0 2px 6px 0, rgba(0, 0, 0, 0.1) 0 4px 8px 0` — applied to property cards on pointer hover, the search bar at rest, and the dropdown menus (account menu, language picker, date picker). This is the single shadow definition in the entire system.
+- **Modal scrim:** `{colors.scrim}` rendered at 50% opacity — the global modal backdrop. Used on date pickers, login dialogs, language picker.
+
+There are no progressive elevation tiers — the system either has the one shadow or none. Depth comes from photography, the white-on-white surface separation, and rounded-corner clipping rather than from layered shadows.
+
+## Components
 
 ### Buttons
 
-**Primary CTA (Pill)**
-- Background: Sanity Red (`#f36458`)
-- Text: White (`#ffffff`)
-- Padding: 8px 16px
-- Border Radius: 99999px (full pill)
-- Border: none
-- Hover: Electric Blue (`#0052ef`) background, white text
-- Font: 16px waldenburgNormal, weight 400
+**`button-primary`** — Rausch fill, white text, 8px radius, 14×24px padding, 48px height, weight 500. The most common CTA across the system: "Reserve", "Continue", "Search", account-flow primaries.
 
-**Secondary (Dark Pill)**
-- Background: Near Black (`#0b0b0b`)
-- Text: Silver (`#b9b9b9`)
-- Padding: 8px 12px
-- Border Radius: 99999px (full pill)
-- Border: none
-- Hover: Electric Blue (`#0052ef`) background, white text
+**`button-primary-active`** — The press state. Background flips to `{colors.primary-active}`. No transform, no shadow change.
 
-**Outlined (Light Pill)**
-- Background: White (`#ffffff`)
-- Text: Near Black (`#0b0b0b`)
-- Padding: 8px
-- Border Radius: 99999px (full pill)
-- Border: 1px solid `#0b0b0b`
-- Hover: Electric Blue (`#0052ef`) background, white text
+**`button-primary-disabled`** — Pale Rausch tint at #ffd1da with white text. Cursor not-allowed.
 
-**Ghost / Subtle**
-- Background: Dark Gray (`#212121`)
-- Text: Silver (`#b9b9b9`)
-- Padding: 0px 12px
-- Border Radius: 5px
-- Border: 1px solid `#212121`
-- Hover: Electric Blue (`#0052ef`) background, white text
+**`button-secondary`** — White fill with ink text and a 1px ink outline. 8px radius. Used for "Save", "Cancel", and inverse CTAs over Rausch surfaces.
 
-**Uppercase Label Button**
-- Font: 11px waldenburgNormal, weight 600, uppercase
-- Background: transparent or `#212121`
-- Text: Silver (`#b9b9b9`)
-- Letter-spacing: normal
-- Used for tab-like navigation and filter controls
+**`button-tertiary-text`** — Plain ink text, no surface, no border. Underlined on hover. Used for "Show more" type links and modal close labels.
 
-### Cards
+**`button-pill-rausch`** — A pill-shaped Rausch CTA used on featured cells (e.g., "Become a host" sub-CTA) — 9999px radius, 10×20px padding, 14px label.
 
-**Dark Content Card**
-- Background: `#212121`
-- Border: 1px solid `#353535` or `#212121`
-- Border Radius: 6px
-- Padding: 24px
-- Text: White (`#ffffff`) for titles, Silver (`#b9b9b9`) for body
-- Hover: subtle border color shift or elevation change
+### Search Surface
 
-**Feature Card (Full-bleed)**
-- Background: `#0b0b0b` or full-bleed image/gradient
-- Border: none or 1px solid `#212121`
-- Border Radius: 12px
-- Padding: 32-48px
-- Contains large imagery with overlaid text
+**`search-bar-pill`** — The signature global search bar. White fill, 9999px radius, 64px height, 1px hairline 1px-shadow border. Internally divided by vertical hairline rules into `{component.search-field-segment}` cells (Where / When / Who). Each segment holds an uppercase caption label above a placeholder line in `{typography.caption}`.
 
-### Inputs
+**`search-orb`** — The circular Rausch orb terminating the right edge of the search bar. 48×48px, fully rounded, white magnifying-glass icon centered. The hottest single color moment on the homepage.
 
-**Text Input / Textarea**
-- Background: Near Black (`#0b0b0b`)
-- Text: Silver (`#b9b9b9`)
-- Border: 1px solid `#212121`
-- Padding: 8px 12px
-- Border Radius: 3px
-- Focus: outline with `var(--focus-ring-color)` (blue), 2px solid
-- Focus background: shifts to deep cyan (`#072227`)
+### Top Navigation
 
-**Search Input**
-- Background: `#0b0b0b`
-- Text: Silver (`#b9b9b9`)
-- Padding: 0px 12px
-- Border Radius: 3px
-- Placeholder: Medium Gray (`#797979`)
+**`top-nav`** — White surface, 80px height, 1px bottom hairline. The Airbnb wordmark sits flush left, the three product tabs (Homes / Experiences / Services) sit in the dead center, and account utilities (host link, language globe, account menu) sit flush right.
 
-### Navigation
+**`product-tab-active`** — Ink label in `{typography.nav-link}`, 32px hand-illustrated icon, 2px ink underline rule beneath the icon-label pair.
 
-**Top Navigation**
-- Background: Near Black (`#0b0b0b`) with backdrop blur
-- Height: auto, compact padding
-- Logo: left-aligned, Sanity wordmark
-- Links: waldenburgNormal 16px, Silver (`#b9b9b9`)
-- Link Hover: Electric Blue via `--color-fg-accent-blue`
-- CTA Button: Sanity Red pill button right-aligned
-- Separator: 1px border-bottom `#212121`
+**`product-tab-inactive`** — Muted label, illustrated icon, no underline. Becomes active on click.
 
-**Footer**
-- Background: Near Black (`#0b0b0b`)
-- Multi-column link layout
-- Links: Silver (`#b9b9b9`), hover to blue
-- Section headers: White (`#ffffff`), 13px uppercase IBM Plex Mono
+**`new-tag`** — A tiny rounded-pill badge (`{rounded.full}`) anchored top-right of an icon, carrying the uppercase "NEW" label in `{typography.uppercase-tag}` (8px / 700 with 0.32px tracking, uppercase). Used on Experiences and Services to signal recency.
 
-### Badges / Pills
+### Listing Cards
 
-**Neutral Subtle**
-- Background: White (`#ffffff`)
-- Text: Near Black (`#0b0b0b`)
-- Padding: 8px
-- Font: 13px
-- Border Radius: 99999px
+**`property-card`** — A photo-first card. 1:1 aspect-ratio image with `{rounded.md}` corner clipping, image carousel dots overlay, "Guest favorite" floating badge top-left (`{component.guest-favorite-badge}`), and a heart icon top-right (`{component.icon-button-circle}` in default outlined state, Rausch-filled when saved). Beneath the image: 4–5 lines of meta — title (`{typography.title-md}`), distance / dates (`{typography.body-sm}` muted), and price ("$X night") right-aligned.
 
-**Neutral Filled**
-- Background: Near Black (`#0b0b0b`)
-- Text: White (`#ffffff`)
-- Padding: 8px
-- Font: 13px
-- Border Radius: 99999px
+**`property-card-photo`** — The photo plate itself, separated as a token because some surfaces (wishlist, search results) reuse just the photo without the meta block.
 
-## 5. Layout Principles
+**`experience-card`** — A taller-aspect card (4:5) for experience listings. Same `{rounded.md}` clipping, floating "NEW" badge top-left, heart top-right, and a single-line title beneath.
 
-### Spacing System
-Base unit: **8px**
+**`guest-favorite-badge`** — White rounded pill (`{rounded.full}`) at 11px / 600 weight. Sits over the photo with the system's only shadow tier applied for elevation.
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| space-1 | 1px | Hairline gaps, border-like spacing |
-| space-2 | 2px | Minimal internal padding |
-| space-3 | 4px | Tight component internal spacing |
-| space-4 | 6px | Small element gaps |
-| space-5 | 8px | Base unit -- button padding, input padding, badge padding |
-| space-6 | 12px | Standard component gap, button horizontal padding |
-| space-7 | 16px | Section internal padding, card spacing |
-| space-8 | 24px | Large component padding, card internal spacing |
-| space-9 | 32px | Section padding, container gutters |
-| space-10 | 48px | Large section vertical spacing |
-| space-11 | 64px | Major section breaks |
-| space-12 | 96-120px | Hero vertical padding, maximum section spacing |
+### Listing Detail
 
-### Grid & Container
-- Max content width: ~1440px (inferred from breakpoints)
-- Page gutter: 32px on desktop, 16px on mobile
-- Content sections use full-bleed backgrounds with centered, max-width content
-- Multi-column layouts: 2-3 columns on desktop, single column on mobile
-- Card grids: CSS Grid with consistent gaps (16-24px)
+**`rating-display-card`** — The signature listing-detail moment. A 64px / 700 rating number ("4.81") flanked left and right by tiny laurel-wreath SVG ornaments. Beneath the rating: "Guest favorite" tagline and a row of ink stat columns. The largest typographic weight in the whole system.
 
-### Whitespace Philosophy
-Sanity uses aggressive vertical spacing between sections (64-120px) to create breathing room on the dark canvas. Within sections, spacing is tighter (16-32px), creating dense information clusters separated by generous voids. This rhythm gives the page a "slides" quality -- each section feels like its own focused frame.
+**`amenity-row`** — A 1-column list of amenity icons + ink labels in `{typography.body-md}`. 12px row padding, no border between rows; section is closed by a 1px hairline divider above and below.
 
-### Border Radius Scale
+**`reviews-card`** — A 2-column grid of review excerpts. Each column holds an author row (avatar, name, date) above a 3-line excerpt with "Show more" tertiary link.
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| radius-xs | 3px | Inputs, textareas, subtle rounding |
-| radius-sm | 4-5px | Secondary buttons, small cards, tags |
-| radius-md | 6px | Standard cards, containers |
-| radius-lg | 12px | Large cards, feature containers, forms |
-| radius-pill | 99999px | Primary buttons, badges, nav pills |
+**`host-card`** — A white card with `{rounded.md}` rounding and 24px padding holding a host avatar, name, "Superhost" badge, response-rate stat, and a "Contact host" `{component.button-secondary}`.
 
-## 6. Depth & Elevation
+**`reservation-card`** — The sticky right-rail card on listing detail pages. White surface, `{rounded.md}` rounding, 1px hairline border, 1px shadow tier elevation, 24px padding. Contains: nightly price (`{typography.display-md}` ink), date-range selector, guest-count stepper, "Reserve" primary CTA full-width, and a fee breakdown stack beneath in `{typography.body-sm}`.
 
-### Shadow System
+### Date Picker
 
-| Level | Value | Usage |
-|-------|-------|-------|
-| Level 0 (Flat) | none | Default state for most elements -- dark surfaces create depth through color alone |
-| Level 1 (Subtle) | 0px 0px 0px 1px `#212121` | Border-like shadow for minimal containment without visible borders |
-| Level 2 (Focus) | 0 0 0 2px `var(--color-blue-500)` | Focus ring for inputs and interactive elements |
-| Level 3 (Overlay) | Backdrop blur + semi-transparent dark | Navigation overlay, modal backgrounds |
+**`date-picker-day`** — A 40×40px circular cell carrying the day number in `{typography.body-sm}`. Default state is transparent fill, ink text.
 
-### Depth Philosophy
-Sanity's depth system is almost entirely **colorimetric** rather than shadow-based. Elevation is communicated through surface color shifts: `#0b0b0b` (ground) -> `#212121` (elevated) -> `#353535` (prominent) -> `#ffffff` (inverted/highest). This approach is native to dark interfaces where traditional drop shadows would be invisible. The few shadows that exist are ring-based (0px 0px 0px Npx) or blur-based (backdrop-filter) rather than offset shadows, maintaining the flat, precision-engineered aesthetic.
+**`date-picker-day-selected`** — Ink fill, white text, full circle (`{rounded.full}`). Range states between two selected days carry a `{colors.surface-soft}` lozenge background that connects them.
 
-Border-based containment (1px solid `#212121` or `#353535`) serves as the primary spatial separator, with the border darkness calibrated to be visible but not dominant. The system avoids "floating card" aesthetics -- everything feels mounted to the surface rather than hovering above it.
+### Forms
 
-## 7. Do's and Don'ts
+**`text-input`** — White surface, 1px hairline outline, `{rounded.sm}` 8px radius, 56px height, 14×12px padding. Stacked label above (in `{typography.caption}` muted), placeholder text in `{typography.body-md}` muted. On focus, the border thickens to 2px ink and the border color flips to `{colors.ink}` — no glow, no ring.
 
-### Do
-- Use the achromatic gray scale as the foundation -- maintain pure neutral discipline with no warm/cool tinting
-- Apply Electric Blue (`#0052ef`) consistently as the universal hover/active state across all interactive elements
-- Use extreme negative letter-spacing (-2px to -4.48px) on display headings 48px and above
-- Keep primary CTAs as full-pill shapes (99999px radius) with the coral-red (`#f36458`)
-- Use IBM Plex Mono uppercase for technical labels, tags, and system metadata
-- Communicate depth through surface color (dark-to-light) rather than shadows
-- Maintain generous vertical section spacing (64-120px) on the dark canvas
-- Use `"cv01", "cv11", "cv12", "cv13", "ss07"` OpenType features for display typography
+### Footer
 
-### Don't
-- Don't introduce warm or cool color tints to the neutral scale -- Sanity's grays are pure achromatic
-- Don't use drop shadows for elevation -- dark interfaces demand colorimetric depth
-- Don't apply border-radius between 13px and 99998px -- the system jumps from 12px (large card) directly to pill (99999px)
-- Don't mix the coral-red CTA with the electric blue interactive color in the same element
-- Don't use heavy font weights (700+) -- the system maxes out at 600 and only for 11px uppercase labels
-- Don't place light text on light surfaces or dark text on dark surfaces without checking the gray-on-gray contrast ratio
-- Don't use traditional offset box-shadows -- ring shadows (0 0 0 Npx) or border-based containment only
-- Don't break the tight line-height on headings -- 1.00-1.24 is the range, never go to 1.5+ for display text
+**`footer-light`** — White surface (matches the page canvas — Airbnb has no contrast footer), 48×80px padding. Three columns of link blocks (Support / Hosting / Airbnb), separated by generous 24px gutters. Each column heads with a `{typography.title-sm}` ink label and stacks `{component.footer-link}` rows in `{typography.body-sm}` ink.
 
-## 8. Responsive Behavior
+**`legal-band`** — A bottom strip beneath the footer columns carrying the copyright line, language picker (globe icon + "English (US)" link), currency picker, and social icons (Facebook, X, Instagram). All text in muted `{colors.muted}` at `{typography.caption-sm}`.
 
-### Breakpoints
+## Responsive Behavior
 
-| Name | Width | Behavior |
-|------|-------|----------|
-| Desktop XL | >= 1640px | Full layout, maximum content width |
-| Desktop | >= 1440px | Standard desktop layout |
-| Desktop Compact | >= 1200px | Slightly condensed desktop |
-| Laptop | >= 1100px | Reduced column widths |
-| Tablet Landscape | >= 960px | 2-column layouts begin collapsing |
-| Tablet | >= 768px | Transition zone, some elements stack |
-| Mobile Large | >= 720px | Near-tablet layout |
-| Mobile | >= 480px | Single-column, stacked layout |
-| Mobile Small | >= 376px | Minimum supported width |
+| Name | Width | Key Changes |
+|---|---|---|
+| Mobile | < 744px | Top nav collapses to logo + hamburger; product tabs hide behind a sheet; search bar collapses to a single tappable pill; property cards stack 1-up; city grid 1-column; listing detail collapses reservation card to a sticky bottom bar. |
+| Tablet | 744–1128px | Top nav keeps product tabs but search bar narrows; property cards 2-up; city grid 2–3 column; reservation card stays sticky right-rail at narrower width. |
+| Desktop | 1128–1440px | Full top nav with three product tabs centered; search bar at full pill width with all 3 segments visible; property cards 4-up; city grid 6-column; listing detail 2-column with reservation rail. |
+| Wide | > 1440px | Content width caps at 1440px on listing/search pages and ~1280px on editorial; gutters absorb the rest. |
+
+### Touch Targets
+- Primary CTAs at minimum 48×48px (above WCAG AAA).
+- Search orb is 48×48px circular — the most-tapped element on the page.
+- Heart save button is 32×32px circular — borderline for AAA but compensated by a generous 12px padding inside the photo card.
+- Date-picker day cells are 40×40px circular.
 
 ### Collapsing Strategy
-- **Navigation**: Horizontal links collapse to hamburger menu below 768px
-- **Hero typography**: Scales from 112px -> 72px -> 48px -> 38px across breakpoints, maintaining tight letter-spacing ratios
-- **Grid layouts**: 3-column -> 2-column at ~960px, single-column below 768px
-- **Card grids**: Horizontal scrolling on mobile instead of wrapping (preserving card aspect ratios)
-- **Section spacing**: Vertical padding reduces by ~40% on mobile (120px -> 64px -> 48px)
-- **Button sizing**: CTA pills maintain padding but reduce font size; ghost buttons stay fixed
-- **Code blocks**: Horizontal scroll with preserved monospace formatting
+- Top product tabs collapse into a hamburger sheet below 744px.
+- Search bar's 3 segments collapse into a single-tap entry that opens a full-screen search overlay on mobile.
+- Property and city-link grids drop column counts cleanly at each breakpoint — never reflow rows; always reduce columns.
+- Reservation card on listing detail switches from sticky right-rail to a sticky bottom bar on mobile, carrying just the "Reserve" CTA + nightly price summary.
 
-### Mobile-Specific Adjustments
-- Full-bleed sections extend edge-to-edge with 16px internal gutters
-- Touch targets: minimum 44px for all interactive elements
-- Heading letter-spacing relaxes slightly at mobile sizes (less aggressive negative tracking)
-- Image containers switch from fixed aspect ratios to full-width with auto height
+## Known Gaps
 
-## 9. Agent Prompt Guide
-
-### Quick Color Reference
-```
-Background:      #0b0b0b (near-black canvas)
-Surface:         #212121 (elevated cards/containers)
-Border:          #353535 (visible) / #212121 (subtle)
-Text Primary:    #ffffff (white on dark)
-Text Secondary:  #b9b9b9 (silver on dark)
-Text Tertiary:   #797979 (medium gray)
-CTA:             #f36458 (coral-red)
-Interactive:     #0052ef (electric blue, all hovers)
-Success:         #19d600 (green, sRGB fallback)
-Error:           #dd0000 (pure red)
-Light Surface:   #ededed / #ffffff (inverted sections)
-```
-
-### Example Prompts
-
-**Landing page section:**
-"Create a feature section with a near-black (#0b0b0b) background. Use a 48px heading in Inter with -1.68px letter-spacing, white text. Below it, 16px body text in #b9b9b9 with 1.50 line-height. Include a coral-red (#f36458) pill button with white text and a secondary dark (#0b0b0b) pill button with #b9b9b9 text. Both buttons hover to #0052ef blue."
-
-**Card grid:**
-"Build a 3-column card grid on a #0b0b0b background. Each card has a #212121 surface, 1px solid #353535 border, 6px border-radius, and 24px padding. Card titles are 24px white with -0.24px letter-spacing. Body text is 13px #b9b9b9. Add a 13px IBM Plex Mono uppercase tag in #797979 at the top of each card."
-
-**Form section:**
-"Design a contact form on a #0b0b0b background. Inputs have #0b0b0b background, 1px solid #212121 border, 3px border-radius, 8px 12px padding, and #b9b9b9 placeholder text. Focus state shows a 2px blue (#0052ef) ring. Submit button is a full-width coral-red (#f36458) pill. Include a 13px #797979 helper text below each field."
-
-**Navigation bar:**
-"Create a sticky top navigation on #0b0b0b with backdrop blur. Left: brand text in 15px white. Center/right: nav links in 16px #b9b9b9 that hover to blue. Far right: a coral-red (#f36458) pill CTA button. Bottom border: 1px solid #212121."
-
-### Iteration Guide
-1. **Start dark**: Begin with `#0b0b0b` background, `#ffffff` primary text, `#b9b9b9` secondary text
-2. **Add structure**: Use `#212121` surfaces and `#353535` borders for containment -- no shadows
-3. **Apply typography**: Inter (or Space Grotesk) with tight letter-spacing on headings, 1.50 line-height on body
-4. **Color punctuation**: Add `#f36458` for CTAs and `#0052ef` for all hover/interactive states
-5. **Refine spacing**: 8px base unit, 24-32px within sections, 64-120px between sections
-6. **Technical details**: Add IBM Plex Mono uppercase labels for tags and metadata
-7. **Polish**: Ensure all interactive elements hover to `#0052ef`, all buttons are pills or subtle 5px radius, borders are hairline (1px)
+- **Hover state colors:** intentionally not documented per the global no-hover policy — Airbnb's actual `:hover` styling for property cards is a subtle elevation lift, but precise extraction is unreliable.
+- **Loading states / skeleton screens:** not visible on the extracted surfaces.
+- **Map view styling:** the search-results map uses Mapbox-tinted tiles with custom Rausch markers; not captured here.
+- **Form input error states:** error text color (`{colors.primary-error-text}`) is documented, but the full input outline + helper-text combination on validation failure was not visible in the captured surfaces.
+- **Sub-brand palettes:** Luxe (`{colors.luxe}`) and Plus (`{colors.plus}`) are documented as tokens, but their full sub-system (typography overrides, surface treatment) lives on separate sub-domains and is not captured here.

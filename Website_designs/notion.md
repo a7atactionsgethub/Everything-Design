@@ -1,6 +1,3 @@
-# Notion Inspired Design System
-
-Design system details have been moved to: https://getdesign.md/notion/design-md
 # Design System Inspired by Notion
 
 ## 1. Visual Theme & Atmosphere

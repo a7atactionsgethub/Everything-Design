@@ -1,249 +1,322 @@
-# Stripe Inspired Design System
-
-Design system details have been moved to: https://getdesign.md/stripe/design-md
-# Design System Inspired by Spotify
+# Design System Inspired by Stripe
 
 ## 1. Visual Theme & Atmosphere
 
-Spotify's web interface is a dark, immersive music player that wraps listeners in a near-black cocoon (`#121212`, `#181818`, `#1f1f1f`) where album art and content become the primary source of color. The design philosophy is "content-first darkness" — the UI recedes into shadow so that music, podcasts, and playlists can glow. Every surface is a shade of charcoal, creating a theater-like environment where the only true color comes from the iconic Spotify Green (`#1ed760`) and the album artwork itself.
+Stripe's website is the gold standard of fintech design -- a system that manages to feel simultaneously technical and luxurious, precise and warm. The page opens on a clean white canvas (`#ffffff`) with deep navy headings (`#061b31`) and a signature purple (`#533afd`) that functions as both brand anchor and interactive accent. This isn't the cold, clinical purple of enterprise software; it's a rich, saturated violet that reads as confident and premium. The overall impression is of a financial institution redesigned by a world-class type foundry.
 
-The typography uses SpotifyMixUI and SpotifyMixUITitle — proprietary fonts from the CircularSp family (Circular by Lineto, customized for Spotify) with an extensive fallback stack that includes Arabic, Hebrew, Cyrillic, Greek, Devanagari, and CJK fonts, reflecting Spotify's global reach. The type system is compact and functional: 700 (bold) for emphasis and navigation, 600 (semibold) for secondary emphasis, and 400 (regular) for body. Buttons use uppercase with positive letter-spacing (1.4px–2px) for a systematic, label-like quality.
+The custom `sohne-var` variable font is the defining element of Stripe's visual identity. Every text element enables the OpenType `"ss01"` stylistic set, which modifies character shapes for a distinctly geometric, modern feel. At display sizes (48px-56px), sohne-var runs at weight 300 -- an extraordinarily light weight for headlines that creates an ethereal, almost whispered authority. This is the opposite of the "bold hero headline" convention; Stripe's headlines feel like they don't need to shout. The negative letter-spacing (-1.4px at 56px, -0.96px at 48px) tightens the text into dense, engineered blocks. At smaller sizes, the system also uses weight 300 with proportionally reduced tracking, and tabular numerals via `"tnum"` for financial data display.
 
-What distinguishes Spotify is its pill-and-circle geometry. Primary buttons use 500px–9999px radius (full pill), circular play buttons use 50% radius, and search inputs are 500px pills. Combined with heavy shadows (`rgba(0,0,0,0.5) 0px 8px 24px`) on elevated elements and a unique inset border-shadow combo (`rgb(18,18,18) 0px 1px 0px, rgb(124,124,124) 0px 0px 0px 1px inset`), the result is an interface that feels like a premium audio device — tactile, rounded, and built for touch.
+What truly distinguishes Stripe is its shadow system. Rather than the flat or single-layer approach of most sites, Stripe uses multi-layer, blue-tinted shadows: the signature `rgba(50,50,93,0.25)` combined with `rgba(0,0,0,0.1)` creates shadows with a cool, almost atmospheric depth -- like elements are floating in a twilight sky. The blue-gray undertone of the primary shadow color (50,50,93) ties directly to the navy-purple brand palette, making even elevation feel on-brand.
 
 **Key Characteristics:**
-- Near-black immersive dark theme (`#121212`–`#1f1f1f`) — UI disappears behind content
-- Spotify Green (`#1ed760`) as singular brand accent — never decorative, always functional
-- SpotifyMixUI/CircularSp font family with global script support
-- Pill buttons (500px–9999px) and circular controls (50%) — rounded, touch-optimized
-- Uppercase button labels with wide letter-spacing (1.4px–2px)
-- Heavy shadows on elevated elements (`rgba(0,0,0,0.5) 0px 8px 24px`)
-- Semantic colors: negative red (`#f3727f`), warning orange (`#ffa42b`), announcement blue (`#539df5`)
-- Album art as the primary color source — the UI is achromatic by design
+- sohne-var with OpenType `"ss01"` on all text -- a custom stylistic set that defines the brand's letterforms
+- Weight 300 as the signature headline weight -- light, confident, anti-convention
+- Negative letter-spacing at display sizes (-1.4px at 56px, progressive relaxation downward)
+- Blue-tinted multi-layer shadows using `rgba(50,50,93,0.25)` -- elevation that feels brand-colored
+- Deep navy (`#061b31`) headings instead of black -- warm, premium, financial-grade
+- Conservative border-radius (4px-8px) -- nothing pill-shaped, nothing harsh
+- Ruby (`#ea2261`) and magenta (`#f96bee`) accents for gradient and decorative elements
+- `SourceCodePro` as the monospace companion for code and technical labels
 
 ## 2. Color Palette & Roles
 
-### Primary Brand
-- **Spotify Green** (`#1ed760`): Primary brand accent — play buttons, active states, CTAs
-- **Near Black** (`#121212`): Deepest background surface
-- **Dark Surface** (`#181818`): Cards, containers, elevated surfaces
-- **Mid Dark** (`#1f1f1f`): Button backgrounds, interactive surfaces
+### Primary
+- **Stripe Purple** (`#533afd`): Primary brand color, CTA backgrounds, link text, interactive highlights. A saturated blue-violet that anchors the entire system.
+- **Deep Navy** (`#061b31`): `--hds-color-heading-solid`. Primary heading color. Not black, not gray -- a very dark blue that adds warmth and depth to text.
+- **Pure White** (`#ffffff`): Page background, card surfaces, button text on dark backgrounds.
 
-### Text
-- **White** (`#ffffff`): `--text-base`, primary text
-- **Silver** (`#b3b3b3`): Secondary text, muted labels, inactive nav
-- **Near White** (`#cbcbcb`): Slightly brighter secondary text
-- **Light** (`#fdfdfd`): Near-pure white for maximum emphasis
+### Brand & Dark
+- **Brand Dark** (`#1c1e54`): `--hds-color-util-brand-900`. Deep indigo for dark sections, footer backgrounds, and immersive brand moments.
+- **Dark Navy** (`#0d253d`): `--hds-color-core-neutral-975`. The darkest neutral -- almost-black with a blue undertone for maximum depth without harshness.
 
-### Semantic
-- **Negative Red** (`#f3727f`): `--text-negative`, error states
-- **Warning Orange** (`#ffa42b`): `--text-warning`, warning states
-- **Announcement Blue** (`#539df5`): `--text-announcement`, info states
+### Accent Colors
+- **Ruby** (`#ea2261`): `--hds-color-accentColorMode-ruby-icon-solid`. Warm red-pink for icons, alerts, and accent elements.
+- **Magenta** (`#f96bee`): `--hds-color-accentColorMode-magenta-icon-gradientMiddle`. Vivid pink-purple for gradients and decorative highlights.
+- **Magenta Light** (`#ffd7ef`): `--hds-color-util-accent-magenta-100`. Tinted surface for magenta-themed cards and badges.
 
-### Surface & Border
-- **Dark Card** (`#252525`): Elevated card surface
-- **Mid Card** (`#272727`): Alternate card surface
-- **Border Gray** (`#4d4d4d`): Button borders on dark
-- **Light Border** (`#7c7c7c`): Outlined button borders, muted links
-- **Separator** (`#b3b3b3`): Divider lines
-- **Light Surface** (`#eeeeee`): Light-mode buttons (rare)
-- **Spotify Green Border** (`#1db954`): Green accent border variant
+### Interactive
+- **Primary Purple** (`#533afd`): Primary link color, active states, selected elements.
+- **Purple Hover** (`#4434d4`): Darker purple for hover states on primary elements.
+- **Purple Deep** (`#2e2b8c`): `--hds-color-button-ui-iconHover`. Dark purple for icon hover states.
+- **Purple Light** (`#b9b9f9`): `--hds-color-action-bg-subduedHover`. Soft lavender for subdued hover backgrounds.
+- **Purple Mid** (`#665efd`): `--hds-color-input-selector-text-range`. Range selector and input highlight color.
 
-### Shadows
-- **Heavy** (`rgba(0,0,0,0.5) 0px 8px 24px`): Dialogs, menus, elevated panels
-- **Medium** (`rgba(0,0,0,0.3) 0px 8px 8px`): Cards, dropdowns
-- **Inset Border** (`rgb(18,18,18) 0px 1px 0px, rgb(124,124,124) 0px 0px 0px 1px inset`): Input border-shadow combo
+### Neutral Scale
+- **Heading** (`#061b31`): Primary headings, nav text, strong labels.
+- **Label** (`#273951`): `--hds-color-input-text-label`. Form labels, secondary headings.
+- **Body** (`#64748d`): Secondary text, descriptions, captions.
+- **Success Green** (`#15be53`): Status badges, success indicators (with 0.2-0.4 alpha for backgrounds/borders).
+- **Success Text** (`#108c3d`): Success badge text color.
+- **Lemon** (`#9b6829`): `--hds-color-core-lemon-500`. Warning and highlight accent.
+
+### Surface & Borders
+- **Border Default** (`#e5edf5`): Standard border color for cards, dividers, and containers.
+- **Border Purple** (`#b9b9f9`): Active/selected state borders on buttons and inputs.
+- **Border Soft Purple** (`#d6d9fc`): Subtle purple-tinted borders for secondary elements.
+- **Border Magenta** (`#ffd7ef`): Pink-tinted borders for magenta-themed elements.
+- **Border Dashed** (`#362baa`): Dashed borders for drop zones and placeholder elements.
+
+### Shadow Colors
+- **Shadow Blue** (`rgba(50,50,93,0.25)`): The signature -- blue-tinted primary shadow color.
+- **Shadow Dark Blue** (`rgba(3,3,39,0.25)`): Deeper blue shadow for elevated elements.
+- **Shadow Black** (`rgba(0,0,0,0.1)`): Secondary shadow layer for depth reinforcement.
+- **Shadow Ambient** (`rgba(23,23,23,0.08)`): Soft ambient shadow for subtle elevation.
+- **Shadow Soft** (`rgba(23,23,23,0.06)`): Minimal ambient shadow for light lift.
 
 ## 3. Typography Rules
 
-### Font Families
-- **Title**: `SpotifyMixUITitle`, fallbacks: `CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, Helvetica Neue, helvetica, arial, Hiragino Sans, Hiragino Kaku Gothic ProN, Meiryo, MS Gothic`
-- **UI / Body**: `SpotifyMixUI`, same fallback stack
+### Font Family
+- **Primary**: `sohne-var`, with fallback: `SF Pro Display`
+- **Monospace**: `SourceCodePro`, with fallback: `SFMono-Regular`
+- **OpenType Features**: `"ss01"` enabled globally on all sohne-var text; `"tnum"` for tabular numbers on financial data and captions.
 
 ### Hierarchy
 
-| Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
-|------|------|------|--------|-------------|----------------|-------|
-| Section Title | SpotifyMixUITitle | 24px (1.50rem) | 700 | normal | normal | Bold title weight |
-| Feature Heading | SpotifyMixUI | 18px (1.13rem) | 600 | 1.30 (tight) | normal | Semibold section heads |
-| Body Bold | SpotifyMixUI | 16px (1.00rem) | 700 | normal | normal | Emphasized text |
-| Body | SpotifyMixUI | 16px (1.00rem) | 400 | normal | normal | Standard body |
-| Button Uppercase | SpotifyMixUI | 14px (0.88rem) | 600–700 | 1.00 (tight) | 1.4px–2px | `text-transform: uppercase` |
-| Button | SpotifyMixUI | 14px (0.88rem) | 700 | normal | 0.14px | Standard button |
-| Nav Link Bold | SpotifyMixUI | 14px (0.88rem) | 700 | normal | normal | Navigation |
-| Nav Link | SpotifyMixUI | 14px (0.88rem) | 400 | normal | normal | Inactive nav |
-| Caption Bold | SpotifyMixUI | 14px (0.88rem) | 700 | 1.50–1.54 | normal | Bold metadata |
-| Caption | SpotifyMixUI | 14px (0.88rem) | 400 | normal | normal | Metadata |
-| Small Bold | SpotifyMixUI | 12px (0.75rem) | 700 | 1.50 | normal | Tags, counts |
-| Small | SpotifyMixUI | 12px (0.75rem) | 400 | normal | normal | Fine print |
-| Badge | SpotifyMixUI | 10.5px (0.66rem) | 600 | 1.33 | normal | `text-transform: capitalize` |
-| Micro | SpotifyMixUI | 10px (0.63rem) | 400 | normal | normal | Smallest text |
+| Role | Font | Size | Weight | Line Height | Letter Spacing | Features | Notes |
+|------|------|------|--------|-------------|----------------|----------|-------|
+| Display Hero | sohne-var | 56px (3.50rem) | 300 | 1.03 (tight) | -1.4px | ss01 | Maximum size, whisper-weight authority |
+| Display Large | sohne-var | 48px (3.00rem) | 300 | 1.15 (tight) | -0.96px | ss01 | Secondary hero headlines |
+| Section Heading | sohne-var | 32px (2.00rem) | 300 | 1.10 (tight) | -0.64px | ss01 | Feature section titles |
+| Sub-heading Large | sohne-var | 26px (1.63rem) | 300 | 1.12 (tight) | -0.26px | ss01 | Card headings, sub-sections |
+| Sub-heading | sohne-var | 22px (1.38rem) | 300 | 1.10 (tight) | -0.22px | ss01 | Smaller section heads |
+| Body Large | sohne-var | 18px (1.13rem) | 300 | 1.40 | normal | ss01 | Feature descriptions, intro text |
+| Body | sohne-var | 16px (1.00rem) | 300-400 | 1.40 | normal | ss01 | Standard reading text |
+| Button | sohne-var | 16px (1.00rem) | 400 | 1.00 (tight) | normal | ss01 | Primary button text |
+| Button Small | sohne-var | 14px (0.88rem) | 400 | 1.00 (tight) | normal | ss01 | Secondary/compact buttons |
+| Link | sohne-var | 14px (0.88rem) | 400 | 1.00 (tight) | normal | ss01 | Navigation links |
+| Caption | sohne-var | 13px (0.81rem) | 400 | normal | normal | ss01 | Small labels, metadata |
+| Caption Small | sohne-var | 12px (0.75rem) | 300-400 | 1.33-1.45 | normal | ss01 | Fine print, timestamps |
+| Caption Tabular | sohne-var | 12px (0.75rem) | 300-400 | 1.33 | -0.36px | tnum | Financial data, numbers |
+| Micro | sohne-var | 10px (0.63rem) | 300 | 1.15 (tight) | 0.1px | ss01 | Tiny labels, axis markers |
+| Micro Tabular | sohne-var | 10px (0.63rem) | 300 | 1.15 (tight) | -0.3px | tnum | Chart data, small numbers |
+| Nano | sohne-var | 8px (0.50rem) | 300 | 1.07 (tight) | normal | ss01 | Smallest labels |
+| Code Body | SourceCodePro | 12px (0.75rem) | 500 | 2.00 (relaxed) | normal | -- | Code blocks, syntax |
+| Code Bold | SourceCodePro | 12px (0.75rem) | 700 | 2.00 (relaxed) | normal | -- | Bold code, keywords |
+| Code Label | SourceCodePro | 12px (0.75rem) | 500 | 2.00 (relaxed) | normal | uppercase | Technical labels |
+| Code Micro | SourceCodePro | 9px (0.56rem) | 500 | 1.00 (tight) | normal | ss01 | Tiny code annotations |
 
 ### Principles
-- **Bold/regular binary**: Most text is either 700 (bold) or 400 (regular), with 600 used sparingly. This creates a clear visual hierarchy through weight contrast rather than size variation.
-- **Uppercase buttons as system**: Button labels use uppercase + wide letter-spacing (1.4px–2px), creating a systematic "label" voice distinct from content text.
-- **Compact sizing**: The range is 10px–24px — narrower than most systems. Spotify's type is compact and functional, designed for scanning playlists, not reading articles.
-- **Global script support**: The extensive fallback stack (Arabic, Hebrew, Cyrillic, Greek, Devanagari, CJK) reflects Spotify's 180+ market reach.
+- **Light weight as signature**: Weight 300 at display sizes is Stripe's most distinctive typographic choice. Where others use 600-700 to command attention, Stripe uses lightness as luxury -- the text is so confident it doesn't need weight to be authoritative.
+- **ss01 everywhere**: The `"ss01"` stylistic set is non-negotiable. It modifies specific glyphs (likely alternate `a`, `g`, `l` forms) to create a more geometric, contemporary feel across all sohne-var text.
+- **Two OpenType modes**: `"ss01"` for display/body text, `"tnum"` for tabular numerals in financial data. These never overlap -- a number in a paragraph uses ss01, a number in a data table uses tnum.
+- **Progressive tracking**: Letter-spacing tightens proportionally with size: -1.4px at 56px, -0.96px at 48px, -0.64px at 32px, -0.26px at 26px, normal at 16px and below.
+- **Two-weight simplicity**: Primarily 300 (body and headings) and 400 (UI/buttons). No bold (700) in the primary font -- SourceCodePro uses 500/700 for code contrast.
 
 ## 4. Component Stylings
 
 ### Buttons
 
-**Dark Pill**
-- Background: `#1f1f1f`
-- Text: `#ffffff` or `#b3b3b3`
+**Primary Purple**
+- Background: `#533afd`
+- Text: `#ffffff`
 - Padding: 8px 16px
-- Radius: 9999px (full pill)
-- Use: Navigation pills, secondary actions
+- Radius: 4px
+- Font: 16px sohne-var weight 400, `"ss01"`
+- Hover: `#4434d4` background
+- Use: Primary CTA ("Start now", "Contact sales")
 
-**Dark Large Pill**
-- Background: `#181818`
-- Text: `#ffffff`
-- Padding: 0px 43px
-- Radius: 500px
-- Use: Primary app navigation buttons
-
-**Light Pill**
-- Background: `#eeeeee`
-- Text: `#181818`
-- Radius: 500px
-- Use: Light-mode CTAs (cookie consent, marketing)
-
-**Outlined Pill**
+**Ghost / Outlined**
 - Background: transparent
-- Text: `#ffffff`
-- Border: `1px solid #7c7c7c`
-- Padding: 4px 16px 4px 36px (asymmetric for icon)
-- Radius: 9999px
-- Use: Follow buttons, secondary actions
+- Text: `#533afd`
+- Padding: 8px 16px
+- Radius: 4px
+- Border: `1px solid #b9b9f9`
+- Font: 16px sohne-var weight 400, `"ss01"`
+- Hover: background shifts to `rgba(83,58,253,0.05)`
+- Use: Secondary actions
 
-**Circular Play**
-- Background: `#1f1f1f`
-- Text: `#ffffff`
-- Padding: 12px
-- Radius: 50% (circle)
-- Use: Play/pause controls
+**Transparent Info**
+- Background: transparent
+- Text: `#2874ad`
+- Padding: 8px 16px
+- Radius: 4px
+- Border: `1px solid rgba(43,145,223,0.2)`
+- Use: Tertiary/info-level actions
+
+**Neutral Ghost**
+- Background: transparent (`rgba(255,255,255,0)`)
+- Text: `rgba(16,16,16,0.3)`
+- Padding: 8px 16px
+- Radius: 4px
+- Outline: `1px solid rgb(212,222,233)`
+- Use: Disabled or muted actions
 
 ### Cards & Containers
-- Background: `#181818` or `#1f1f1f`
-- Radius: 6px–8px
-- No visible borders on most cards
-- Hover: slight background lightening
-- Shadow: `rgba(0,0,0,0.3) 0px 8px 8px` on elevated
+- Background: `#ffffff`
+- Border: `1px solid #e5edf5` (standard) or `1px solid #061b31` (dark accent)
+- Radius: 4px (tight), 5px (standard), 6px (comfortable), 8px (featured)
+- Shadow (standard): `rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px`
+- Shadow (ambient): `rgba(23,23,23,0.08) 0px 15px 35px 0px`
+- Hover: shadow intensifies, often adding the blue-tinted layer
 
-### Inputs
-- Search input: `#1f1f1f` background, `#ffffff` text
-- Radius: 500px (pill)
-- Padding: 12px 96px 12px 48px (icon-aware)
-- Focus: border becomes `#000000`, outline `1px solid`
+### Badges / Tags / Pills
+**Neutral Pill**
+- Background: `#ffffff`
+- Text: `#000000`
+- Padding: 0px 6px
+- Radius: 4px
+- Border: `1px solid #f6f9fc`
+- Font: 11px weight 400
+
+**Success Badge**
+- Background: `rgba(21,190,83,0.2)`
+- Text: `#108c3d`
+- Padding: 1px 6px
+- Radius: 4px
+- Border: `1px solid rgba(21,190,83,0.4)`
+- Font: 10px weight 300
+
+### Inputs & Forms
+- Border: `1px solid #e5edf5`
+- Radius: 4px
+- Focus: `1px solid #533afd` or purple ring
+- Label: `#273951`, 14px sohne-var
+- Text: `#061b31`
+- Placeholder: `#64748d`
 
 ### Navigation
-- Dark sidebar with SpotifyMixUI 14px weight 700 for active, 400 for inactive
-- `#b3b3b3` muted color for inactive items, `#ffffff` for active
-- Circular icon buttons (50% radius)
-- Spotify logo top-left in green
+- Clean horizontal nav on white, sticky with blur backdrop
+- Brand logotype left-aligned
+- Links: sohne-var 14px weight 400, `#061b31` text with `"ss01"`
+- Radius: 6px on nav container
+- CTA: purple button right-aligned ("Sign in", "Start now")
+- Mobile: hamburger toggle with 6px radius
+
+### Decorative Elements
+**Dashed Borders**
+- `1px dashed #362baa` (purple) for placeholder/drop zones
+- `1px dashed #ffd7ef` (magenta) for magenta-themed decorative borders
+
+**Gradient Accents**
+- Ruby-to-magenta gradients (`#ea2261` to `#f96bee`) for hero decorations
+- Brand dark sections use `#1c1e54` backgrounds with white text
 
 ## 5. Layout Principles
 
 ### Spacing System
 - Base unit: 8px
-- Scale: 1px, 2px, 3px, 4px, 5px, 6px, 8px, 10px, 12px, 14px, 15px, 16px, 20px
+- Scale: 1px, 2px, 4px, 6px, 8px, 10px, 11px, 12px, 14px, 16px, 18px, 20px
+- Notable: The scale is dense at the small end (every 2px from 4-12), reflecting Stripe's precision-oriented UI for financial data
 
 ### Grid & Container
-- Sidebar (fixed) + main content area
-- Grid-based album/playlist cards
-- Full-width now-playing bar at bottom
-- Responsive content area fills remaining space
+- Max content width: approximately 1080px
+- Hero: centered single-column with generous padding, lightweight headlines
+- Feature sections: 2-3 column grids for feature cards
+- Full-width dark sections with `#1c1e54` background for brand immersion
+- Code/dashboard previews as contained cards with blue-tinted shadows
 
 ### Whitespace Philosophy
-- **Dark compression**: Spotify packs content densely — playlist grids, track lists, and navigation are all tightly spaced. The dark background provides visual rest between elements without needing large gaps.
-- **Content density over breathing room**: This is an app, not a marketing site. Every pixel serves the listening experience.
+- **Precision spacing**: Unlike the vast emptiness of minimalist systems, Stripe uses measured, purposeful whitespace. Every gap is a deliberate typographic choice.
+- **Dense data, generous chrome**: Financial data displays (tables, charts) are tightly packed, but the UI chrome around them is generously spaced. This creates a sense of controlled density -- like a well-organized spreadsheet in a beautiful frame.
+- **Section rhythm**: White sections alternate with dark brand sections (`#1c1e54`), creating a dramatic light/dark cadence that prevents monotony without introducing arbitrary color.
 
 ### Border Radius Scale
-- Minimal (2px): Badges, explicit tags
-- Subtle (4px): Inputs, small elements
-- Standard (6px): Album art containers, cards
-- Comfortable (8px): Sections, dialogs
-- Medium (10px–20px): Panels, overlay elements
-- Large (100px): Large pill buttons
-- Pill (500px): Primary buttons, search input
-- Full Pill (9999px): Navigation pills, search
-- Circle (50%): Play buttons, avatars, icons
+- Micro (1px): Fine-grained elements, subtle rounding
+- Standard (4px): Buttons, inputs, badges, cards -- the workhorse
+- Comfortable (5px): Standard card containers
+- Relaxed (6px): Navigation, larger interactive elements
+- Large (8px): Featured cards, hero elements
+- Compound: `0px 0px 6px 6px` for bottom-rounded containers (tab panels, dropdown footers)
 
 ## 6. Depth & Elevation
 
 | Level | Treatment | Use |
 |-------|-----------|-----|
-| Base (Level 0) | `#121212` background | Deepest layer, page background |
-| Surface (Level 1) | `#181818` or `#1f1f1f` | Cards, sidebar, containers |
-| Elevated (Level 2) | `rgba(0,0,0,0.3) 0px 8px 8px` | Dropdown menus, hover cards |
-| Dialog (Level 3) | `rgba(0,0,0,0.5) 0px 8px 24px` | Modals, overlays, menus |
-| Inset (Border) | `rgb(18,18,18) 0px 1px 0px, rgb(124,124,124) 0px 0px 0px 1px inset` | Input borders |
+| Flat (Level 0) | No shadow | Page background, inline text |
+| Ambient (Level 1) | `rgba(23,23,23,0.06) 0px 3px 6px` | Subtle card lift, hover hints |
+| Standard (Level 2) | `rgba(23,23,23,0.08) 0px 15px 35px` | Standard cards, content panels |
+| Elevated (Level 3) | `rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px` | Featured cards, dropdowns, popovers |
+| Deep (Level 4) | `rgba(3,3,39,0.25) 0px 14px 21px -14px, rgba(0,0,0,0.1) 0px 8px 17px -8px` | Modals, floating panels |
+| Ring (Accessibility) | `2px solid #533afd` outline | Keyboard focus ring |
 
-**Shadow Philosophy**: Spotify uses notably heavy shadows for a dark-themed app. The 0.5 opacity shadow at 24px blur creates a dramatic "floating in darkness" effect for dialogs and menus, while the 0.3 opacity at 8px blur provides a more subtle card lift. The unique inset border-shadow combination on inputs creates a recessed, tactile quality.
+**Shadow Philosophy**: Stripe's shadow system is built on a principle of chromatic depth. Where most design systems use neutral gray or black shadows, Stripe's primary shadow color (`rgba(50,50,93,0.25)`) is a deep blue-gray that echoes the brand's navy palette. This creates shadows that don't just add depth -- they add brand atmosphere. The multi-layer approach pairs this blue-tinted shadow with a pure black secondary layer (`rgba(0,0,0,0.1)`) at a different offset, creating a parallax-like depth where the branded shadow sits farther from the element and the neutral shadow sits closer. The negative spread values (-30px, -18px) ensure shadows don't extend beyond the element's footprint horizontally, keeping elevation vertical and controlled.
+
+### Decorative Depth
+- Dark brand sections (`#1c1e54`) create immersive depth through background color contrast
+- Gradient overlays with ruby-to-magenta transitions for hero decorations
+- Shadow color `rgba(0,55,112,0.08)` (`--hds-color-shadow-sm-top`) for top-edge shadows on sticky elements
 
 ## 7. Do's and Don'ts
 
 ### Do
-- Use near-black backgrounds (`#121212`–`#1f1f1f`) — depth through shade variation
-- Apply Spotify Green (`#1ed760`) only for play controls, active states, and primary CTAs
-- Use pill shape (500px–9999px) for all buttons — circular (50%) for play controls
-- Apply uppercase + wide letter-spacing (1.4px–2px) on button labels
-- Keep typography compact (10px–24px range) — this is an app, not a magazine
-- Use heavy shadows (`0.3–0.5 opacity`) for elevated elements on dark backgrounds
-- Let album art provide color — the UI itself is achromatic
+- Use sohne-var with `"ss01"` on every text element -- the stylistic set IS the brand
+- Use weight 300 for all headlines and body text -- lightness is the signature
+- Apply blue-tinted shadows (`rgba(50,50,93,0.25)`) for all elevated elements
+- Use `#061b31` (deep navy) for headings instead of `#000000` -- the warmth matters
+- Keep border-radius between 4px-8px -- conservative rounding is intentional
+- Use `"tnum"` for any tabular/financial number display
+- Layer shadows: blue-tinted far + neutral close for depth parallax
+- Use `#533afd` purple as the primary interactive/CTA color
 
 ### Don't
-- Don't use Spotify Green decoratively or on backgrounds — it's functional only
-- Don't use light backgrounds for primary surfaces — the dark immersion is core
-- Don't skip the pill/circle geometry on buttons — square buttons break the identity
-- Don't use thin/subtle shadows — on dark backgrounds, shadows need to be heavy to be visible
-- Don't add additional brand colors — green + achromatic grays is the complete palette
-- Don't use relaxed line-heights — Spotify's typography is compact and dense
-- Don't expose raw gray borders — use shadow-based or inset borders instead
+- Don't use weight 600-700 for sohne-var headlines -- weight 300 is the brand voice
+- Don't use large border-radius (12px+, pill shapes) on cards or buttons -- Stripe is conservative
+- Don't use neutral gray shadows -- always tint with blue (`rgba(50,50,93,...)`)
+- Don't skip `"ss01"` on any sohne-var text -- the alternate glyphs define the personality
+- Don't use pure black (`#000000`) for headings -- always `#061b31` deep navy
+- Don't use warm accent colors (orange, yellow) for interactive elements -- purple is primary
+- Don't apply positive letter-spacing at display sizes -- Stripe tracks tight
+- Don't use the magenta/ruby accents for buttons or links -- they're decorative/gradient only
 
 ## 8. Responsive Behavior
 
 ### Breakpoints
 | Name | Width | Key Changes |
 |------|-------|-------------|
-| Mobile Small | <425px | Compact mobile layout |
-| Mobile | 425–576px | Standard mobile |
-| Tablet | 576–768px | 2-column grid |
-| Tablet Large | 768–896px | Expanded layout |
-| Desktop Small | 896–1024px | Sidebar visible |
-| Desktop | 1024–1280px | Full desktop layout |
-| Large Desktop | >1280px | Expanded grid |
+| Mobile | <640px | Single column, reduced heading sizes, stacked cards |
+| Tablet | 640-1024px | 2-column grids, moderate padding |
+| Desktop | 1024-1280px | Full layout, 3-column feature grids |
+| Large Desktop | >1280px | Centered content with generous margins |
+
+### Touch Targets
+- Buttons use comfortable padding (8px-16px vertical)
+- Navigation links at 14px with adequate spacing
+- Badges have 6px horizontal padding minimum for tap targets
+- Mobile nav toggle with 6px radius button
 
 ### Collapsing Strategy
-- Sidebar: full → collapsed → hidden
-- Album grid: 5 columns → 3 → 2 → 1
-- Now-playing bar: maintained at all sizes
-- Search: pill input maintained, width adjusts
-- Navigation: sidebar → bottom bar on mobile
+- Hero: 56px display -> 32px on mobile, weight 300 maintained
+- Navigation: horizontal links + CTAs -> hamburger toggle
+- Feature cards: 3-column -> 2-column -> single column stacked
+- Dark brand sections: maintain full-width treatment, reduce internal padding
+- Financial data tables: horizontal scroll on mobile
+- Section spacing: 64px+ -> 40px on mobile
+- Typography scale compresses: 56px -> 48px -> 32px hero sizes across breakpoints
+
+### Image Behavior
+- Dashboard/product screenshots maintain blue-tinted shadow at all sizes
+- Hero gradient decorations simplify on mobile
+- Code blocks maintain `SourceCodePro` treatment, may horizontally scroll
+- Card images maintain consistent 4px-6px border-radius
 
 ## 9. Agent Prompt Guide
 
 ### Quick Color Reference
-- Background: Near Black (`#121212`)
-- Surface: Dark Card (`#181818`)
-- Text: White (`#ffffff`)
-- Secondary text: Silver (`#b3b3b3`)
-- Accent: Spotify Green (`#1ed760`)
-- Border: `#4d4d4d`
-- Error: Negative Red (`#f3727f`)
+- Primary CTA: Stripe Purple (`#533afd`)
+- CTA Hover: Purple Dark (`#4434d4`)
+- Background: Pure White (`#ffffff`)
+- Heading text: Deep Navy (`#061b31`)
+- Body text: Slate (`#64748d`)
+- Label text: Dark Slate (`#273951`)
+- Border: Soft Blue (`#e5edf5`)
+- Link: Stripe Purple (`#533afd`)
+- Dark section: Brand Dark (`#1c1e54`)
+- Success: Green (`#15be53`)
+- Accent decorative: Ruby (`#ea2261`), Magenta (`#f96bee`)
 
 ### Example Component Prompts
-- "Create a dark card: #181818 background, 8px radius. Title at 16px SpotifyMixUI weight 700, white text. Subtitle at 14px weight 400, #b3b3b3. Shadow rgba(0,0,0,0.3) 0px 8px 8px on hover."
-- "Design a pill button: #1f1f1f background, white text, 9999px radius, 8px 16px padding. 14px SpotifyMixUI weight 700, uppercase, letter-spacing 1.4px."
-- "Build a circular play button: Spotify Green (#1ed760) background, #000000 icon, 50% radius, 12px padding."
-- "Create search input: #1f1f1f background, white text, 500px radius, 12px 48px padding. Inset border: rgb(124,124,124) 0px 0px 0px 1px inset."
-- "Design navigation sidebar: #121212 background. Active items: 14px weight 700, white. Inactive: 14px weight 400, #b3b3b3."
+- "Create a hero section on white background. Headline at 48px sohne-var weight 300, line-height 1.15, letter-spacing -0.96px, color #061b31, font-feature-settings 'ss01'. Subtitle at 18px weight 300, line-height 1.40, color #64748d. Purple CTA button (#533afd, 4px radius, 8px 16px padding, white text) and ghost button (transparent, 1px solid #b9b9f9, #533afd text, 4px radius)."
+- "Design a card: white background, 1px solid #e5edf5 border, 6px radius. Shadow: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px. Title at 22px sohne-var weight 300, letter-spacing -0.22px, color #061b31, 'ss01'. Body at 16px weight 300, #64748d."
+- "Build a success badge: rgba(21,190,83,0.2) background, #108c3d text, 4px radius, 1px 6px padding, 10px sohne-var weight 300, border 1px solid rgba(21,190,83,0.4)."
+- "Create navigation: white sticky header with backdrop-filter blur(12px). sohne-var 14px weight 400 for links, #061b31 text, 'ss01'. Purple CTA 'Start now' right-aligned (#533afd bg, white text, 4px radius). Nav container 6px radius."
+- "Design a dark brand section: #1c1e54 background, white text. Headline 32px sohne-var weight 300, letter-spacing -0.64px, 'ss01'. Body 16px weight 300, rgba(255,255,255,0.7). Cards inside use rgba(255,255,255,0.1) border with 6px radius."
 
 ### Iteration Guide
-1. Start with #121212 — everything lives in near-black darkness
-2. Spotify Green for functional highlights only (play, active, CTA)
-3. Pill everything — 500px for large, 9999px for small, 50% for circular
-4. Uppercase + wide tracking on buttons — the systematic label voice
-5. Heavy shadows (0.3–0.5 opacity) for elevation — light shadows are invisible on dark
-6. Album art provides all the color — the UI stays achromatic
+1. Always enable `font-feature-settings: "ss01"` on sohne-var text -- this is the brand's typographic DNA
+2. Weight 300 is the default; use 400 only for buttons/links/navigation
+3. Shadow formula: `rgba(50,50,93,0.25) 0px Y1 B1 -S1, rgba(0,0,0,0.1) 0px Y2 B2 -S2` where Y1/B1 are larger (far shadow) and Y2/B2 are smaller (near shadow)
+4. Heading color is `#061b31` (deep navy), body is `#64748d` (slate), labels are `#273951` (dark slate)
+5. Border-radius stays in the 4px-8px range -- never use pill shapes or large rounding
+6. Use `"tnum"` for any numbers in tables, charts, or financial displays
+7. Dark sections use `#1c1e54` -- not black, not gray, but a deep branded indigo
+8. SourceCodePro for code at 12px/500 with 2.00 line-height (very generous for readability)

@@ -1,6 +1,3 @@
-# Sentry Inspired Design System
-
-Design system details have been moved to: https://getdesign.md/sentry/design-md
 # Design System Inspired by Sentry
 
 ## 1. Visual Theme & Atmosphere

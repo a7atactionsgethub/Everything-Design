@@ -1,188 +1,244 @@
-# RunwayML Inspired Design System
-
-Design system details have been moved to: https://getdesign.md/runwayml/design-md
-# Design System Inspired by Revolut
+# Design System Inspired by Runway
 
 ## 1. Visual Theme & Atmosphere
 
-Revolut's website is fintech confidence distilled into pixels — a design system that communicates "your money is in capable hands" through massive typography, generous whitespace, and a disciplined neutral palette. The visual language is built on Aeonik Pro, a geometric grotesque that creates billboard-scale headlines at 136px with weight 500 and aggressive negative tracking (-2.72px). This isn't subtle branding; it's fintech at stadium scale.
+Runway's interface is a cinematic reel brought to life as a website — a dark, editorial, film-production-grade design where full-bleed photography and video ARE the primary UI elements. This is not a typical tech product page; it's a visual manifesto for AI-powered creativity. Every section feels like a frame from a film: dramatic lighting, sweeping landscapes, and intimate human moments captured in high-quality imagery that dominates the viewport.
 
-The color system is built on a comprehensive `--rui-*` (Revolut UI) token architecture with semantic naming for every state: danger (`#e23b4a`), warning (`#ec7e00`), teal (`#00a87e`), blue (`#494fdf`), deep-pink (`#e61e49`), and more. But the marketing surface itself is remarkably restrained — near-black (`#191c1f`) and pure white (`#ffffff`) dominate, with the colorful semantic tokens reserved for the product interface, not the marketing page.
+The design language is built on a single typeface — abcNormal — a clean, geometric sans-serif that handles everything from 48px display headlines to 11px uppercase labels. This single-font commitment creates an extreme typographic uniformity that lets the visual content speak louder than the text. Headlines use tight line-heights (1.0) with negative letter-spacing (-0.9px to -1.2px), creating compressed text blocks that feel like film titles rather than marketing copy.
 
-What distinguishes Revolut is its pill-everything button system. Every button uses 9999px radius — primary dark (`#191c1f`), secondary light (`#f4f4f4`), outlined (`transparent + 2px solid`), and ghost on dark (`rgba(244,244,244,0.1) + 2px solid`). The padding is generous (14px 32px–34px), creating large, confident touch targets. Combined with Inter for body text at various weights and positive letter-spacing (0.16px–0.24px), the result is a design that feels both premium and accessible — banking for the modern era.
+What makes Runway distinctive is its complete commitment to visual content as design. Rather than illustrating features with icons or diagrams, Runway shows actual AI-generated and AI-enhanced imagery — cars driving through cinematic landscapes, artistic portraits, architectural renders. The interface itself retreats into near-invisibility: minimal borders, zero shadows, subtle cool-gray text, and a dark palette that puts maximum focus on the photography.
 
 **Key Characteristics:**
-- Aeonik Pro display at 136px weight 500 — billboard-scale fintech headlines
-- Near-black (`#191c1f`) + white binary with comprehensive `--rui-*` semantic tokens
-- Universal pill buttons (9999px radius) with generous padding (14px 32px)
-- Inter for body text with positive letter-spacing (0.16px–0.24px)
-- Rich semantic color system: blue, teal, pink, yellow, green, brown, danger, warning
-- Zero shadows detected — depth through color contrast only
-- Tight display line-heights (1.00) with relaxed body (1.50–1.56)
+- Cinematic full-bleed photography and video as primary UI elements
+- Single typeface system: abcNormal for everything from display to micro labels
+- Dark-dominant palette with cool-toned neutrals (#767d88, #7d848e)
+- Zero shadows, minimal borders — the interface is intentionally invisible
+- Tight display typography (line-height 1.0) with negative tracking (-0.9px to -1.2px)
+- Uppercase labels with positive letter-spacing for navigational structure
+- Weight 450 (unusual intermediate) for small uppercase text — precision craft
+- Editorial magazine layout with mixed-size image grids
 
 ## 2. Color Palette & Roles
 
 ### Primary
-- **Revolut Dark** (`#191c1f`): Primary dark surface, button background, near-black text
-- **Pure White** (`#ffffff`): `--rui-color-action-label`, primary light surface
-- **Light Surface** (`#f4f4f4`): Secondary button background, subtle surface
+- **Runway Black** (`#000000`): The primary page background and maximum-emphasis text.
+- **Deep Black** (`#030303`): A near-imperceptible variant for layered dark surfaces.
+- **Dark Surface** (`#1a1a1a`): Card backgrounds and elevated dark containers.
+- **Pure White** (`#ffffff`): Primary text on dark surfaces and light-section backgrounds.
 
-### Brand / Interactive
-- **Revolut Blue** (`#494fdf`): `--rui-color-blue`, primary brand blue
-- **Action Blue** (`#4f55f1`): `--rui-color-action-photo-header-text`, header accent
-- **Blue Text** (`#376cd5`): `--website-color-blue-text`, link blue
+### Surface & Background
+- **Near White** (`#fefefe`): The lightest surface — barely distinguishable from pure white.
+- **Cool Cloud** (`#e9ecf2`): Light section backgrounds with a cool blue-gray tint.
+- **Border Dark** (`#27272a`): The single dark-mode border color — barely visible containment.
 
-### Semantic
-- **Danger Red** (`#e23b4a`): `--rui-color-danger`, error/destructive
-- **Deep Pink** (`#e61e49`): `--rui-color-deep-pink`, critical accent
-- **Warning Orange** (`#ec7e00`): `--rui-color-warning`, warning states
-- **Yellow** (`#b09000`): `--rui-color-yellow`, attention
-- **Teal** (`#00a87e`): `--rui-color-teal`, success/positive
-- **Light Green** (`#428619`): `--rui-color-light-green`, secondary success
-- **Green Text** (`#006400`): `--website-color-green-text`, green text
-- **Light Blue** (`#007bc2`): `--rui-color-light-blue`, informational
-- **Brown** (`#936d62`): `--rui-color-brown`, warm neutral accent
-- **Red Text** (`#8b0000`): `--website-color-red-text`, dark red text
+### Neutrals & Text
+- **Charcoal** (`#404040`): Primary body text on light surfaces and secondary text.
+- **Near Charcoal** (`#3f3f3f`): Slightly lighter variant for dark-section secondary text.
+- **Cool Slate** (`#767d88`): Secondary body text — a distinctly blue-gray cool neutral.
+- **Mid Slate** (`#7d848e`): Tertiary text, metadata descriptions.
+- **Muted Gray** (`#a7a7a7`): De-emphasized content, timestamps.
+- **Cool Silver** (`#c9ccd1`): Light borders and dividers.
+- **Light Silver** (`#d0d4d4`): The lightest border/divider variant.
+- **Tailwind Gray** (`#6b7280`): Standard Tailwind neutral for supplementary text.
+- **Dark Link** (`#0c0c0c`): Darkest link text — nearly black.
+- **Footer Gray** (`#999999`): Footer links and deeply muted content.
 
-### Neutral Scale
-- **Mid Slate** (`#505a63`): Secondary text
-- **Cool Gray** (`#8d969e`): Muted text, tertiary
-- **Gray Tone** (`#c9c9cd`): `--rui-color-grey-tone-20`, borders/dividers
+### Gradient System
+- **None in the interface.** Visual richness comes entirely from photographic content — AI-generated and enhanced imagery provides all the color and gradient the design needs. The interface itself is intentionally colorless.
 
 ## 3. Typography Rules
 
-### Font Families
-- **Display**: `Aeonik Pro` — geometric grotesque, no detected fallbacks
-- **Body / UI**: `Inter` — standard system sans
-- **Fallback**: `Arial` for specific button contexts
+### Font Family
+- **Universal**: `abcNormal`, with fallback: `abcNormal Fallback`
+
+*Note: abcNormal is a custom geometric sans-serif. For external implementations, Inter or DM Sans serve as close substitutes.*
 
 ### Hierarchy
 
 | Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
 |------|------|------|--------|-------------|----------------|-------|
-| Display Mega | Aeonik Pro | 136px (8.50rem) | 500 | 1.00 (tight) | -2.72px | Stadium-scale hero |
-| Display Hero | Aeonik Pro | 80px (5.00rem) | 500 | 1.00 (tight) | -0.8px | Primary hero |
-| Section Heading | Aeonik Pro | 48px (3.00rem) | 500 | 1.21 (tight) | -0.48px | Feature sections |
-| Sub-heading | Aeonik Pro | 40px (2.50rem) | 500 | 1.20 (tight) | -0.4px | Sub-sections |
-| Card Title | Aeonik Pro | 32px (2.00rem) | 500 | 1.19 (tight) | -0.32px | Card headings |
-| Feature Title | Aeonik Pro | 24px (1.50rem) | 400 | 1.33 | normal | Light headings |
-| Nav / UI | Aeonik Pro | 20px (1.25rem) | 500 | 1.40 | normal | Navigation, buttons |
-| Body Large | Inter | 18px (1.13rem) | 400 | 1.56 | -0.09px | Introductions |
-| Body | Inter | 16px (1.00rem) | 400 | 1.50 | 0.24px | Standard reading |
-| Body Semibold | Inter | 16px (1.00rem) | 600 | 1.50 | 0.16px | Emphasized body |
-| Body Bold Link | Inter | 16px (1.00rem) | 700 | 1.50 | 0.24px | Bold links |
+| Display / Hero | abcNormal | 48px (3rem) | 400 | 1.00 (tight) | -1.2px | Maximum size, film-title presence |
+| Section Heading | abcNormal | 40px (2.5rem) | 400 | 1.00–1.10 | -1px to 0px | Feature section titles |
+| Sub-heading | abcNormal | 36px (2.25rem) | 400 | 1.00 (tight) | -0.9px | Secondary section markers |
+| Card Title | abcNormal | 24px (1.5rem) | 400 | 1.00 (tight) | normal | Article and card headings |
+| Feature Title | abcNormal | 20px (1.25rem) | 400 | 1.00 (tight) | normal | Small headings |
+| Body / Button | abcNormal | 16px (1rem) | 400–600 | 1.30–1.50 | -0.16px to normal | Standard body, nav links |
+| Caption / Label | abcNormal | 14px (0.88rem) | 500–600 | 1.25–1.43 | 0.35px (uppercase) | Metadata, section labels |
+| Small | abcNormal | 13px (0.81rem) | 400 | 1.30 (tight) | -0.16px to -0.26px | Compact descriptions |
+| Micro / Tag | abcNormal | 11px (0.69rem) | 450 | 1.30 (tight) | normal | Uppercase tags, tiny labels |
 
 ### Principles
-- **Weight 500 as display default**: Aeonik Pro uses medium (500) for ALL headings — no bold. This creates authority through size and tracking, not weight.
-- **Billboard tracking**: -2.72px at 136px is extremely compressed — text designed to be read at a glance, like airport signage.
-- **Positive tracking on body**: Inter uses +0.16px to +0.24px, creating airy, well-spaced reading text that contrasts with the compressed headings.
+- **One typeface, complete expression**: abcNormal handles every text role. The design achieves variety through size, weight, case, and letter-spacing rather than font-family switching.
+- **Tight everywhere**: Nearly every size uses line-height 1.0–1.30 — even body text is relatively compressed. This creates a dense, editorial feel.
+- **Weight 450 — the precision detail**: Some small uppercase labels use weight 450, an uncommon intermediate between regular (400) and medium (500). This micro-craft signals typographic sophistication.
+- **Negative tracking as default**: Even body text uses -0.16px to -0.26px letter-spacing, keeping everything slightly tighter than default.
+- **Uppercase as structure**: Labels at 14px and 11px use `text-transform: uppercase` with positive letter-spacing (0.35px) to create navigational signposts that contrast with the tight lowercase text.
 
 ## 4. Component Stylings
 
 ### Buttons
-
-**Primary Dark Pill**
-- Background: `#191c1f`
-- Text: `#ffffff`
-- Padding: 14px 32px
-- Radius: 9999px (full pill)
-- Hover: opacity 0.85
-- Focus: `0 0 0 0.125rem` ring
-
-**Secondary Light Pill**
-- Background: `#f4f4f4`
-- Text: `#000000`
-- Padding: 14px 34px
-- Radius: 9999px
-- Hover: opacity 0.85
-
-**Outlined Pill**
-- Background: transparent
-- Text: `#191c1f`
-- Border: `2px solid #191c1f`
-- Padding: 14px 32px
-- Radius: 9999px
-
-**Ghost on Dark**
-- Background: `rgba(244, 244, 244, 0.1)`
-- Text: `#f4f4f4`
-- Border: `2px solid #f4f4f4`
-- Padding: 14px 32px
-- Radius: 9999px
+- Text: weight 600 at 14px abcNormal
+- Background: likely transparent or dark, with minimal border
+- Radius: small (4px) for button-like links
+- The button design is extremely restrained — no heavy fills or borders detected
+- Interactive elements blend into the editorial flow
 
 ### Cards & Containers
-- Radius: 12px (small), 20px (cards)
-- No shadows — flat surfaces with color contrast
-- Dark and light section alternation
+- Background: transparent or Dark Surface (`#1a1a1a`)
+- Border: `1px solid #27272a` (dark mode) — barely visible containment
+- Radius: small (4–8px) for functional elements; 16px for alert-style containers
+- Shadow: zero — no shadows on any element
+- Cards are primarily photographic — the image IS the card
 
 ### Navigation
-- Aeonik Pro 20px weight 500
-- Clean header, hamburger toggle at 12px radius
-- Pill CTAs right-aligned
+- Minimal horizontal nav — transparent over hero content
+- Logo: Runway wordmark in white/black
+- Links: abcNormal at 16px, weight 400–600
+- Hover: text shifts to white or higher opacity
+- Extremely subtle — designed to not compete with visual content
+
+### Image Treatment
+- Full-bleed cinematic photography and video dominate
+- AI-generated content shown at large scale as primary visual elements
+- Mixed-size image grids creating editorial magazine layouts
+- Dark overlays on hero images for text readability
+- Product screenshots with subtle rounded corners (8px)
+
+### Distinctive Components
+
+**Cinematic Hero**
+- Full-viewport image or video with text overlay
+- Headline in 48px abcNormal, white on dark imagery
+- The image is always cinematic quality — film-grade composition
+
+**Research Article Cards**
+- Photographic thumbnails with article titles
+- Mixed-size grid layout (large feature + smaller supporting)
+- Clean text overlay or below-image caption style
+
+**Trust Bar**
+- Company logos (leading organizations across industries)
+- Clean, monochrome treatment
+- Horizontal layout with generous spacing
+
+**Mission Statement**
+- "We are building AI to simulate the world through imagination, art and aesthetics"
+- On a dark background with white text
+- The emotional close — artistic and philosophical
 
 ## 5. Layout Principles
 
 ### Spacing System
 - Base unit: 8px
-- Scale: 4px, 6px, 8px, 14px, 16px, 20px, 24px, 32px, 40px, 48px, 80px, 88px, 120px
-- Large section spacing: 80px–120px
+- Scale: 4px, 6px, 8px, 12px, 16px, 20px, 24px, 28px, 32px, 48px, 64px, 78px
+- Section vertical spacing: generous (48–78px)
+- Component gaps: 16–24px
+
+### Grid & Container
+- Max container width: up to 1600px (cinema-wide)
+- Hero: full-viewport, edge-to-edge
+- Content sections: centered with generous margins
+- Image grids: asymmetric, magazine-style mixed sizes
+- Footer: full-width dark section
+
+### Whitespace Philosophy
+- **Cinema-grade breathing**: Large vertical gaps between sections create a scrolling experience that feels like watching scenes change.
+- **Images replace whitespace**: Where other sites use empty space, Runway fills it with photography. The visual content IS the breathing room.
+- **Editorial grid asymmetry**: The image grid uses intentionally varied sizes — large hero images paired with smaller supporting images, creating visual rhythm.
 
 ### Border Radius Scale
-- Standard (12px): Navigation, small buttons
-- Card (20px): Feature cards
-- Pill (9999px): All buttons
+- Sharp (4px): Buttons, small interactive elements
+- Subtle (6px): Links, small containers
+- Comfortable (8px): Standard containers, image cards
+- Generous (16px): Alert-style containers, featured elements
 
 ## 6. Depth & Elevation
 
 | Level | Treatment | Use |
 |-------|-----------|-----|
-| Flat (Level 0) | No shadow | Everything — Revolut uses zero shadows |
-| Focus | `0 0 0 0.125rem` ring | Accessibility focus |
+| Flat (Level 0) | No shadow, no border | Everything — the dominant state |
+| Bordered (Level 1) | `1px solid #27272a` | Alert containers only |
+| Dark Section (Level 2) | Dark bg (#000000 / #1a1a1a) with light text | Hero, features, footer |
+| Light Section (Level 3) | White/Cool Cloud bg with dark text | Content sections, research |
 
-**Shadow Philosophy**: Revolut uses ZERO shadows. Depth comes entirely from the dark/light section contrast and the generous whitespace between elements.
+**Shadow Philosophy**: Runway uses **zero shadows**. This is a film-production design decision — in cinema, depth comes from lighting, focus, and composition, not drop shadows. The interface mirrors this philosophy: depth is communicated through dark/light section alternation, photographic depth-of-field, and overlay transparency — never through CSS box-shadow.
 
 ## 7. Do's and Don'ts
 
 ### Do
-- Use Aeonik Pro weight 500 for all display headings
-- Apply 9999px radius to all buttons — pill shape is universal
-- Use generous button padding (14px 32px)
-- Keep the palette to near-black + white for marketing surfaces
-- Apply positive letter-spacing on Inter body text
+- Use full-bleed cinematic photography as the primary visual element
+- Use abcNormal for all text — maintain the single-typeface commitment
+- Keep display line-heights at 1.0 with negative letter-spacing for film-title density
+- Use the cool-gray neutral palette (#767d88, #7d848e) for secondary text
+- Maintain zero shadows — depth comes from photography and section backgrounds
+- Use uppercase with letter-spacing for navigational labels (14px, 0.35px spacing)
+- Apply small border-radius (4–8px) — the design is NOT pill-shaped
+- Let visual content (photos, videos) dominate — the UI should be invisible
+- Use weight 450 for micro labels — the precision matters
 
 ### Don't
-- Don't use shadows — Revolut is flat by design
-- Don't use bold (700) for Aeonik Pro headings — 500 is the weight
-- Don't use small buttons — the generous padding is intentional
-- Don't apply semantic colors to marketing surfaces — they're for the product
+- Don't add decorative colors to the interface — the only color comes from photography
+- Don't use heavy borders or shadows — the interface must be nearly invisible
+- Don't use pill-shaped radius — Runway's geometry is subtly rounded, not circular
+- Don't use bold (700+) weight — 400–600 is the full range, with 450 as a precision tool
+- Don't compete with the visual content — text overlays should be minimal and restrained
+- Don't use gradient backgrounds in the interface — gradients exist only in photography
+- Don't use more than one typeface — abcNormal handles everything
+- Don't use body line-height above 1.50 — the tight, editorial feel is core
+- Don't reduce image quality — cinematic photography IS the design
 
 ## 8. Responsive Behavior
 
 ### Breakpoints
 | Name | Width | Key Changes |
 |------|-------|-------------|
-| Mobile Small | <400px | Compact, single column |
-| Mobile | 400–720px | Standard mobile |
-| Tablet | 720–1024px | 2-column layouts |
-| Desktop | 1024–1280px | Standard desktop |
-| Large | 1280–1920px | Full layout |
+| Mobile | <640px | Single column, stacked images, reduced hero text |
+| Tablet | 640–768px | 2-column image grids begin |
+| Small Desktop | 768–1024px | Standard layout |
+| Desktop | 1024–1280px | Full layout, expanded hero |
+| Large Desktop | 1280–1600px | Maximum cinema-width container |
+
+### Touch Targets
+- Navigation links at comfortable 16px
+- Article cards serve as large touch targets
+- Buttons at 14px weight 600 with adequate padding
+
+### Collapsing Strategy
+- **Navigation**: Collapses to hamburger on mobile
+- **Hero**: Full-bleed maintained, text scales down
+- **Image grids**: Multi-column → 2-column → single column
+- **Research articles**: Feature-size cards → stacked full-width
+- **Trust logos**: Horizontal scroll or reduced grid
+
+### Image Behavior
+- Cinematic images scale proportionally
+- Full-bleed hero maintained across all sizes
+- Image grids reflow to fewer columns
+- Video content maintains aspect ratio
 
 ## 9. Agent Prompt Guide
 
 ### Quick Color Reference
-- Dark: Revolut Dark (`#191c1f`)
-- Light: White (`#ffffff`)
-- Surface: Light (`#f4f4f4`)
-- Blue: Revolut Blue (`#494fdf`)
-- Danger: Red (`#e23b4a`)
-- Success: Teal (`#00a87e`)
+- Background Dark: "Runway Black (#000000)"
+- Background Light: "Pure White (#ffffff)"
+- Primary Text Dark: "Charcoal (#404040)"
+- Secondary Text: "Cool Slate (#767d88)"
+- Muted Text: "Muted Gray (#a7a7a7)"
+- Light Border: "Cool Silver (#c9ccd1)"
+- Dark Border: "Border Dark (#27272a)"
+- Card Surface: "Dark Surface (#1a1a1a)"
 
 ### Example Component Prompts
-- "Create a hero: white background. Headline at 136px Aeonik Pro weight 500, line-height 1.00, letter-spacing -2.72px, #191c1f text. Dark pill CTA (#191c1f, 9999px, 14px 32px). Outlined pill secondary (transparent, 2px solid #191c1f)."
-- "Build a pill button: #191c1f background, white text, 9999px radius, 14px 32px padding, 20px Aeonik Pro weight 500. Hover: opacity 0.85."
+- "Create a cinematic hero section: full-bleed dark background with a cinematic image overlay. Headline at 48px abcNormal weight 400, line-height 1.0, letter-spacing -1.2px in white. Minimal text below in Cool Slate (#767d88) at 16px."
+- "Design a research article grid: one large card (50% width) with a cinematic image and 24px title, next to two smaller cards stacked. All images with 8px border-radius. Titles in white (dark bg) or Charcoal (#404040, light bg)."
+- "Build a section label: 14px abcNormal weight 500, uppercase, letter-spacing 0.35px in Cool Slate (#767d88). No border, no background."
+- "Create a trust bar: company logos in monochrome, horizontal layout with generous spacing. On dark background with white/gray logo treatments."
+- "Design a mission statement section: Runway Black background, white text at 36px abcNormal, line-height 1.0, letter-spacing -0.9px. Centered, with generous vertical padding."
 
 ### Iteration Guide
-1. Aeonik Pro 500 for headings — never bold
-2. All buttons are pills (9999px) with generous padding
-3. Zero shadows — flat is the Revolut identity
-4. Near-black + white for marketing, semantic colors for product
+1. Visual content first — always include cinematic photography
+2. Use abcNormal for everything — specify size and weight, never change the font
+3. Keep the interface invisible — no heavy borders, no shadows, no bright colors
+4. Use the cool slate grays (#767d88, #7d848e) for secondary text — not warm grays
+5. Uppercase labels need letter-spacing (0.35px) — never tight uppercase
+6. Dark sections should be truly dark (#000000 or #1a1a1a) — no medium grays as surfaces

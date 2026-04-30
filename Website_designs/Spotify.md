@@ -1,197 +1,246 @@
-# Spotify Inspired Design System
-
-Design system details have been moved to: https://getdesign.md/spotify/design-md
-# Design System Inspired by SpaceX
+# Design System Inspired by Spotify
 
 ## 1. Visual Theme & Atmosphere
 
-SpaceX's website is a full-screen cinematic experience that treats aerospace engineering like a film — every section is a scene, every photograph is a frame, and the interface disappears entirely behind the imagery. The design is pure black (`#000000`) with photography of rockets, space, and planets occupying 100% of the viewport. Text overlays sit directly on these photographs with no background panels, cards, or containers — just type on image, bold and unapologetic.
+Spotify's web interface is a dark, immersive music player that wraps listeners in a near-black cocoon (`#121212`, `#181818`, `#1f1f1f`) where album art and content become the primary source of color. The design philosophy is "content-first darkness" — the UI recedes into shadow so that music, podcasts, and playlists can glow. Every surface is a shade of charcoal, creating a theater-like environment where the only true color comes from the iconic Spotify Green (`#1ed760`) and the album artwork itself.
 
-The typography system uses D-DIN, an industrial geometric typeface with DIN heritage (the German industrial standard). The defining characteristic is that virtually ALL text is uppercase with positive letter-spacing (0.96px–1.17px), creating a military/aerospace labeling system where every word feels stenciled onto a spacecraft hull. D-DIN-Bold at 48px with uppercase and 0.96px tracking for the hero creates headlines that feel like mission briefing titles. Even body text at 16px maintains the uppercase/tracked treatment at smaller scales.
+The typography uses SpotifyMixUI and SpotifyMixUITitle — proprietary fonts from the CircularSp family (Circular by Lineto, customized for Spotify) with an extensive fallback stack that includes Arabic, Hebrew, Cyrillic, Greek, Devanagari, and CJK fonts, reflecting Spotify's global reach. The type system is compact and functional: 700 (bold) for emphasis and navigation, 600 (semibold) for secondary emphasis, and 400 (regular) for body. Buttons use uppercase with positive letter-spacing (1.4px–2px) for a systematic, label-like quality.
 
-What makes SpaceX distinctive is its radical minimalism: no shadows, no borders (except one ghost button border at `rgba(240,240,250,0.35)`), no color (only black and a spectral near-white `#f0f0fa`), no cards, no grids. The only visual element is photography + text. The ghost button with `rgba(240,240,250,0.1)` background and 32px radius is the sole interactive element — barely visible, floating over the imagery like a heads-up display. This isn't a design system in the traditional sense — it's a photographic exhibition with a type system and a single button.
+What distinguishes Spotify is its pill-and-circle geometry. Primary buttons use 500px–9999px radius (full pill), circular play buttons use 50% radius, and search inputs are 500px pills. Combined with heavy shadows (`rgba(0,0,0,0.5) 0px 8px 24px`) on elevated elements and a unique inset border-shadow combo (`rgb(18,18,18) 0px 1px 0px, rgb(124,124,124) 0px 0px 0px 1px inset`), the result is an interface that feels like a premium audio device — tactile, rounded, and built for touch.
 
 **Key Characteristics:**
-- Pure black canvas with full-viewport cinematic photography — the interface is invisible
-- D-DIN / D-DIN-Bold — industrial DIN-heritage typeface
-- Universal uppercase + positive letter-spacing (0.96px–1.17px) — aerospace stencil aesthetic
-- Near-white spectral text (`#f0f0fa`) — not pure white, a slight blue-violet tint
-- Zero shadows, zero cards, zero containers — text on image only
-- Single ghost button: `rgba(240,240,250,0.1)` background with spectral border
-- Full-viewport sections — each section is a cinematic "scene"
-- No decorative elements — every pixel serves the photography
+- Near-black immersive dark theme (`#121212`–`#1f1f1f`) — UI disappears behind content
+- Spotify Green (`#1ed760`) as singular brand accent — never decorative, always functional
+- SpotifyMixUI/CircularSp font family with global script support
+- Pill buttons (500px–9999px) and circular controls (50%) — rounded, touch-optimized
+- Uppercase button labels with wide letter-spacing (1.4px–2px)
+- Heavy shadows on elevated elements (`rgba(0,0,0,0.5) 0px 8px 24px`)
+- Semantic colors: negative red (`#f3727f`), warning orange (`#ffa42b`), announcement blue (`#539df5`)
+- Album art as the primary color source — the UI is achromatic by design
 
 ## 2. Color Palette & Roles
 
-### Primary
-- **Space Black** (`#000000`): Page background, the void of space — at 50% opacity for overlay gradient
-- **Spectral White** (`#f0f0fa`): Text color — not pure white, a slight blue-violet tint that mimics starlight
+### Primary Brand
+- **Spotify Green** (`#1ed760`): Primary brand accent — play buttons, active states, CTAs
+- **Near Black** (`#121212`): Deepest background surface
+- **Dark Surface** (`#181818`): Cards, containers, elevated surfaces
+- **Mid Dark** (`#1f1f1f`): Button backgrounds, interactive surfaces
 
-### Interactive
-- **Ghost Surface** (`rgba(240, 240, 250, 0.1)`): Button background — nearly invisible, 10% opacity
-- **Ghost Border** (`rgba(240, 240, 250, 0.35)`): Button border — spectral, 35% opacity
-- **Hover White** (`var(--white-100)`): Link hover state — full spectral white
+### Text
+- **White** (`#ffffff`): `--text-base`, primary text
+- **Silver** (`#b3b3b3`): Secondary text, muted labels, inactive nav
+- **Near White** (`#cbcbcb`): Slightly brighter secondary text
+- **Light** (`#fdfdfd`): Near-pure white for maximum emphasis
 
-### Gradient
-- **Dark Overlay** (`rgba(0, 0, 0, 0.5)`): Gradient overlay on photographs to ensure text legibility
+### Semantic
+- **Negative Red** (`#f3727f`): `--text-negative`, error states
+- **Warning Orange** (`#ffa42b`): `--text-warning`, warning states
+- **Announcement Blue** (`#539df5`): `--text-announcement`, info states
+
+### Surface & Border
+- **Dark Card** (`#252525`): Elevated card surface
+- **Mid Card** (`#272727`): Alternate card surface
+- **Border Gray** (`#4d4d4d`): Button borders on dark
+- **Light Border** (`#7c7c7c`): Outlined button borders, muted links
+- **Separator** (`#b3b3b3`): Divider lines
+- **Light Surface** (`#eeeeee`): Light-mode buttons (rare)
+- **Spotify Green Border** (`#1db954`): Green accent border variant
+
+### Shadows
+- **Heavy** (`rgba(0,0,0,0.5) 0px 8px 24px`): Dialogs, menus, elevated panels
+- **Medium** (`rgba(0,0,0,0.3) 0px 8px 8px`): Cards, dropdowns
+- **Inset Border** (`rgb(18,18,18) 0px 1px 0px, rgb(124,124,124) 0px 0px 0px 1px inset`): Input border-shadow combo
 
 ## 3. Typography Rules
 
 ### Font Families
-- **Display**: `D-DIN-Bold` — bold industrial geometric
-- **Body / UI**: `D-DIN`, fallbacks: `Arial, Verdana`
+- **Title**: `SpotifyMixUITitle`, fallbacks: `CircularSp-Arab, CircularSp-Hebr, CircularSp-Cyrl, CircularSp-Grek, CircularSp-Deva, Helvetica Neue, helvetica, arial, Hiragino Sans, Hiragino Kaku Gothic ProN, Meiryo, MS Gothic`
+- **UI / Body**: `SpotifyMixUI`, same fallback stack
 
 ### Hierarchy
 
 | Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
 |------|------|------|--------|-------------|----------------|-------|
-| Display Hero | D-DIN-Bold | 48px (3.00rem) | 700 | 1.00 (tight) | 0.96px | `text-transform: uppercase` |
-| Body | D-DIN | 16px (1.00rem) | 400 | 1.50–1.70 | normal | Standard reading text |
-| Nav Link Bold | D-DIN | 13px (0.81rem) | 700 | 0.94 (tight) | 1.17px | `text-transform: uppercase` |
-| Nav Link | D-DIN | 12px (0.75rem) | 400 | 2.00 (relaxed) | normal | `text-transform: uppercase` |
-| Caption Bold | D-DIN | 13px (0.81rem) | 700 | 0.94 (tight) | 1.17px | `text-transform: uppercase` |
-| Caption | D-DIN | 12px (0.75rem) | 400 | 1.00 (tight) | normal | `text-transform: uppercase` |
-| Micro | D-DIN | 10px (0.63rem) | 400 | 0.94 (tight) | 1px | `text-transform: uppercase` |
+| Section Title | SpotifyMixUITitle | 24px (1.50rem) | 700 | normal | normal | Bold title weight |
+| Feature Heading | SpotifyMixUI | 18px (1.13rem) | 600 | 1.30 (tight) | normal | Semibold section heads |
+| Body Bold | SpotifyMixUI | 16px (1.00rem) | 700 | normal | normal | Emphasized text |
+| Body | SpotifyMixUI | 16px (1.00rem) | 400 | normal | normal | Standard body |
+| Button Uppercase | SpotifyMixUI | 14px (0.88rem) | 600–700 | 1.00 (tight) | 1.4px–2px | `text-transform: uppercase` |
+| Button | SpotifyMixUI | 14px (0.88rem) | 700 | normal | 0.14px | Standard button |
+| Nav Link Bold | SpotifyMixUI | 14px (0.88rem) | 700 | normal | normal | Navigation |
+| Nav Link | SpotifyMixUI | 14px (0.88rem) | 400 | normal | normal | Inactive nav |
+| Caption Bold | SpotifyMixUI | 14px (0.88rem) | 700 | 1.50–1.54 | normal | Bold metadata |
+| Caption | SpotifyMixUI | 14px (0.88rem) | 400 | normal | normal | Metadata |
+| Small Bold | SpotifyMixUI | 12px (0.75rem) | 700 | 1.50 | normal | Tags, counts |
+| Small | SpotifyMixUI | 12px (0.75rem) | 400 | normal | normal | Fine print |
+| Badge | SpotifyMixUI | 10.5px (0.66rem) | 600 | 1.33 | normal | `text-transform: capitalize` |
+| Micro | SpotifyMixUI | 10px (0.63rem) | 400 | normal | normal | Smallest text |
 
 ### Principles
-- **Universal uppercase**: Nearly every text element uses `text-transform: uppercase`. This creates a systematic military/aerospace voice where all communication feels like official documentation.
-- **Positive letter-spacing as identity**: 0.96px on display, 1.17px on nav — the wide tracking creates the stenciled, industrial feel that connects to DIN's heritage as a German engineering standard.
-- **Two weights, strict hierarchy**: D-DIN-Bold (700) for headlines and nav emphasis, D-DIN (400) for body. No medium or semibold weights exist in the system.
-- **Tight line-heights**: 0.94–1.00 across most text — compressed, efficient, mission-critical communication.
+- **Bold/regular binary**: Most text is either 700 (bold) or 400 (regular), with 600 used sparingly. This creates a clear visual hierarchy through weight contrast rather than size variation.
+- **Uppercase buttons as system**: Button labels use uppercase + wide letter-spacing (1.4px–2px), creating a systematic "label" voice distinct from content text.
+- **Compact sizing**: The range is 10px–24px — narrower than most systems. Spotify's type is compact and functional, designed for scanning playlists, not reading articles.
+- **Global script support**: The extensive fallback stack (Arabic, Hebrew, Cyrillic, Greek, Devanagari, CJK) reflects Spotify's 180+ market reach.
 
 ## 4. Component Stylings
 
 ### Buttons
 
-**Ghost Button**
-- Background: `rgba(240, 240, 250, 0.1)` (barely visible)
-- Text: Spectral White (`#f0f0fa`)
-- Padding: 18px
-- Radius: 32px
-- Border: `1px solid rgba(240, 240, 250, 0.35)`
-- Hover: background brightens, text to `var(--white-100)`
-- Use: The only button variant — "LEARN MORE" CTAs on photography
+**Dark Pill**
+- Background: `#1f1f1f`
+- Text: `#ffffff` or `#b3b3b3`
+- Padding: 8px 16px
+- Radius: 9999px (full pill)
+- Use: Navigation pills, secondary actions
+
+**Dark Large Pill**
+- Background: `#181818`
+- Text: `#ffffff`
+- Padding: 0px 43px
+- Radius: 500px
+- Use: Primary app navigation buttons
+
+**Light Pill**
+- Background: `#eeeeee`
+- Text: `#181818`
+- Radius: 500px
+- Use: Light-mode CTAs (cookie consent, marketing)
+
+**Outlined Pill**
+- Background: transparent
+- Text: `#ffffff`
+- Border: `1px solid #7c7c7c`
+- Padding: 4px 16px 4px 36px (asymmetric for icon)
+- Radius: 9999px
+- Use: Follow buttons, secondary actions
+
+**Circular Play**
+- Background: `#1f1f1f`
+- Text: `#ffffff`
+- Padding: 12px
+- Radius: 50% (circle)
+- Use: Play/pause controls
 
 ### Cards & Containers
-- **None.** SpaceX does not use cards, panels, or containers. All content is text directly on full-viewport photographs. The absence of containers IS the design.
+- Background: `#181818` or `#1f1f1f`
+- Radius: 6px–8px
+- No visible borders on most cards
+- Hover: slight background lightening
+- Shadow: `rgba(0,0,0,0.3) 0px 8px 8px` on elevated
 
-### Inputs & Forms
-- Not present on the homepage. The site is purely presentational.
+### Inputs
+- Search input: `#1f1f1f` background, `#ffffff` text
+- Radius: 500px (pill)
+- Padding: 12px 96px 12px 48px (icon-aware)
+- Focus: border becomes `#000000`, outline `1px solid`
 
 ### Navigation
-- Transparent overlay nav on photography
-- D-DIN 13px weight 700, uppercase, 1.17px tracking
-- Spectral white text on dark imagery
-- Logo: SpaceX wordmark at 147x19px
-- Mobile: hamburger collapse
-
-### Image Treatment
-- Full-viewport (100vh) photography sections
-- Professional aerospace photography: rockets, Mars, space
-- Dark gradient overlays (`rgba(0,0,0,0.5)`) for text legibility
-- Each section = one full-screen photograph with text overlay
-- No border radius, no frames — edge-to-edge imagery
+- Dark sidebar with SpotifyMixUI 14px weight 700 for active, 400 for inactive
+- `#b3b3b3` muted color for inactive items, `#ffffff` for active
+- Circular icon buttons (50% radius)
+- Spotify logo top-left in green
 
 ## 5. Layout Principles
 
 ### Spacing System
 - Base unit: 8px
-- Scale: 3px, 5px, 12px, 15px, 18px, 20px, 24px, 30px
-- Minimal scale — spacing is not the organizing principle; photography is
+- Scale: 1px, 2px, 3px, 4px, 5px, 6px, 8px, 10px, 12px, 14px, 15px, 16px, 20px
 
 ### Grid & Container
-- No traditional grid — each section is a full-viewport cinematic frame
-- Text is positioned absolutely or with generous padding over imagery
-- Left-aligned text blocks on photography backgrounds
-- No max-width container — content bleeds to viewport edges
+- Sidebar (fixed) + main content area
+- Grid-based album/playlist cards
+- Full-width now-playing bar at bottom
+- Responsive content area fills remaining space
 
 ### Whitespace Philosophy
-- **Photography IS the whitespace**: Empty space in the design is never empty — it's filled with the dark expanse of space, the curve of a planet, or the flame of a rocket engine. Traditional whitespace concepts don't apply.
-- **Vertical pacing through viewport**: Each section is exactly one viewport tall, creating a rhythmic scroll where each "page" reveals a new scene.
+- **Dark compression**: Spotify packs content densely — playlist grids, track lists, and navigation are all tightly spaced. The dark background provides visual rest between elements without needing large gaps.
+- **Content density over breathing room**: This is an app, not a marketing site. Every pixel serves the listening experience.
 
 ### Border Radius Scale
-- Sharp (4px): Small dividers, utility elements
-- Button (32px): Ghost buttons — the only rounded element
+- Minimal (2px): Badges, explicit tags
+- Subtle (4px): Inputs, small elements
+- Standard (6px): Album art containers, cards
+- Comfortable (8px): Sections, dialogs
+- Medium (10px–20px): Panels, overlay elements
+- Large (100px): Large pill buttons
+- Pill (500px): Primary buttons, search input
+- Full Pill (9999px): Navigation pills, search
+- Circle (50%): Play buttons, avatars, icons
 
 ## 6. Depth & Elevation
 
 | Level | Treatment | Use |
 |-------|-----------|-----|
-| Photography (Level 0) | Full-viewport imagery | Background layer — always present |
-| Overlay (Level 1) | `rgba(0, 0, 0, 0.5)` gradient | Text legibility layer over photography |
-| Text (Level 2) | Spectral white text, no shadow | Content layer — text floats directly on image |
-| Ghost (Level 3) | `rgba(240, 240, 250, 0.1)` surface | Barely-visible interactive layer |
+| Base (Level 0) | `#121212` background | Deepest layer, page background |
+| Surface (Level 1) | `#181818` or `#1f1f1f` | Cards, sidebar, containers |
+| Elevated (Level 2) | `rgba(0,0,0,0.3) 0px 8px 8px` | Dropdown menus, hover cards |
+| Dialog (Level 3) | `rgba(0,0,0,0.5) 0px 8px 24px` | Modals, overlays, menus |
+| Inset (Border) | `rgb(18,18,18) 0px 1px 0px, rgb(124,124,124) 0px 0px 0px 1px inset` | Input borders |
 
-**Shadow Philosophy**: SpaceX uses ZERO shadows. In a design built entirely on photography, shadows are meaningless — every surface is already a photograph with natural lighting. Depth comes from the photographic content itself: the receding curvature of Earth, the diminishing trail of a rocket, the atmospheric haze around Mars.
+**Shadow Philosophy**: Spotify uses notably heavy shadows for a dark-themed app. The 0.5 opacity shadow at 24px blur creates a dramatic "floating in darkness" effect for dialogs and menus, while the 0.3 opacity at 8px blur provides a more subtle card lift. The unique inset border-shadow combination on inputs creates a recessed, tactile quality.
 
 ## 7. Do's and Don'ts
 
 ### Do
-- Use full-viewport photography as the primary design element — every section is a scene
-- Apply uppercase + positive letter-spacing to ALL text — the aerospace stencil voice
-- Use D-DIN exclusively — no other fonts exist in the system
-- Keep the color palette to black + spectral white (`#f0f0fa`) only
-- Use ghost buttons (`rgba(240,240,250,0.1)`) as the sole interactive element
-- Apply dark gradient overlays for text legibility on photographs
-- Let photography carry the emotional weight — the type system is functional, not expressive
+- Use near-black backgrounds (`#121212`–`#1f1f1f`) — depth through shade variation
+- Apply Spotify Green (`#1ed760`) only for play controls, active states, and primary CTAs
+- Use pill shape (500px–9999px) for all buttons — circular (50%) for play controls
+- Apply uppercase + wide letter-spacing (1.4px–2px) on button labels
+- Keep typography compact (10px–24px range) — this is an app, not a magazine
+- Use heavy shadows (`0.3–0.5 opacity`) for elevated elements on dark backgrounds
+- Let album art provide color — the UI itself is achromatic
 
 ### Don't
-- Don't add cards, panels, or containers — text sits directly on photography
-- Don't use shadows — they have no meaning in a photographic context
-- Don't introduce colors — the palette is strictly achromatic with spectral tint
-- Don't use sentence case — everything is uppercase
-- Don't use negative letter-spacing — all tracking is positive (0.96px–1.17px)
-- Don't reduce photography to thumbnails — every image is full-viewport
-- Don't add decorative elements (icons, badges, dividers) — the design is photography + type + one button
+- Don't use Spotify Green decoratively or on backgrounds — it's functional only
+- Don't use light backgrounds for primary surfaces — the dark immersion is core
+- Don't skip the pill/circle geometry on buttons — square buttons break the identity
+- Don't use thin/subtle shadows — on dark backgrounds, shadows need to be heavy to be visible
+- Don't add additional brand colors — green + achromatic grays is the complete palette
+- Don't use relaxed line-heights — Spotify's typography is compact and dense
+- Don't expose raw gray borders — use shadow-based or inset borders instead
 
 ## 8. Responsive Behavior
 
 ### Breakpoints
 | Name | Width | Key Changes |
 |------|-------|-------------|
-| Mobile | <600px | Stacked, reduced padding, smaller type |
-| Tablet Small | 600–960px | Adjusted layout |
-| Tablet | 960–1280px | Standard scaling |
-| Desktop | 1280–1350px | Full layout |
-| Large Desktop | 1350–1500px | Expanded |
-| Ultra-wide | >1500px | Maximum viewport |
-
-### Touch Targets
-- Ghost buttons: 18px padding provides adequate touch area
-- Navigation links: uppercase with generous letter-spacing aids readability
+| Mobile Small | <425px | Compact mobile layout |
+| Mobile | 425–576px | Standard mobile |
+| Tablet | 576–768px | 2-column grid |
+| Tablet Large | 768–896px | Expanded layout |
+| Desktop Small | 896–1024px | Sidebar visible |
+| Desktop | 1024–1280px | Full desktop layout |
+| Large Desktop | >1280px | Expanded grid |
 
 ### Collapsing Strategy
-- Photography: maintains full-viewport at all sizes, content reposition
-- Hero text: 48px → scales down proportionally
-- Navigation: horizontal → hamburger
-- Text blocks: reposition but maintain overlay-on-photography pattern
-- Full-viewport sections maintained on mobile
-
-### Image Behavior
-- Edge-to-edge photography at all viewport sizes
-- Background-size: cover with center focus
-- Dark overlay gradients adapt to content position
-- No art direction changes — same photographs, responsive positioning
+- Sidebar: full → collapsed → hidden
+- Album grid: 5 columns → 3 → 2 → 1
+- Now-playing bar: maintained at all sizes
+- Search: pill input maintained, width adjusts
+- Navigation: sidebar → bottom bar on mobile
 
 ## 9. Agent Prompt Guide
 
 ### Quick Color Reference
-- Background: Space Black (`#000000`)
-- Text: Spectral White (`#f0f0fa`)
-- Button background: Ghost (`rgba(240, 240, 250, 0.1)`)
-- Button border: Ghost Border (`rgba(240, 240, 250, 0.35)`)
-- Overlay: `rgba(0, 0, 0, 0.5)`
+- Background: Near Black (`#121212`)
+- Surface: Dark Card (`#181818`)
+- Text: White (`#ffffff`)
+- Secondary text: Silver (`#b3b3b3`)
+- Accent: Spotify Green (`#1ed760`)
+- Border: `#4d4d4d`
+- Error: Negative Red (`#f3727f`)
 
 ### Example Component Prompts
-- "Create a full-viewport hero: background-image covering 100vh, dark gradient overlay rgba(0,0,0,0.5). Headline at 48px D-DIN-Bold, uppercase, letter-spacing 0.96px, spectral white (#f0f0fa) text. Ghost CTA button: rgba(240,240,250,0.1) bg, 1px solid rgba(240,240,250,0.35) border, 32px radius, 18px padding."
-- "Design a navigation: transparent over photography. D-DIN 13px weight 700, uppercase, letter-spacing 1.17px, spectral white text. SpaceX wordmark left-aligned."
-- "Build a content section: full-viewport height, background photography with dark overlay. Left-aligned text block with 48px D-DIN-Bold uppercase heading, 16px D-DIN body text, and ghost button below."
-- "Create a micro label: D-DIN 10px, uppercase, letter-spacing 1px, spectral white, line-height 0.94."
+- "Create a dark card: #181818 background, 8px radius. Title at 16px SpotifyMixUI weight 700, white text. Subtitle at 14px weight 400, #b3b3b3. Shadow rgba(0,0,0,0.3) 0px 8px 8px on hover."
+- "Design a pill button: #1f1f1f background, white text, 9999px radius, 8px 16px padding. 14px SpotifyMixUI weight 700, uppercase, letter-spacing 1.4px."
+- "Build a circular play button: Spotify Green (#1ed760) background, #000000 icon, 50% radius, 12px padding."
+- "Create search input: #1f1f1f background, white text, 500px radius, 12px 48px padding. Inset border: rgb(124,124,124) 0px 0px 0px 1px inset."
+- "Design navigation sidebar: #121212 background. Active items: 14px weight 700, white. Inactive: 14px weight 400, #b3b3b3."
 
 ### Iteration Guide
-1. Start with photography — the image IS the design
-2. All text is uppercase with positive letter-spacing — no exceptions
-3. Only two colors: black and spectral white (#f0f0fa)
-4. Ghost buttons are the only interactive element — transparent, spectral-bordered
-5. Zero shadows, zero cards, zero decorative elements
-6. Every section is full-viewport (100vh) — cinematic pacing
+1. Start with #121212 — everything lives in near-black darkness
+2. Spotify Green for functional highlights only (play, active, CTA)
+3. Pill everything — 500px for large, 9999px for small, 50% for circular
+4. Uppercase + wide tracking on buttons — the systematic label voice
+5. Heavy shadows (0.3–0.5 opacity) for elevation — light shadows are invisible on dark
+6. Album art provides all the color — the UI stays achromatic

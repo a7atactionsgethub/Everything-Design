@@ -1,295 +1,310 @@
-# Design System Inspired by Uber
+# Design System Inspired by Vercel
 
 ## 1. Visual Theme & Atmosphere
 
-Uber's design language is a masterclass in confident minimalism -- a black-and-white universe where every pixel serves a purpose and nothing decorates without earning its place. The entire experience is built on a stark duality: jet black (`#000000`) and pure white (`#ffffff`), with virtually no mid-tone grays diluting the message. This isn't the sterile minimalism of a startup that hasn't finished designing -- it's the deliberate restraint of a brand so established it can afford to whisper.
+Vercel's website is the visual thesis of developer infrastructure made invisible — a design system so restrained it borders on philosophical. The page is overwhelmingly white (`#ffffff`) with near-black (`#171717`) text, creating a gallery-like emptiness where every element earns its pixel. This isn't minimalism as decoration; it's minimalism as engineering principle. The Geist design system treats the interface like a compiler treats code — every unnecessary token is stripped away until only structure remains.
 
-The signature typeface, UberMove, is a proprietary geometric sans-serif with a distinctly square, engineered quality. Headlines in UberMove Bold at 52px carry the weight of a billboard -- authoritative, direct, unapologetic. The companion face UberMoveText handles body copy and buttons with a slightly softer, more readable character at medium weight (500). Together, they create a typographic system that feels like a transit map: clear, efficient, built for scanning at speed.
+The custom Geist font family is the crown jewel. Geist Sans uses aggressive negative letter-spacing (-2.4px to -2.88px at display sizes), creating headlines that feel compressed, urgent, and engineered — like code that's been minified for production. At body sizes, the tracking relaxes but the geometric precision persists. Geist Mono completes the system as the monospace companion for code, terminal output, and technical labels. Both fonts enable OpenType `"liga"` (ligatures) globally, adding a layer of typographic sophistication that rewards close reading.
 
-What makes Uber's design truly distinctive is its use of full-bleed photography and illustration paired with pill-shaped interactive elements (999px border-radius). Navigation chips, CTA buttons, and category selectors all share this capsule shape, creating a tactile, thumb-friendly interface language that's unmistakably Uber. The illustrations -- warm, slightly stylized scenes of drivers, riders, and cityscapes -- inject humanity into what could otherwise be a cold, monochrome system. The site alternates between white content sections and a full-black footer, with card-based layouts using the gentlest possible shadows (rgba(0,0,0,0.12-0.16)) to create subtle lift without breaking the flat aesthetic.
+What distinguishes Vercel from other monochrome design systems is its shadow-as-border philosophy. Instead of traditional CSS borders, Vercel uses `box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.08)` — a zero-offset, zero-blur, 1px-spread shadow that creates a border-like line without the box model implications. This technique allows borders to exist in the shadow layer, enabling smoother transitions, rounded corners without clipping, and a subtler visual weight than traditional borders. The entire depth system is built on layered, multi-value shadow stacks where each layer serves a specific purpose: one for the border, one for soft elevation, one for ambient depth.
 
 **Key Characteristics:**
-- Pure black-and-white foundation with virtually no mid-tone grays in the UI chrome
-- UberMove (headlines) + UberMoveText (body/UI) -- proprietary geometric sans-serif family
-- Pill-shaped everything: buttons, chips, nav items all use 999px border-radius
-- Warm, human illustrations contrasting the stark monochrome interface
-- Card-based layout with whisper-soft shadows (0.12-0.16 opacity)
-- 8px spacing grid with compact, information-dense layouts
-- Bold photography integrated as full-bleed hero backgrounds
-- Black footer anchoring the page with a dark, high-contrast environment
+- Geist Sans with extreme negative letter-spacing (-2.4px to -2.88px at display) — text as compressed infrastructure
+- Geist Mono for code and technical labels with OpenType `"liga"` globally
+- Shadow-as-border technique: `box-shadow 0px 0px 0px 1px` replaces traditional borders throughout
+- Multi-layer shadow stacks for nuanced depth (border + elevation + ambient in single declarations)
+- Near-pure white canvas with `#171717` text — not quite black, creating micro-contrast softness
+- Workflow-specific accent colors: Ship Red (`#ff5b4f`), Preview Pink (`#de1d8d`), Develop Blue (`#0a72ef`)
+- Focus ring system using `hsla(212, 100%, 48%, 1)` — a saturated blue for accessibility
+- Pill badges (9999px) with tinted backgrounds for status indicators
 
 ## 2. Color Palette & Roles
 
 ### Primary
-- **Uber Black** (`#000000`): The defining brand color -- used for primary buttons, headlines, navigation text, and the footer. Not "near-black" or "off-black," but true, uncompromising black.
-- **Pure White** (`#ffffff`): The primary surface color and inverse text. Used for page backgrounds, card surfaces, and text on black elements.
+- **Vercel Black** (`#171717`): Primary text, headings, dark surface backgrounds. Not pure black — the slight warmth prevents harshness.
+- **Pure White** (`#ffffff`): Page background, card surfaces, button text on dark.
+- **True Black** (`#000000`): Secondary use, `--geist-console-text-color-default`, used in specific console/code contexts.
 
-### Interactive & Button States
-- **Hover Gray** (`#e2e2e2`): White button hover state -- a clean, cool light gray that provides clear feedback without warmth.
-- **Hover Light** (`#f3f3f3`): Subtle hover for elevated white buttons -- barely-there gray for gentle interaction feedback.
-- **Chip Gray** (`#efefef`): Background for secondary/filter buttons and navigation chips -- a neutral, ultra-light gray.
+### Workflow Accent Colors
+- **Ship Red** (`#ff5b4f`): `--ship-text`, the "ship to production" workflow step — warm, urgent coral-red.
+- **Preview Pink** (`#de1d8d`): `--preview-text`, the preview deployment workflow — vivid magenta-pink.
+- **Develop Blue** (`#0a72ef`): `--develop-text`, the development workflow — bright, focused blue.
 
-### Text & Content
-- **Body Gray** (`#4b4b4b`): Secondary text and footer links -- a true mid-gray with no warm or cool bias.
-- **Muted Gray** (`#afafaf`): Tertiary text, de-emphasized footer links, and placeholder content.
+### Console / Code Colors
+- **Console Blue** (`#0070f3`): `--geist-console-text-color-blue`, syntax highlighting blue.
+- **Console Purple** (`#7928ca`): `--geist-console-text-color-purple`, syntax highlighting purple.
+- **Console Pink** (`#eb367f`): `--geist-console-text-color-pink`, syntax highlighting pink.
 
-### Borders & Separation
-- **Border Black** (`#000000`): Thin 1px borders for structural containment -- used sparingly on dividers and form containers.
+### Interactive
+- **Link Blue** (`#0072f5`): Primary link color with underline decoration.
+- **Focus Blue** (`hsla(212, 100%, 48%, 1)`): `--ds-focus-color`, focus ring on interactive elements.
+- **Ring Blue** (`rgba(147, 197, 253, 0.5)`): `--tw-ring-color`, Tailwind ring utility.
+
+### Neutral Scale
+- **Gray 900** (`#171717`): Primary text, headings, nav text.
+- **Gray 600** (`#4d4d4d`): Secondary text, description copy.
+- **Gray 500** (`#666666`): Tertiary text, muted links.
+- **Gray 400** (`#808080`): Placeholder text, disabled states.
+- **Gray 100** (`#ebebeb`): Borders, card outlines, dividers.
+- **Gray 50** (`#fafafa`): Subtle surface tint, inner shadow highlight.
+
+### Surface & Overlay
+- **Overlay Backdrop** (`hsla(0, 0%, 98%, 1)`): `--ds-overlay-backdrop-color`, modal/dialog backdrop.
+- **Selection Text** (`hsla(0, 0%, 95%, 1)`): `--geist-selection-text-color`, text selection highlight.
+- **Badge Blue Bg** (`#ebf5ff`): Pill badge background, tinted blue surface.
+- **Badge Blue Text** (`#0068d6`): Pill badge text, darker blue for readability.
 
 ### Shadows & Depth
-- **Shadow Light** (`rgba(0, 0, 0, 0.12)`): Standard card elevation -- a featherweight lift for content cards.
-- **Shadow Medium** (`rgba(0, 0, 0, 0.16)`): Slightly stronger elevation for floating action buttons and overlays.
-- **Button Press** (`rgba(0, 0, 0, 0.08)`): Inset shadow for active/pressed states on secondary buttons.
-
-### Link States
-- **Default Link Blue** (`#0000ee`): Standard browser blue for text links with underline -- used in body content.
-- **Link White** (`#ffffff`): Links on dark surfaces -- used in footer and dark sections.
-- **Link Black** (`#000000`): Links on light surfaces with underline decoration.
-
-### Gradient System
-- Uber's design is **entirely gradient-free**. The black/white duality and flat color blocks create all visual hierarchy. No gradients appear anywhere in the system -- every surface is a solid color, every transition is a hard edge or a shadow.
+- **Border Shadow** (`rgba(0, 0, 0, 0.08) 0px 0px 0px 1px`): The signature — replaces traditional borders.
+- **Subtle Elevation** (`rgba(0, 0, 0, 0.04) 0px 2px 2px`): Minimal lift for cards.
+- **Card Stack** (`rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 2px, rgba(0,0,0,0.04) 0px 8px 8px -8px, #fafafa 0px 0px 0px 1px`): Full multi-layer card shadow.
+- **Ring Border** (`rgb(235, 235, 235) 0px 0px 0px 1px`): Light gray ring-border for tabs and images.
 
 ## 3. Typography Rules
 
 ### Font Family
-- **Headline / Display**: `UberMove`, with fallbacks: `UberMoveText, system-ui, Helvetica Neue, Helvetica, Arial, sans-serif`
-- **Body / UI**: `UberMoveText`, with fallbacks: `system-ui, Helvetica Neue, Helvetica, Arial, sans-serif`
-
-*Note: UberMove and UberMoveText are proprietary typefaces. For external implementations, use `system-ui` or Inter as the closest available substitute. The geometric, square-proportioned character of UberMove can be approximated with Inter or DM Sans.*
+- **Primary**: `Geist`, with fallbacks: `Arial, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol`
+- **Monospace**: `Geist Mono`, with fallbacks: `ui-monospace, SFMono-Regular, Roboto Mono, Menlo, Monaco, Liberation Mono, DejaVu Sans Mono, Courier New`
+- **OpenType Features**: `"liga"` enabled globally on all Geist text; `"tnum"` for tabular numbers on specific captions.
 
 ### Hierarchy
 
-| Role | Font | Size | Weight | Line Height | Notes |
-|------|------|------|--------|-------------|-------|
-| Display / Hero | UberMove | 52px (3.25rem) | 700 | 1.23 (tight) | Maximum impact, billboard presence |
-| Section Heading | UberMove | 36px (2.25rem) | 700 | 1.22 (tight) | Major section anchors |
-| Card Title | UberMove | 32px (2rem) | 700 | 1.25 (tight) | Card and feature headings |
-| Sub-heading | UberMove | 24px (1.5rem) | 700 | 1.33 | Secondary section headers |
-| Small Heading | UberMove | 20px (1.25rem) | 700 | 1.40 | Compact headings, list titles |
-| Nav / UI Large | UberMoveText | 18px (1.13rem) | 500 | 1.33 | Navigation links, prominent UI text |
-| Body / Button | UberMoveText | 16px (1rem) | 400-500 | 1.25-1.50 | Standard body text, button labels |
-| Caption | UberMoveText | 14px (0.88rem) | 400-500 | 1.14-1.43 | Metadata, descriptions, small links |
-| Micro | UberMoveText | 12px (0.75rem) | 400 | 1.67 (relaxed) | Fine print, legal text |
+| Role | Font | Size | Weight | Line Height | Letter Spacing | Notes |
+|------|------|------|--------|-------------|----------------|-------|
+| Display Hero | Geist | 48px (3.00rem) | 600 | 1.00–1.17 (tight) | -2.4px to -2.88px | Maximum compression, billboard impact |
+| Section Heading | Geist | 40px (2.50rem) | 600 | 1.20 (tight) | -2.4px | Feature section titles |
+| Sub-heading Large | Geist | 32px (2.00rem) | 600 | 1.25 (tight) | -1.28px | Card headings, sub-sections |
+| Sub-heading | Geist | 32px (2.00rem) | 400 | 1.50 | -1.28px | Lighter sub-headings |
+| Card Title | Geist | 24px (1.50rem) | 600 | 1.33 | -0.96px | Feature cards |
+| Card Title Light | Geist | 24px (1.50rem) | 500 | 1.33 | -0.96px | Secondary card headings |
+| Body Large | Geist | 20px (1.25rem) | 400 | 1.80 (relaxed) | normal | Introductions, feature descriptions |
+| Body | Geist | 18px (1.13rem) | 400 | 1.56 | normal | Standard reading text |
+| Body Small | Geist | 16px (1.00rem) | 400 | 1.50 | normal | Standard UI text |
+| Body Medium | Geist | 16px (1.00rem) | 500 | 1.50 | normal | Navigation, emphasized text |
+| Body Semibold | Geist | 16px (1.00rem) | 600 | 1.50 | -0.32px | Strong labels, active states |
+| Button / Link | Geist | 14px (0.88rem) | 500 | 1.43 | normal | Buttons, links, captions |
+| Button Small | Geist | 14px (0.88rem) | 400 | 1.00 (tight) | normal | Compact buttons |
+| Caption | Geist | 12px (0.75rem) | 400–500 | 1.33 | normal | Metadata, tags |
+| Mono Body | Geist Mono | 16px (1.00rem) | 400 | 1.50 | normal | Code blocks |
+| Mono Caption | Geist Mono | 13px (0.81rem) | 500 | 1.54 | normal | Code labels |
+| Mono Small | Geist Mono | 12px (0.75rem) | 500 | 1.00 (tight) | normal | `text-transform: uppercase`, technical labels |
+| Micro Badge | Geist | 7px (0.44rem) | 700 | 1.00 (tight) | normal | `text-transform: uppercase`, tiny badges |
 
 ### Principles
-- **Bold headlines, medium body**: UberMove headings are exclusively weight 700 (bold) -- every headline hits with billboard force. UberMoveText body and UI text uses 400-500, creating a clear visual hierarchy through weight contrast.
-- **Tight heading line-heights**: All headlines use line-heights between 1.22-1.40 -- compact and punchy, designed for scanning rather than reading.
-- **Functional typography**: There is no decorative type treatment anywhere. No letter-spacing, no text-transform, no ornamental sizing. Every text element serves a direct communication purpose.
-- **Two fonts, strict roles**: UberMove is exclusively for headings. UberMoveText is exclusively for body, buttons, links, and UI. The boundary is never crossed.
+- **Compression as identity**: Geist Sans at display sizes uses -2.4px to -2.88px letter-spacing — the most aggressive negative tracking of any major design system. This creates text that feels _minified_, like code optimized for production. The tracking progressively relaxes as size decreases: -1.28px at 32px, -0.96px at 24px, -0.32px at 16px, and normal at 14px.
+- **Ligatures everywhere**: Every Geist text element enables OpenType `"liga"`. Ligatures aren't decorative — they're structural, creating tighter, more efficient glyph combinations.
+- **Three weights, strict roles**: 400 (body/reading), 500 (UI/interactive), 600 (headings/emphasis). No bold (700) except for tiny micro-badges. This narrow weight range creates hierarchy through size and tracking, not weight.
+- **Mono for identity**: Geist Mono in uppercase with `"tnum"` or `"liga"` serves as the "developer console" voice — compact technical labels that connect the marketing site to the product.
 
 ## 4. Component Stylings
 
 ### Buttons
 
-**Primary Black (CTA)**
-- Background: Uber Black (`#000000`)
-- Text: Pure White (`#ffffff`)
-- Padding: 10px 12px
-- Radius: 999px (full pill)
-- Outline: none
-- Focus: inset ring `rgb(255,255,255) 0px 0px 0px 2px`
-- The primary action button -- bold, high-contrast, unmissable
+**Primary White (Shadow-bordered)**
+- Background: `#ffffff`
+- Text: `#171717`
+- Padding: 0px 6px (minimal — content-driven width)
+- Radius: 6px (subtly rounded)
+- Shadow: `rgb(235, 235, 235) 0px 0px 0px 1px` (ring-border)
+- Hover: background shifts to `var(--ds-gray-1000)` (dark)
+- Focus: `2px solid var(--ds-focus-color)` outline + `var(--ds-focus-ring)` shadow
+- Use: Standard secondary button
 
-**Secondary White**
-- Background: Pure White (`#ffffff`)
-- Text: Uber Black (`#000000`)
-- Padding: 10px 12px
-- Radius: 999px (full pill)
-- Hover: background shifts to Hover Gray (`#e2e2e2`)
-- Focus: background shifts to Hover Gray, inset ring appears
-- Used on dark surfaces or as a secondary action alongside Primary Black
+**Primary Dark (Inferred from Geist system)**
+- Background: `#171717`
+- Text: `#ffffff`
+- Padding: 8px 16px
+- Radius: 6px
+- Use: Primary CTA ("Start Deploying", "Get Started")
 
-**Chip / Filter**
-- Background: Chip Gray (`#efefef`)
-- Text: Uber Black (`#000000`)
-- Padding: 14px 16px
-- Radius: 999px (full pill)
-- Active: inset shadow `rgba(0,0,0,0.08)`
-- Navigation chips, category selectors, filter toggles
+**Pill Button / Badge**
+- Background: `#ebf5ff` (tinted blue)
+- Text: `#0068d6`
+- Padding: 0px 10px
+- Radius: 9999px (full pill)
+- Font: 12px weight 500
+- Use: Status badges, tags, feature labels
 
-**Floating Action**
-- Background: Pure White (`#ffffff`)
-- Text: Uber Black (`#000000`)
-- Padding: 14px
-- Radius: 999px (full pill)
-- Shadow: `rgba(0,0,0,0.16) 0px 2px 8px 0px`
-- Transform: `translateY(2px)` slight offset
-- Hover: background shifts to `#f3f3f3`
-- Map controls, scroll-to-top, floating CTAs
+**Large Pill (Navigation)**
+- Background: transparent or `#171717`
+- Radius: 64px–100px
+- Use: Tab navigation, section selectors
 
 ### Cards & Containers
-- Background: Pure White (`#ffffff`) on white pages; no distinct card background differentiation
-- Border: none by default -- cards are defined by shadow, not stroke
-- Radius: 8px for standard content cards; 12px for featured/promoted cards
-- Shadow: `rgba(0,0,0,0.12) 0px 4px 16px 0px` for standard lift
-- Cards are content-dense with minimal internal padding
-- Image-led cards use full-bleed imagery with text overlay or below
+- Background: `#ffffff`
+- Border: via shadow — `rgba(0, 0, 0, 0.08) 0px 0px 0px 1px`
+- Radius: 8px (standard), 12px (featured/image cards)
+- Shadow stack: `rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 2px, #fafafa 0px 0px 0px 1px`
+- Image cards: `1px solid #ebebeb` with 12px top radius
+- Hover: subtle shadow intensification
 
 ### Inputs & Forms
-- Text: Uber Black (`#000000`)
-- Background: Pure White (`#ffffff`)
-- Border: 1px solid Black (`#000000`) -- the only place visible borders appear prominently
-- Radius: 8px
-- Padding: standard comfortable spacing
-- Focus: no extracted custom focus state -- relies on standard browser focus ring
+- Radio: standard styling with focus `var(--ds-gray-200)` background
+- Focus shadow: `1px 0 0 0 var(--ds-gray-alpha-600)`
+- Focus outline: `2px solid var(--ds-focus-color)` — consistent blue focus ring
+- Border: via shadow technique, not traditional border
 
 ### Navigation
-- Sticky top navigation with white background
-- Logo: Uber wordmark/icon at 24x24px in black
-- Links: UberMoveText at 14-18px, weight 500, in Uber Black
-- Pill-shaped nav chips with Chip Gray (`#efefef`) background for category navigation ("Ride", "Drive", "Business", "Uber Eats")
-- Menu toggle: circular button with 50% border-radius
-- Mobile: hamburger menu pattern
+- Clean horizontal nav on white, sticky
+- Vercel logotype left-aligned, 262x52px
+- Links: Geist 14px weight 500, `#171717` text
+- Active: weight 600 or underline
+- CTA: dark pill buttons ("Start Deploying", "Contact Sales")
+- Mobile: hamburger menu collapse
+- Product dropdowns with multi-level menus
 
 ### Image Treatment
-- Warm, hand-illustrated scenes (not photographs for feature sections)
-- Illustration style: slightly stylized people, warm color palette within illustrations, contemporary vibe
-- Hero sections use bold photography or illustration as full-width backgrounds
-- QR codes for app download CTAs
-- All imagery uses standard 8px or 12px border-radius when contained in cards
+- Product screenshots with `1px solid #ebebeb` border
+- Top-rounded images: `12px 12px 0px 0px` radius
+- Dashboard/code preview screenshots dominate feature sections
+- Soft gradient backgrounds behind hero images (pastel multi-color)
 
 ### Distinctive Components
 
-**Category Pill Navigation**
-- Horizontal row of pill-shaped buttons for top-level navigation ("Ride", "Drive", "Business", "Uber Eats", "About")
-- Each pill: Chip Gray background, black text, 999px radius
-- Active state indicated by black background with white text (inversion)
+**Workflow Pipeline**
+- Three-step horizontal pipeline: Develop → Preview → Ship
+- Each step has its own accent color: Blue → Pink → Red
+- Connected with lines/arrows
+- The visual metaphor for Vercel's core value proposition
 
-**Hero with Dual Action**
-- Split hero: text/CTA on left, map/illustration on right
-- Two input fields side by side for pickup/destination
-- "See prices" CTA button in black pill
+**Trust Bar / Logo Grid**
+- Company logos (Perplexity, ChatGPT, Cursor, etc.) in grayscale
+- Horizontal scroll or grid layout
+- Subtle `#ebebeb` border separation
 
-**Plan-Ahead Cards**
-- Cards promoting features like "Uber Reserve" and trip planning
-- Illustration-heavy with warm, human-centric imagery
-- Black CTA buttons with white text at bottom
+**Metric Cards**
+- Large number display (e.g., "10x faster")
+- Geist 48px weight 600 for the metric
+- Description below in gray body text
+- Shadow-bordered card container
 
 ## 5. Layout Principles
 
 ### Spacing System
 - Base unit: 8px
-- Scale: 4px, 6px, 8px, 10px, 12px, 14px, 16px, 18px, 20px, 24px, 32px
-- Button padding: 10px 12px (compact) or 14px 16px (comfortable)
-- Card internal padding: approximately 24-32px
-- Section vertical spacing: generous but efficient -- approximately 64-96px between major sections
+- Scale: 1px, 2px, 3px, 4px, 5px, 6px, 8px, 10px, 12px, 14px, 16px, 32px, 36px, 40px
+- Notable gap: jumps from 16px to 32px — no 20px or 24px in primary scale
 
 ### Grid & Container
-- Max container width: approximately 1136px, centered
-- Hero: split layout with text left, visual right
-- Feature sections: 2-column card grids or full-width single-column
-- Footer: multi-column link grid on black background
-- Full-width sections extending to viewport edges
+- Max content width: approximately 1200px
+- Hero: centered single-column with generous top padding
+- Feature sections: 2–3 column grids for cards
+- Full-width dividers using `border-bottom: 1px solid #171717`
+- Code/dashboard screenshots as full-width or contained with border
 
 ### Whitespace Philosophy
-- **Efficient, not airy**: Uber's whitespace is functional -- enough to separate, never enough to feel empty. This is transit-system spacing: compact, clear, purpose-driven.
-- **Content-dense cards**: Cards pack information tightly with minimal internal spacing, relying on shadow and radius to define boundaries.
-- **Section breathing room**: Major sections get generous vertical spacing, but within sections, elements are closely grouped.
+- **Gallery emptiness**: Massive vertical padding between sections (80px–120px+). The white space IS the design — it communicates that Vercel has nothing to prove and nothing to hide.
+- **Compressed text, expanded space**: The aggressive negative letter-spacing on headlines is counterbalanced by generous surrounding whitespace. The text is dense; the space around it is vast.
+- **Section rhythm**: White sections alternate with white sections — there's no color variation between sections. Separation comes from borders (shadow-borders) and spacing alone.
 
 ### Border Radius Scale
-- Sharp (0px): No square corners used in interactive elements
-- Standard (8px): Content cards, input fields, listboxes
-- Comfortable (12px): Featured cards, larger containers, link cards
-- Full Pill (999px): All buttons, chips, navigation items, pills
-- Circle (50%): Avatar images, icon containers, circular controls
+- Micro (2px): Inline code snippets, small spans
+- Subtle (4px): Small containers
+- Standard (6px): Buttons, links, functional elements
+- Comfortable (8px): Cards, list items
+- Image (12px): Featured cards, image containers (top-rounded)
+- Large (64px): Tab navigation pills
+- XL (100px): Large navigation links
+- Full Pill (9999px): Badges, status pills, tags
+- Circle (50%): Menu toggle, avatar containers
 
 ## 6. Depth & Elevation
 
 | Level | Treatment | Use |
 |-------|-----------|-----|
-| Flat (Level 0) | No shadow, solid background | Page background, inline content, text sections |
-| Subtle (Level 1) | `rgba(0,0,0,0.12) 0px 4px 16px` | Standard content cards, feature blocks |
-| Medium (Level 2) | `rgba(0,0,0,0.16) 0px 4px 16px` | Elevated cards, overlay elements |
-| Floating (Level 3) | `rgba(0,0,0,0.16) 0px 2px 8px` + translateY(2px) | Floating action buttons, map controls |
-| Pressed (Level 4) | `rgba(0,0,0,0.08) inset` (999px spread) | Active/pressed button states |
-| Focus Ring | `rgb(255,255,255) 0px 0px 0px 2px inset` | Keyboard focus indicators |
+| Flat (Level 0) | No shadow | Page background, text blocks |
+| Ring (Level 1) | `rgba(0,0,0,0.08) 0px 0px 0px 1px` | Shadow-as-border for most elements |
+| Light Ring (Level 1b) | `rgb(235,235,235) 0px 0px 0px 1px` | Lighter ring for tabs, images |
+| Subtle Card (Level 2) | Ring + `rgba(0,0,0,0.04) 0px 2px 2px` | Standard cards with minimal lift |
+| Full Card (Level 3) | Ring + Subtle + `rgba(0,0,0,0.04) 0px 8px 8px -8px` + inner `#fafafa` ring | Featured cards, highlighted panels |
+| Focus (Accessibility) | `2px solid hsla(212, 100%, 48%, 1)` outline | Keyboard focus on all interactive elements |
 
-**Shadow Philosophy**: Uber uses shadow purely as a structural tool, never decoratively. Shadows are always black at very low opacity (0.08-0.16), creating the bare minimum lift needed to separate content layers. The blur radii are moderate (8-16px) -- enough to feel natural but never dramatic. There are no colored shadows, no layered shadow stacks, and no ambient glow effects. Depth is communicated more through the black/white section contrast than through shadow elevation.
+**Shadow Philosophy**: Vercel has arguably the most sophisticated shadow system in modern web design. Rather than using shadows for elevation in the traditional Material Design sense, Vercel uses multi-value shadow stacks where each layer has a distinct architectural purpose: one creates the "border" (0px spread, 1px), another adds ambient softness (2px blur), another handles depth at distance (8px blur with negative spread), and an inner ring (`#fafafa`) creates the subtle highlight that makes the card "glow" from within. This layered approach means cards feel built, not floating.
+
+### Decorative Depth
+- Hero gradient: soft, pastel multi-color gradient wash behind hero content (barely visible, atmospheric)
+- Section borders: `1px solid #171717` (full dark line) between major sections
+- No background color variation — depth comes entirely from shadow layering and border contrast
 
 ## 7. Do's and Don'ts
 
 ### Do
-- Use true black (`#000000`) and pure white (`#ffffff`) as the primary palette -- the stark contrast IS Uber
-- Use 999px border-radius for all buttons, chips, and pill-shaped navigation elements
-- Keep all headings in UberMove Bold (700) for billboard-level impact
-- Use whisper-soft shadows (0.12-0.16 opacity) for card elevation -- barely visible
-- Maintain the compact, information-dense layout style -- Uber prioritizes efficiency over airiness
-- Use warm, human-centric illustrations to soften the monochrome interface
-- Apply 8px radius for content cards and 12px for featured containers
-- Use UberMoveText at weight 500 for navigation and prominent UI text
-- Pair black primary buttons with white secondary buttons for dual-action layouts
+- Use Geist Sans with aggressive negative letter-spacing at display sizes (-2.4px to -2.88px at 48px)
+- Use shadow-as-border (`0px 0px 0px 1px rgba(0,0,0,0.08)`) instead of traditional CSS borders
+- Enable `"liga"` on all Geist text — ligatures are structural, not optional
+- Use the three-weight system: 400 (body), 500 (UI), 600 (headings)
+- Apply workflow accent colors (Red/Pink/Blue) only in their workflow context
+- Use multi-layer shadow stacks for cards (border + elevation + ambient + inner highlight)
+- Keep the color palette achromatic — grays from `#171717` to `#ffffff` are the system
+- Use `#171717` instead of `#000000` for primary text — the micro-warmth matters
 
 ### Don't
-- Don't introduce color into the UI chrome -- Uber's interface is strictly black, white, and gray
-- Don't use rounded corners less than 999px on buttons -- the full-pill shape is a core identity element
-- Don't apply heavy shadows or drop shadows with high opacity -- depth is whisper-subtle
-- Don't use serif fonts anywhere -- Uber's typography is exclusively geometric sans-serif
-- Don't create airy, spacious layouts with excessive whitespace -- Uber's density is intentional
-- Don't use gradients or color overlays -- every surface is a flat, solid color
-- Don't mix UberMove into body text or UberMoveText into headlines -- the hierarchy is strict
-- Don't use decorative borders -- borders are functional (inputs, dividers) or absent entirely
-- Don't soften the black/white contrast with off-whites or near-blacks -- the duality is deliberate
+- Don't use positive letter-spacing on Geist Sans — it's always negative or zero
+- Don't use weight 700 (bold) on body text — 600 is the maximum, used only for headings
+- Don't use traditional CSS `border` on cards — use the shadow-border technique
+- Don't introduce warm colors (oranges, yellows, greens) into the UI chrome
+- Don't apply the workflow accent colors (Ship Red, Preview Pink, Develop Blue) decoratively
+- Don't use heavy shadows (> 0.1 opacity) — the shadow system is whisper-level
+- Don't increase body text letter-spacing — Geist is designed to run tight
+- Don't use pill radius (9999px) on primary action buttons — pills are for badges/tags only
+- Don't skip the inner `#fafafa` ring in card shadows — it's the glow that makes the system work
 
 ## 8. Responsive Behavior
 
 ### Breakpoints
 | Name | Width | Key Changes |
 |------|-------|-------------|
-| Mobile Small | 320px | Minimum layout, single column, stacked inputs, compact typography |
-| Mobile | 600px | Standard mobile, stacked layout, hamburger nav |
-| Tablet Small | 768px | Two-column grids begin, expanded card layouts |
-| Tablet | 1119px | Full tablet layout, side-by-side hero content |
-| Desktop Small | 1120px | Desktop grid activates, horizontal nav pills |
-| Desktop | 1136px | Full desktop layout, maximum container width, split hero |
+| Mobile Small | <400px | Tight single column, minimal padding |
+| Mobile | 400–600px | Standard mobile, stacked layout |
+| Tablet Small | 600–768px | 2-column grids begin |
+| Tablet | 768–1024px | Full card grids, expanded padding |
+| Desktop Small | 1024–1200px | Standard desktop layout |
+| Desktop | 1200–1400px | Full layout, maximum content width |
+| Large Desktop | >1400px | Centered, generous margins |
 
 ### Touch Targets
-- All pill buttons: minimum 44px height (10-14px vertical padding + line-height)
-- Navigation chips: generous 14px 16px padding for comfortable thumb tapping
-- Circular controls (menu, close): 50% radius ensures large, easy-to-hit targets
-- Card surfaces serve as full-area touch targets on mobile
+- Buttons use comfortable padding (8px–16px vertical)
+- Navigation links at 14px with adequate spacing
+- Pill badges have 10px horizontal padding for tap targets
+- Mobile menu toggle uses 50% radius circular button
 
 ### Collapsing Strategy
-- **Navigation**: Horizontal pill nav collapses to hamburger menu with circular toggle
-- **Hero**: Split layout (text + map/visual) stacks to single column -- text above, visual below
-- **Input fields**: Side-by-side pickup/destination inputs stack vertically
-- **Feature cards**: 2-column grid collapses to full-width stacked cards
-- **Headings**: 52px display scales down through 36px, 32px, 24px, 20px
-- **Footer**: Multi-column link grid collapses to accordion or stacked single column
-- **Category pills**: Horizontal scroll with overflow on smaller screens
+- Hero: display 48px → scales down, maintains negative tracking proportionally
+- Navigation: horizontal links + CTAs → hamburger menu
+- Feature cards: 3-column → 2-column → single column stacked
+- Code screenshots: maintain aspect ratio, may horizontally scroll
+- Trust bar logos: grid → horizontal scroll
+- Footer: multi-column → stacked single column
+- Section spacing: 80px+ → 48px on mobile
 
 ### Image Behavior
-- Illustrations scale proportionally within their containers
-- Hero imagery maintains aspect ratio, may crop on smaller screens
-- QR code sections hide on mobile (app download shifts to direct store links)
-- Card imagery maintains 8-12px border radius at all sizes
+- Dashboard screenshots maintain border treatment at all sizes
+- Hero gradient softens/simplifies on mobile
+- Product screenshots use responsive images with consistent border radius
+- Full-width sections maintain edge-to-edge treatment
 
 ## 9. Agent Prompt Guide
 
 ### Quick Color Reference
-- Primary Button: "Uber Black (#000000)"
-- Page Background: "Pure White (#ffffff)"
-- Button Text (on black): "Pure White (#ffffff)"
-- Button Text (on white): "Uber Black (#000000)"
-- Secondary Text: "Body Gray (#4b4b4b)"
-- Tertiary Text: "Muted Gray (#afafaf)"
-- Chip Background: "Chip Gray (#efefef)"
-- Hover State: "Hover Gray (#e2e2e2)"
-- Card Shadow: "rgba(0,0,0,0.12) 0px 4px 16px"
-- Footer Background: "Uber Black (#000000)"
+- Primary CTA: Vercel Black (`#171717`)
+- Background: Pure White (`#ffffff`)
+- Heading text: Vercel Black (`#171717`)
+- Body text: Gray 600 (`#4d4d4d`)
+- Border (shadow): `rgba(0, 0, 0, 0.08) 0px 0px 0px 1px`
+- Link: Link Blue (`#0072f5`)
+- Focus ring: Focus Blue (`hsla(212, 100%, 48%, 1)`)
 
 ### Example Component Prompts
-- "Create a hero section on Pure White (#ffffff) with a headline at 52px UberMove Bold (700), line-height 1.23. Use Uber Black (#000000) text. Add a subtitle in Body Gray (#4b4b4b) at 16px UberMoveText weight 400 with 1.50 line-height. Place an Uber Black (#000000) pill CTA button with Pure White text, 999px radius, padding 10px 12px."
-- "Design a category navigation bar with horizontal pill buttons. Each pill: Chip Gray (#efefef) background, Uber Black (#000000) text, 14px 16px padding, 999px border-radius. Active pill inverts to Uber Black background with Pure White text. Use UberMoveText at 14px weight 500."
-- "Build a feature card on Pure White (#ffffff) with 8px border-radius and shadow rgba(0,0,0,0.12) 0px 4px 16px. Title in UberMove at 24px weight 700, description in Body Gray (#4b4b4b) at 16px UberMoveText. Add a black pill CTA button at the bottom."
-- "Create a dark footer on Uber Black (#000000) with Pure White (#ffffff) heading text in UberMove at 20px weight 700. Footer links in Muted Gray (#afafaf) at 14px UberMoveText. Links hover to Pure White. Multi-column grid layout."
-- "Design a floating action button with Pure White (#ffffff) background, 999px radius, 14px padding, and shadow rgba(0,0,0,0.16) 0px 2px 8px. Hover shifts background to #f3f3f3. Use for scroll-to-top or map controls."
+- "Create a hero section on white background. Headline at 48px Geist weight 600, line-height 1.00, letter-spacing -2.4px, color #171717. Subtitle at 20px Geist weight 400, line-height 1.80, color #4d4d4d. Dark CTA button (#171717, 6px radius, 8px 16px padding) and ghost button (white, shadow-border rgba(0,0,0,0.08) 0px 0px 0px 1px, 6px radius)."
+- "Design a card: white background, no CSS border. Use shadow stack: rgba(0,0,0,0.08) 0px 0px 0px 1px, rgba(0,0,0,0.04) 0px 2px 2px, #fafafa 0px 0px 0px 1px. Radius 8px. Title at 24px Geist weight 600, letter-spacing -0.96px. Body at 16px weight 400, #4d4d4d."
+- "Build a pill badge: #ebf5ff background, #0068d6 text, 9999px radius, 0px 10px padding, 12px Geist weight 500."
+- "Create navigation: white sticky header. Geist 14px weight 500 for links, #171717 text. Dark pill CTA 'Start Deploying' right-aligned. Shadow-border on bottom: rgba(0,0,0,0.08) 0px 0px 0px 1px."
+- "Design a workflow section showing three steps: Develop (text color #0a72ef), Preview (#de1d8d), Ship (#ff5b4f). Each step: 14px Geist Mono uppercase label + 24px Geist weight 600 title + 16px weight 400 description in #4d4d4d."
 
 ### Iteration Guide
-1. Focus on ONE component at a time
-2. Reference the strict black/white palette -- "use Uber Black (#000000)" not "make it dark"
-3. Always specify 999px radius for buttons and pills -- this is non-negotiable for the Uber identity
-4. Describe the font family explicitly -- "UberMove Bold for the heading, UberMoveText Medium for the label"
-5. For shadows, use "whisper shadow (rgba(0,0,0,0.12) 0px 4px 16px)" -- never heavy drop shadows
-6. Keep layouts compact and information-dense -- Uber is efficient, not airy
-7. Illustrations should be warm and human -- describe "stylized people in warm tones" not abstract shapes
-8. Pair black CTAs with white secondaries for balanced dual-action layouts
+1. Always use shadow-as-border instead of CSS border — `0px 0px 0px 1px rgba(0,0,0,0.08)` is the foundation
+2. Letter-spacing scales with font size: -2.4px at 48px, -1.28px at 32px, -0.96px at 24px, normal at 14px
+3. Three weights only: 400 (read), 500 (interact), 600 (announce)
+4. Color is functional, never decorative — workflow colors (Red/Pink/Blue) mark pipeline stages only
+5. The inner `#fafafa` ring in card shadows is what gives Vercel cards their subtle inner glow
+6. Geist Mono uppercase for technical labels, Geist Sans for everything else

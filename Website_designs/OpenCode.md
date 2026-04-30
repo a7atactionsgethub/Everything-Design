@@ -1,6 +1,3 @@
-# OpenCode AI Inspired Design System
-
-Design system details have been moved to: https://getdesign.md/opencode.ai/design-md
 # Design System Inspired by OpenCode
 
 ## 1. Visual Theme & Atmosphere
